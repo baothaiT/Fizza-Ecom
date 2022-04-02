@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Thinh_Ecom.Entities;
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+
+
+       <b> <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a> </b>
+        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+        </form>
+
+}
+else
+{
+
+
+        <a href="/login" class="dropdown-item">Login</a>
+        <a href="/register" class="dropdown-item">Register</a>
+
+}

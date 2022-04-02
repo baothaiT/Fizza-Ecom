@@ -1,0 +1,134 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>aspnet-Thinh_Ecom-DA3A641D-C6BD-4C62-9A04-3FE63FE6C9D3</UserSecretsId>
+    <RootNamespace>Thinh_Ecom</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\css\style.css" />
+    <Content Remove="wwwroot\img\brand-1.png" />
+    <Content Remove="wwwroot\img\brand-2.png" />
+    <Content Remove="wwwroot\img\brand-3.png" />
+    <Content Remove="wwwroot\img\brand-4.png" />
+    <Content Remove="wwwroot\img\brand-5.png" />
+    <Content Remove="wwwroot\img\brand-6.png" />
+    <Content Remove="wwwroot\img\category-1.jpg" />
+    <Content Remove="wwwroot\img\category-2.jpg" />
+    <Content Remove="wwwroot\img\category-3.jpg" />
+    <Content Remove="wwwroot\img\category-4.jpg" />
+    <Content Remove="wwwroot\img\category-5.jpg" />
+    <Content Remove="wwwroot\img\category-6.jpg" />
+    <Content Remove="wwwroot\img\category-7.jpg" />
+    <Content Remove="wwwroot\img\category-8.jpg" />
+    <Content Remove="wwwroot\img\godaddy.svg" />
+    <Content Remove="wwwroot\img\logo.png" />
+    <Content Remove="wwwroot\img\norton.svg" />
+    <Content Remove="wwwroot\img\payment-method.png" />
+    <Content Remove="wwwroot\img\product-1.jpg" />
+    <Content Remove="wwwroot\img\product-10.jpg" />
+    <Content Remove="wwwroot\img\product-2.jpg" />
+    <Content Remove="wwwroot\img\product-3.jpg" />
+    <Content Remove="wwwroot\img\product-4.jpg" />
+    <Content Remove="wwwroot\img\product-5.jpg" />
+    <Content Remove="wwwroot\img\product-6.jpg" />
+    <Content Remove="wwwroot\img\product-7.jpg" />
+    <Content Remove="wwwroot\img\product-8.jpg" />
+    <Content Remove="wwwroot\img\product-9.jpg" />
+    <Content Remove="wwwroot\img\review-1.jpg" />
+    <Content Remove="wwwroot\img\review-2.jpg" />
+    <Content Remove="wwwroot\img\review-3.jpg" />
+    <Content Remove="wwwroot\img\ssl.svg" />
+    <Content Remove="wwwroot\js\main.js" />
+    <Content Remove="wwwroot\lib\easing\easing.js" />
+    <Content Remove="wwwroot\lib\easing\easing.min.js" />
+    <Content Remove="wwwroot\lib\js\main.js" />
+    <Content Remove="wwwroot\lib\slick\ajax-loader.gif" />
+    <Content Remove="wwwroot\lib\slick\config.rb" />
+    <Content Remove="wwwroot\lib\slick\fonts\slick.eot" />
+    <Content Remove="wwwroot\lib\slick\fonts\slick.svg" />
+    <Content Remove="wwwroot\lib\slick\fonts\slick.ttf" />
+    <Content Remove="wwwroot\lib\slick\fonts\slick.woff" />
+    <Content Remove="wwwroot\lib\slick\slick-theme.css" />
+    <Content Remove="wwwroot\lib\slick\slick-theme.less" />
+    <Content Remove="wwwroot\lib\slick\slick-theme.scss" />
+    <Content Remove="wwwroot\lib\slick\slick.css" />
+    <Content Remove="wwwroot\lib\slick\slick.js" />
+    <Content Remove="wwwroot\lib\slick\slick.less" />
+    <Content Remove="wwwroot\lib\slick\slick.min.js" />
+    <Content Remove="wwwroot\lib\slick\slick.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\style.css" />
+    <None Include="wwwroot\img\brand-1.png" />
+    <None Include="wwwroot\img\brand-2.png" />
+    <None Include="wwwroot\img\brand-3.png" />
+    <None Include="wwwroot\img\brand-4.png" />
+    <None Include="wwwroot\img\brand-5.png" />
+    <None Include="wwwroot\img\brand-6.png" />
+    <None Include="wwwroot\img\category-1.jpg" />
+    <None Include="wwwroot\img\category-2.jpg" />
+    <None Include="wwwroot\img\category-3.jpg" />
+    <None Include="wwwroot\img\category-4.jpg" />
+    <None Include="wwwroot\img\category-5.jpg" />
+    <None Include="wwwroot\img\category-6.jpg" />
+    <None Include="wwwroot\img\category-7.jpg" />
+    <None Include="wwwroot\img\category-8.jpg" />
+    <None Include="wwwroot\img\godaddy.svg" />
+    <None Include="wwwroot\img\logo.png" />
+    <None Include="wwwroot\img\norton.svg" />
+    <None Include="wwwroot\img\payment-method.png" />
+    <None Include="wwwroot\img\product-1.jpg" />
+    <None Include="wwwroot\img\product-10.jpg" />
+    <None Include="wwwroot\img\product-2.jpg" />
+    <None Include="wwwroot\img\product-3.jpg" />
+    <None Include="wwwroot\img\product-4.jpg" />
+    <None Include="wwwroot\img\product-5.jpg" />
+    <None Include="wwwroot\img\product-6.jpg" />
+    <None Include="wwwroot\img\product-7.jpg" />
+    <None Include="wwwroot\img\product-8.jpg" />
+    <None Include="wwwroot\img\product-9.jpg" />
+    <None Include="wwwroot\img\review-1.jpg" />
+    <None Include="wwwroot\img\review-2.jpg" />
+    <None Include="wwwroot\img\review-3.jpg" />
+    <None Include="wwwroot\img\ssl.svg" />
+    <None Include="wwwroot\js\main.js" />
+    <None Include="wwwroot\lib\easing\easing.js" />
+    <None Include="wwwroot\lib\easing\easing.min.js" />
+    <None Include="wwwroot\lib\js\main.js" />
+    <None Include="wwwroot\lib\slick\ajax-loader.gif" />
+    <None Include="wwwroot\lib\slick\config.rb" />
+    <None Include="wwwroot\lib\slick\fonts\slick.eot" />
+    <None Include="wwwroot\lib\slick\fonts\slick.svg" />
+    <None Include="wwwroot\lib\slick\fonts\slick.ttf" />
+    <None Include="wwwroot\lib\slick\fonts\slick.woff" />
+    <None Include="wwwroot\lib\slick\slick-theme.css" />
+    <None Include="wwwroot\lib\slick\slick-theme.less" />
+    <None Include="wwwroot\lib\slick\slick-theme.scss" />
+    <None Include="wwwroot\lib\slick\slick.css" />
+    <None Include="wwwroot\lib\slick\slick.js" />
+    <None Include="wwwroot\lib\slick\slick.less" />
+    <None Include="wwwroot\lib\slick\slick.min.js" />
+    <None Include="wwwroot\lib\slick\slick.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+  </ItemGroup>
+
+</Project>
