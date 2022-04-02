@@ -346,7 +346,7 @@ namespace Thinh_Ecom.Migrations
                             bill_Id = "D269BF93-A5E2-4C4A-8146-9967DDE80D30",
                             bill_Cancelled = false,
                             bill_Confirmation = true,
-                            bill_DatetimeOrder = new DateTime(2022, 3, 22, 10, 49, 17, 367, DateTimeKind.Local).AddTicks(6559),
+                            bill_DatetimeOrder = new DateTime(2022, 4, 2, 15, 2, 46, 519, DateTimeKind.Local).AddTicks(4683),
                             bill_Delivered = false,
                             bill_Delivering = false,
                             bill_Discount = 0,
@@ -550,13 +550,13 @@ namespace Thinh_Ecom.Migrations
                     b.HasData(
                         new
                         {
-                            couponId = "559a1eb8-c5b7-4e05-8a6e-837c1f9c801b",
+                            couponId = "b35e996e-5ff0-481e-bda1-331088b0b025",
                             couponCode = "code10",
                             couponPrice = 10
                         },
                         new
                         {
-                            couponId = "7f7f3db6-8739-499d-ae12-a5e2c7efb94f",
+                            couponId = "6a37744c-ce52-4138-8cb7-679ffce02b97",
                             couponCode = "code50",
                             couponPrice = 50
                         });
@@ -626,7 +626,7 @@ namespace Thinh_Ecom.Migrations
                         new
                         {
                             pic_CartId = "D355458F-1DD3-4834-AA28-6DA34B6357FF",
-                            pic_ProductId = "d5a36909-5a80-42c8-8ac8-f10238d80811",
+                            pic_ProductId = "603b0acb-b55b-4cf0-93f6-c2ffa3ffdfc7",
                             pic_amount = 2
                         });
                 });
@@ -715,7 +715,7 @@ namespace Thinh_Ecom.Migrations
                     b.HasData(
                         new
                         {
-                            pd_Id = "d5a36909-5a80-42c8-8ac8-f10238d80811",
+                            pd_Id = "603b0acb-b55b-4cf0-93f6-c2ffa3ffdfc7",
                             pd_Description = "pizza-bo",
                             pd_Img1 = "/img/pizza-300x300/pizza-bo.png",
                             pd_Img2 = "",
@@ -730,7 +730,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            pd_Id = "b07e2ed5-c85a-4296-90c5-bf90da03c313",
+                            pd_Id = "0fcbff44-ca5d-45d2-b337-15a112a69d50",
                             pd_Description = "coca-zero",
                             pd_Img1 = "/img/pizza-300x300/coca-zero.png",
                             pd_Img2 = "",
@@ -745,7 +745,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            pd_Id = "3679f3f4-9526-4215-80f0-dc118a0ae34d",
+                            pd_Id = "34d5c948-b7b9-45e8-9fbf-d93bdfa65281",
                             pd_Description = "Extravaganza",
                             pd_Img1 = "/img/pizza-300x300/Extravaganza.png",
                             pd_Img2 = "",
@@ -760,7 +760,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            pd_Id = "f1ba1adc-8833-4eea-be6f-fb578b54acab",
+                            pd_Id = "d3b6bd3a-da88-42ec-a622-3d330ffbe99e",
                             pd_Description = "pfanta-15",
                             pd_Img1 = "/img/pizza-300x300/fanta-15.png",
                             pd_Img2 = "",
@@ -775,7 +775,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            pd_Id = "cef97083-2a93-4f33-9edc-8738c3a23680",
+                            pd_Id = "a1129d7c-37b8-4376-8a0f-52a521472d9f",
                             pd_Description = "Haft-haft",
                             pd_Img1 = "/img/pizza-300x300/Haft-haft.png",
                             pd_Img2 = "",
@@ -790,7 +790,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            pd_Id = "0edc82a7-65ce-4199-aaac-2f4849501bfb",
+                            pd_Id = "b4face65-ca16-46ee-9926-add44ffc73bd",
                             pd_Description = "Meat-lover",
                             pd_Img1 = "/img/pizza-300x300/Meat-lover.png",
                             pd_Img2 = "",
@@ -805,7 +805,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            pd_Id = "0ef6556a-0947-4e89-a278-97b8f65ed520",
+                            pd_Id = "0a6405b2-5a0c-4dfe-979e-eac362499fbd",
                             pd_Description = "MENU-PC",
                             pd_Img1 = "/img/pizza-300x300/MENU-PC.png",
                             pd_Img2 = "",
@@ -820,7 +820,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            pd_Id = "24900604-22de-47df-a0ee-587600bcead3",
+                            pd_Id = "d9795052-31d0-408d-8bf4-93c2836b701f",
                             pd_Description = "MENU-PC-BBQ",
                             pd_Img1 = "/img/pizza-300x300/MENU-PC-BBQ.png",
                             pd_Img2 = "",
@@ -835,7 +835,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            pd_Id = "a58d2972-df74-4251-a5dc-14a5cfa14098",
+                            pd_Id = "f539ed6e-0894-46e5-a3d5-5f8a3a138857",
                             pd_Description = "MENU-PC-my",
                             pd_Img1 = "/img/pizza-300x300/MENU-PC-my.png",
                             pd_Img2 = "",
@@ -850,7 +850,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            pd_Id = "a5cbb692-bdd1-4d90-a082-7758cb24c2b9",
+                            pd_Id = "c7c03110-29df-4de8-ac50-174a894dfd39",
                             pd_Description = "MENU-PC-Pho-Mai",
                             pd_Img1 = "/img/pizza-300x300/MENU-PC-Pho-Mai.png",
                             pd_Img2 = "",
@@ -865,7 +865,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            pd_Id = "06d792dc-8fe0-44c1-a3d4-7008804d7b89",
+                            pd_Id = "4aad1c9f-41b7-4a4b-b3dc-3a6e3caff0c6",
                             pd_Description = "Ocean-mania",
                             pd_Img1 = "/img/pizza-300x300/Ocean-mania.png",
                             pd_Img2 = "",
@@ -880,7 +880,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            pd_Id = "3eab2334-83bf-46ba-a924-270aec3b19ab",
+                            pd_Id = "ebd9c0c2-aa14-4c22-b316-0cd28ee86afd",
                             pd_Description = "Okonomiyaki",
                             pd_Img1 = "/img/pizza-300x300/Okonomiyaki.png",
                             pd_Img2 = "",
@@ -895,7 +895,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            pd_Id = "963bbdd2-a8e3-4001-8c5a-5c887dce3693",
+                            pd_Id = "1b39ae47-2408-418f-a46f-904f44e91011",
                             pd_Description = "pasta-bo-bam",
                             pd_Img1 = "/img/pizza-300x300/pasta-bo-bam.png",
                             pd_Img2 = "",
@@ -910,7 +910,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            pd_Id = "0d5b194c-cc09-429e-a863-09a209acf561",
+                            pd_Id = "9a035806-d78c-435d-8fe7-8911d925ef33",
                             pd_Description = "pasta-hai-san",
                             pd_Img1 = "/img/pizza-300x300/pasta-hai-san.png",
                             pd_Img2 = "",
@@ -925,7 +925,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            pd_Id = "bb1d66e0-bf69-483e-ba0c-80a386425e62",
+                            pd_Id = "0ee3343b-6dd2-4bce-81eb-245bfbcc11c2",
                             pd_Description = "pasta-rau-cu",
                             pd_Img1 = "/img/pizza-300x300/pasta-rau-cu.png",
                             pd_Img2 = "",
@@ -940,7 +940,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            pd_Id = "fb1f2f29-6ed1-4d21-ab0a-fc43e2120874",
+                            pd_Id = "a7cc4c9e-985e-437f-972f-2b8e8eb253f4",
                             pd_Description = "pizza-bo",
                             pd_Img1 = "/img/pizza-300x300/pizza-bo.png",
                             pd_Img2 = "",
@@ -955,7 +955,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            pd_Id = "7b755114-d09a-4967-902e-746da5b9de57",
+                            pd_Id = "c4dbd76c-01bb-4baa-9c33-8312bd541f72",
                             pd_Description = "Pizzaminsea",
                             pd_Img1 = "/img/pizza-300x300/Pizzaminsea.png",
                             pd_Img2 = "",
@@ -970,7 +970,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            pd_Id = "eb092c57-72f6-40e0-90c1-a0095e72c5a3",
+                            pd_Id = "168625c0-ae5c-4cd2-846c-d6864d2b2975",
                             pd_Description = "Sprite-15L",
                             pd_Img1 = "/img/pizza-300x300/Sprite-15L.png",
                             pd_Img2 = "",
@@ -1002,97 +1002,97 @@ namespace Thinh_Ecom.Migrations
                     b.HasData(
                         new
                         {
-                            pic_productId = "d5a36909-5a80-42c8-8ac8-f10238d80811",
+                            pic_productId = "603b0acb-b55b-4cf0-93f6-c2ffa3ffdfc7",
                             pic_CategoriesId = 1
                         },
                         new
                         {
-                            pic_productId = "3679f3f4-9526-4215-80f0-dc118a0ae34d",
+                            pic_productId = "34d5c948-b7b9-45e8-9fbf-d93bdfa65281",
                             pic_CategoriesId = 1
                         },
                         new
                         {
-                            pic_productId = "cef97083-2a93-4f33-9edc-8738c3a23680",
+                            pic_productId = "a1129d7c-37b8-4376-8a0f-52a521472d9f",
                             pic_CategoriesId = 1
                         },
                         new
                         {
-                            pic_productId = "0edc82a7-65ce-4199-aaac-2f4849501bfb",
+                            pic_productId = "b4face65-ca16-46ee-9926-add44ffc73bd",
                             pic_CategoriesId = 1
                         },
                         new
                         {
-                            pic_productId = "06d792dc-8fe0-44c1-a3d4-7008804d7b89",
+                            pic_productId = "4aad1c9f-41b7-4a4b-b3dc-3a6e3caff0c6",
                             pic_CategoriesId = 1
                         },
                         new
                         {
-                            pic_productId = "3eab2334-83bf-46ba-a924-270aec3b19ab",
+                            pic_productId = "ebd9c0c2-aa14-4c22-b316-0cd28ee86afd",
                             pic_CategoriesId = 1
                         },
                         new
                         {
-                            pic_productId = "fb1f2f29-6ed1-4d21-ab0a-fc43e2120874",
+                            pic_productId = "a7cc4c9e-985e-437f-972f-2b8e8eb253f4",
                             pic_CategoriesId = 1
                         },
                         new
                         {
-                            pic_productId = "7b755114-d09a-4967-902e-746da5b9de57",
+                            pic_productId = "c4dbd76c-01bb-4baa-9c33-8312bd541f72",
                             pic_CategoriesId = 1
                         },
                         new
                         {
-                            pic_productId = "7b755114-d09a-4967-902e-746da5b9de57",
+                            pic_productId = "c4dbd76c-01bb-4baa-9c33-8312bd541f72",
                             pic_CategoriesId = 2
                         },
                         new
                         {
-                            pic_productId = "963bbdd2-a8e3-4001-8c5a-5c887dce3693",
+                            pic_productId = "1b39ae47-2408-418f-a46f-904f44e91011",
                             pic_CategoriesId = 2
                         },
                         new
                         {
-                            pic_productId = "0d5b194c-cc09-429e-a863-09a209acf561",
+                            pic_productId = "9a035806-d78c-435d-8fe7-8911d925ef33",
                             pic_CategoriesId = 2
                         },
                         new
                         {
-                            pic_productId = "bb1d66e0-bf69-483e-ba0c-80a386425e62",
+                            pic_productId = "0ee3343b-6dd2-4bce-81eb-245bfbcc11c2",
                             pic_CategoriesId = 2
                         },
                         new
                         {
-                            pic_productId = "0ef6556a-0947-4e89-a278-97b8f65ed520",
+                            pic_productId = "0a6405b2-5a0c-4dfe-979e-eac362499fbd",
                             pic_CategoriesId = 3
                         },
                         new
                         {
-                            pic_productId = "24900604-22de-47df-a0ee-587600bcead3",
+                            pic_productId = "d9795052-31d0-408d-8bf4-93c2836b701f",
                             pic_CategoriesId = 3
                         },
                         new
                         {
-                            pic_productId = "a58d2972-df74-4251-a5dc-14a5cfa14098",
+                            pic_productId = "f539ed6e-0894-46e5-a3d5-5f8a3a138857",
                             pic_CategoriesId = 3
                         },
                         new
                         {
-                            pic_productId = "a5cbb692-bdd1-4d90-a082-7758cb24c2b9",
+                            pic_productId = "c7c03110-29df-4de8-ac50-174a894dfd39",
                             pic_CategoriesId = 3
                         },
                         new
                         {
-                            pic_productId = "b07e2ed5-c85a-4296-90c5-bf90da03c313",
+                            pic_productId = "0fcbff44-ca5d-45d2-b337-15a112a69d50",
                             pic_CategoriesId = 4
                         },
                         new
                         {
-                            pic_productId = "f1ba1adc-8833-4eea-be6f-fb578b54acab",
+                            pic_productId = "d3b6bd3a-da88-42ec-a622-3d330ffbe99e",
                             pic_CategoriesId = 4
                         },
                         new
                         {
-                            pic_productId = "eb092c57-72f6-40e0-90c1-a0095e72c5a3",
+                            pic_productId = "168625c0-ae5c-4cd2-846c-d6864d2b2975",
                             pic_CategoriesId = 4
                         });
                 });
@@ -1114,17 +1114,17 @@ namespace Thinh_Ecom.Migrations
                     b.HasData(
                         new
                         {
-                            rip_ProductId = "d5a36909-5a80-42c8-8ac8-f10238d80811",
+                            rip_ProductId = "603b0acb-b55b-4cf0-93f6-c2ffa3ffdfc7",
                             rip_ReviewId = "EEBA6608-AB75-4E83-909F-604B1A06F16C"
                         },
                         new
                         {
-                            rip_ProductId = "d5a36909-5a80-42c8-8ac8-f10238d80811",
+                            rip_ProductId = "603b0acb-b55b-4cf0-93f6-c2ffa3ffdfc7",
                             rip_ReviewId = "9EED8607-D2BB-45EE-AEE3-C59D858A7F97"
                         },
                         new
                         {
-                            rip_ProductId = "d5a36909-5a80-42c8-8ac8-f10238d80811",
+                            rip_ProductId = "603b0acb-b55b-4cf0-93f6-c2ffa3ffdfc7",
                             rip_ReviewId = "C2A543C2-B1E2-4DC5-A131-9137E4673FA6"
                         });
                 });
@@ -1238,7 +1238,7 @@ namespace Thinh_Ecom.Migrations
                     b.HasData(
                         new
                         {
-                            subReview_Id = "5a20351d-50f9-458e-b9c1-5b687c3aa647",
+                            subReview_Id = "759034f8-4261-4796-8f0a-efed4048b2a6",
                             subReview_Commnet = "subreview 1",
                             subReview_DateCommnet = new DateTime(2020, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             subReview_HideStatus = false,
@@ -1247,7 +1247,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            subReview_Id = "e52d1537-b495-424c-9a91-96f0d0d26c34",
+                            subReview_Id = "1a24971d-0c45-459a-a567-a44b66225a8f",
                             subReview_Commnet = "subreview 3",
                             subReview_DateCommnet = new DateTime(2020, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             subReview_HideStatus = false,
@@ -1256,7 +1256,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            subReview_Id = "80d70594-0da6-4677-b296-e7832a900e45",
+                            subReview_Id = "45951868-3d3b-4ef1-9fdd-b08667aa96aa",
                             subReview_Commnet = "subreview 3",
                             subReview_DateCommnet = new DateTime(2020, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             subReview_HideStatus = false,
@@ -1283,17 +1283,17 @@ namespace Thinh_Ecom.Migrations
                         new
                         {
                             SRiR_ReviewId = "EEBA6608-AB75-4E83-909F-604B1A06F16C",
-                            SRiR_SubReviewId = "5a20351d-50f9-458e-b9c1-5b687c3aa647"
+                            SRiR_SubReviewId = "759034f8-4261-4796-8f0a-efed4048b2a6"
                         },
                         new
                         {
                             SRiR_ReviewId = "EEBA6608-AB75-4E83-909F-604B1A06F16C",
-                            SRiR_SubReviewId = "e52d1537-b495-424c-9a91-96f0d0d26c34"
+                            SRiR_SubReviewId = "1a24971d-0c45-459a-a567-a44b66225a8f"
                         },
                         new
                         {
                             SRiR_ReviewId = "9EED8607-D2BB-45EE-AEE3-C59D858A7F97",
-                            SRiR_SubReviewId = "80d70594-0da6-4677-b296-e7832a900e45"
+                            SRiR_SubReviewId = "45951868-3d3b-4ef1-9fdd-b08667aa96aa"
                         });
                 });
 
@@ -1310,14 +1310,14 @@ namespace Thinh_Ecom.Migrations
                         new
                         {
                             Id = "f49e4348-718f-43e3-b1f6-6dc89c5Bb4fd",
-                            ConcurrencyStamp = "2df5da69-9c23-41f4-8a1f-8ae57a2b9eab",
+                            ConcurrencyStamp = "ed072818-3aac-4158-8f33-9d253a3944d5",
                             Name = "staff",
                             Description = "Staff"
                         },
                         new
                         {
                             Id = "360E601E-92F2-4F08-832B-604A21293258",
-                            ConcurrencyStamp = "c0d800dd-e1e7-411a-b290-1b857bee10e3",
+                            ConcurrencyStamp = "21a7995b-c405-47d0-87d2-2c5bccb4fe75",
                             Name = "admin",
                             Description = "admin"
                         });
@@ -1367,15 +1367,15 @@ namespace Thinh_Ecom.Migrations
                         {
                             Id = "DE544998-A3CC-4E12-ABB4-0642E57BD222",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8feab30a-91a5-4bad-a37a-2fd3f17e03fe",
+                            ConcurrencyStamp = "1494b7c1-5daa-46b1-a20f-dbb66d39ab46",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENBMf/WioTe3WemMZSV543WcPA1+Hrm05gj7gkUYnFrwjoqx9O8MEX9c6y6zI7jxyQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHi+sG6N2Wmry7QZVnUIxkTdFUsbTwo/jiE+gN4vv2RWV7MUQbOaWTDWghWULSoi9w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4d1684c7-d090-4700-b997-db6f604e1a45",
+                            SecurityStamp = "f1d870e9-aea8-4087-a21e-5b6870592979",
                             TwoFactorEnabled = false,
                             UserName = "Admin",
                             DoB = new DateTime(2020, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1386,15 +1386,15 @@ namespace Thinh_Ecom.Migrations
                         {
                             Id = "f49e4348-718f-43e3-b1f6-6dc89c5Bb5ff",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8e86589b-695d-4542-bc02-b74cceb2c711",
+                            ConcurrencyStamp = "a87fad47-256d-4214-8c73-34ec991bf30e",
                             Email = "staff@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "STAFF@GMAIL.COM",
                             NormalizedUserName = "STAFF@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJ+9OSrxNBwfBizos6VOv0ONqYpKhjgtos5bLeIi3D60O+uWYTG/pA77GC7SKX8thA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJO0CNdyZqCvGMtE0gRkNSrn9Cbey6WusBPd3pyqNmXGEh5ynHiv9WK/tjjmoAe+pg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9c26f327-0c3b-497c-83e4-fb2a9e3902eb",
+                            SecurityStamp = "9d564e85-9363-4982-b68e-7553d7566f04",
                             TwoFactorEnabled = false,
                             UserName = "Staff",
                             DoB = new DateTime(2020, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
