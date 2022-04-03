@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Thinh_Ecom.Data;
 using Thinh_Ecom.Models;
 
 namespace Thinh_Ecom.Controllers.ClientPage
@@ -12,14 +13,18 @@ namespace Thinh_Ecom.Controllers.ClientPage
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
+            var queryProduct = _context.Products;
+            ViewBag.ProductList = queryProduct;
             return View();
         }
 

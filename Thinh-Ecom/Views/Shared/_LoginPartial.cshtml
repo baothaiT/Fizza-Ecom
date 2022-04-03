@@ -8,17 +8,26 @@
 {
 
 
-       <b> <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a> </b>
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+    <li>
+        <b> <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a> </b>
+    </li>
+    <li>
+        <form class="form-inline" asp-area="Identity" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
         </form>
+    </li>
+
 
 }
 else
 {
 
-
+    <li>
         <a href="/login" class="dropdown-item">Login</a>
+    </li>
+    <li>
         <a href="/register" class="dropdown-item">Register</a>
+    </li>
+
 
 }

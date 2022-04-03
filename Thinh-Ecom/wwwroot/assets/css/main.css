@@ -559,6 +559,8 @@ nav.main-menu ul > li {
   position: relative;
 }
 
+
+
 nav.main-menu ul ul.sub-menu {
   position: absolute;
   background-color: #fff;
@@ -1373,10 +1375,10 @@ a.mobile-show.search-bar-icon:hover {
   height: 100%;
   position: relative;
   z-index: 1;
-}
-
+}
 html, body {
   height: 100%;
+  
 }
 
 .hero-area:after {
