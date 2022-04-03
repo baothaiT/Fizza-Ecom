@@ -9,10 +9,10 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Thinh_Ecom.Configurations
 {
-    public class DeviceConfigurations : IEntityTypeConfiguration<Device>
+    public class DeviceInfoConfigurations : IEntityTypeConfiguration<DeviceInfo>
     {
 
-        public void Configure(EntityTypeBuilder<Device> builder)
+        public void Configure(EntityTypeBuilder<DeviceInfo> builder)
         {
             builder.ToTable("Device");
             builder.HasKey(t => new { t.deviceId });

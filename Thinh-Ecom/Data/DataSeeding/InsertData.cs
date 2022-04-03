@@ -481,8 +481,8 @@ namespace Thinh_Ecom.Data.DataSeeding
 
             //Table ContactSystem
 
-            builder.Entity<ContactSystem>().HasData(
-                new ContactSystem()
+            builder.Entity<SystemContact>().HasData(
+                new SystemContact()
                 {
                     Contact_Id = 1,
                     Contact_Address = " 123, An Lac A Ward, Binh Tan District, HCM",
@@ -498,8 +498,8 @@ namespace Thinh_Ecom.Data.DataSeeding
             //Table ContactUsers
 
 
-            builder.Entity<ContactUsers>().HasData(
-                new ContactUsers()
+            builder.Entity<ContactForm>().HasData(
+                new ContactForm()
                 {
                     cu_Id = 1,
                     cu_FirstName = "FirstName",
@@ -520,8 +520,8 @@ namespace Thinh_Ecom.Data.DataSeeding
             //Table Reviews new DateTime(2020, 01, 02)
 
 
-            builder.Entity<Reviews>().HasData(
-                new Reviews()
+            builder.Entity<Comment>().HasData(
+                new Comment()
                 {
                     review_id = ReviewId1,
                     review_Comment = "Good1",
@@ -531,7 +531,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     review_ReviewType = "Review"
 
                 },
-                new Reviews()
+                new Comment()
                 {
                     review_id = ReviewId2,
                     review_Comment = "Good2",
@@ -541,7 +541,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     review_ReviewType = "Review"
 
                 },
-                new Reviews()
+                new Comment()
                 {
                     review_id = ReviewId3,
                     review_Comment = "Good3",
@@ -720,18 +720,18 @@ namespace Thinh_Ecom.Data.DataSeeding
 
 
 
-            builder.Entity<ReviewInproduct>().HasData(
-                new ReviewInproduct()
+            builder.Entity<CommentInproduct>().HasData(
+                new CommentInproduct()
                 {
                     rip_ProductId = productId1,
                     rip_ReviewId = ReviewId1,
                 },
-                new ReviewInproduct()
+                new CommentInproduct()
                 {
                     rip_ProductId = productId1,
                     rip_ReviewId = ReviewId2,
                 },
-                new ReviewInproduct()
+                new CommentInproduct()
                 {
                     rip_ProductId = productId1,
                     rip_ReviewId = ReviewId3,

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Thinh_Ecom.Entities
 {
-    public class ContactUsers
+    public class ContactForm
     {
 
         public int cu_Id { set; get; }

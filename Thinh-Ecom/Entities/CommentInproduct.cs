@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Thinh_Ecom.Entities
 {
-    public class ReviewInproduct
+    public class CommentInproduct
     {
-        public Reviews ReviewsRIP { get; set; }
+        public Comment ReviewsRIP { get; set; }
         public string rip_ReviewId { get; set; }
         public Products ProductsRIP { get; set; }
         public string rip_ProductId { get; set; }

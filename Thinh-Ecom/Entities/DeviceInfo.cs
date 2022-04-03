@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Thinh_Ecom.Entities
 {
-    public class Device
+    public class DeviceInfo
     {
 
         public string deviceId { get; set; }

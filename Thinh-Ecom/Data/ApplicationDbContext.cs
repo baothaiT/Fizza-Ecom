@@ -48,21 +48,21 @@ namespace Thinh_Ecom.Data
             builder.ApplyConfiguration(new BillConfigurations());
             builder.ApplyConfiguration(new CartConfigurations());
             builder.ApplyConfiguration(new CategoriesConfigurations());
-            builder.ApplyConfiguration(new ContactSystemConfigurations());
-            builder.ApplyConfiguration(new ContactUsersConfigurations());
+            builder.ApplyConfiguration(new SystemContactConfigurations());
+            builder.ApplyConfiguration(new ContactFormConfigurations());
             builder.ApplyConfiguration(new ProductInCartConfigurations());
             builder.ApplyConfiguration(new ProductInCategoriesConfigurations());
             builder.ApplyConfiguration(new ProductsConfigurations());
-            builder.ApplyConfiguration(new ReviewsConfigurations());
-            builder.ApplyConfiguration(new ReviewInproductConfigurations());
+            builder.ApplyConfiguration(new CommentConfigurations());
+            builder.ApplyConfiguration(new CommentInproductConfigurations());
             builder.ApplyConfiguration(new CouponsConfigurations());
-            builder.ApplyConfiguration(new DeviceConfigurations());
-            builder.ApplyConfiguration(new DeviceConfigurations());
+            builder.ApplyConfiguration(new DeviceInfoConfigurations());
+            builder.ApplyConfiguration(new DeviceInfoConfigurations());
             builder.ApplyConfiguration(new CartsDeviceConfigurations());
             builder.ApplyConfiguration(new ProductInCartDevicesConfigurations());
             builder.ApplyConfiguration(new ShippingConfigurations());
             builder.ApplyConfiguration(new SubReviewInReviewConfigurations());
-            builder.ApplyConfiguration(new SubReviewConfigurations());
+          
 
 
 
@@ -87,24 +87,20 @@ namespace Thinh_Ecom.Data
         public DbSet<AppUser> AppUser { set; get; }
         public DbSet<Bills> Bills { set; get; }
         public DbSet<Categories> Categories { set; get; }
-        public DbSet<ContactSystem> ContactSystem { set; get; }
-        public DbSet<ContactUsers> ContactUsers { set; get; }
+        public DbSet<SystemContact> SystemContact { set; get; }
+        public DbSet<ContactForm> ContactForm { set; get; }
         public DbSet<Products> Products { set; get; }
-        public DbSet<Reviews> Reviews { set; get; }
-        public DbSet<ReviewInproduct> ReviewInproduct { set; get; }
+        public DbSet<Comment> Comment { set; get; }
+        public DbSet<CommentInproduct> CommentInproduct { set; get; }
         public DbSet<ProductInCart> ProductInCart { set; get; }
-        public DbSet<ProductsInCategories> ProductsInCategories { set; get; }
         public DbSet<Cart> Cart { set; get; }
         public DbSet<Coupons> Coupons { set; get; }
-        public DbSet<Device> Devices { set; get; }
+        public DbSet<DeviceInfo> DeviceInfo { set; get; }
         public DbSet<CartsDevice> CartsDevice { set; get; }
         public DbSet<ProductInCartDevices> ProductInCartDevices { set; get; }
 
         public DbSet<Shipping> Shipping { set; get; }
 
-        public DbSet<SubReview> SubReview { set; get; }
-
-        public DbSet<SubReviewInReview> SubReviewInReview { set; get; }
 
     }
 }

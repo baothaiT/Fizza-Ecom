@@ -14,7 +14,6 @@ namespace Thinh_Ecom.Entities
         public string bill_ProductIdlist { set; get; }
         public string bill_ProductNamelist { set; get; }
         public string bill_ProductSizelist { set; get; }
-        public string bill_ProductColorlist { set; get; }
         public string bill_ProductPricelist { set; get; }
         public int bill_Shipping { set; get; }
         public int bill_Discount { set; get; }

@@ -62,10 +62,11 @@ namespace Thinh_Ecom.Entities
 
         
 
+        public string CategoriesFK  { set; get; }
+        public Categories Categories { get; set; }
 
-        public List<ProductsInCategories> ProductsInCategoriesP { get; set; }
         public List<ProductInCart> ProductInCartP { get; set; }
-        public List<ReviewInproduct> ReviewInproductP { get; set; }
+        public List<CommentInproduct> ReviewInproductP { get; set; }
 
         public List<ProductInCartDevices> ProductInCartDevicesP { get; set; }
 

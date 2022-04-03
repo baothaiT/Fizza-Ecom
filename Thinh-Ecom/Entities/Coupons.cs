@@ -10,5 +10,11 @@ namespace Thinh_Ecom.Entities
         public string couponId { set; get; }
         public string couponCode { set; get; }
         public int couponPrice { set; get; }
+
+        public DateTime StartTime { set; get; }
+        public DateTime EndTime { set; get; }
+
+        public string coupon_AppUserFK { set; get; }
+        public AppUser AppUser { get; set; }
     }
 }

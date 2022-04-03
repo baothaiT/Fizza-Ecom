@@ -11,7 +11,7 @@ namespace Thinh_Ecom.Entities
         public string cg_Name { set; get; }
         public string cg_Type { set; get; }
         public string cg_Sale { set; get; }
-        public List<ProductsInCategories> ProductsInCategoriesC { get; set; }
+        public List<Products> Products { get; set; }
 
 
     }

@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Thinh_Ecom.Configurations
 {
-    public class ReviewsConfigurations : IEntityTypeConfiguration<Reviews>
+    public class CommentConfigurations : IEntityTypeConfiguration<Comment>
     {
-        public void Configure(EntityTypeBuilder<Reviews> builder)
+        public void Configure(EntityTypeBuilder<Comment> builder)
         {
             builder.ToTable("Reviews");
             builder.HasKey(t => new { t.review_id });

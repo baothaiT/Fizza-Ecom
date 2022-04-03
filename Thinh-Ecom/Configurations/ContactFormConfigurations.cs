@@ -9,12 +9,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Thinh_Ecom.Configurations
 {
-    public class ContactSystemConfigurations : IEntityTypeConfiguration<ContactSystem>
+    public class ContactFormConfigurations : IEntityTypeConfiguration<ContactForm>
     {
-        public void Configure(EntityTypeBuilder<ContactSystem> builder)
+        public void Configure(EntityTypeBuilder<ContactForm> builder)
         {
-            builder.ToTable("ContactSystems");
-            builder.HasKey(t => new { t.Contact_Id });
+            builder.ToTable("ContactUsers");
+            builder.HasKey(t => new { t.cu_Id });
         }
     }
 }

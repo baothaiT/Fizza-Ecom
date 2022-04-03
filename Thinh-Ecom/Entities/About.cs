@@ -15,5 +15,10 @@ namespace Thinh_Ecom.Entities
         
 
         public string about_Description { set; get; }
+
+        // User 
+        public string about_AppUserFK { set; get; }
+        public AppUser AppUser { get; set; }
+
     }
 }

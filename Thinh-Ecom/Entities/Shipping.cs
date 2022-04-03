@@ -11,6 +11,12 @@ namespace Thinh_Ecom.Entities
         public string ship_Name { set; get; }
         public int ship_Price { set; get; }
 
+        //User Create
+
+        public string ship_AppUserFK { set; get; }
+        public AppUser AppUser { get; set; }
+
+
 
     }
 }
