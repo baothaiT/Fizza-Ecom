@@ -14,7 +14,7 @@ namespace Thinh_Ecom.Entities
         public string Contact_Website { set; get; }
 
         //user
-        public string coupon_AppUserFK { set; get; }
+        public string Contact_AppUserFK { set; get; }
         public AppUser AppUser { get; set; }
     }
 }

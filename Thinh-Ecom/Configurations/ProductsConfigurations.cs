@@ -16,6 +16,8 @@ namespace Thinh_Ecom.Configurations
             builder.ToTable("Products");
             builder.HasKey(t => new { t.pd_Id });
 
+            builder.HasOne(t => t.Categories).WithMany(ur => ur.Products)
+.HasForeignKey(pc => pc.CategoriesFK);
         }
     }
 }

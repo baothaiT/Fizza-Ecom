@@ -51,7 +51,6 @@ namespace Thinh_Ecom.Data
             builder.ApplyConfiguration(new SystemContactConfigurations());
             builder.ApplyConfiguration(new ContactFormConfigurations());
             builder.ApplyConfiguration(new ProductInCartConfigurations());
-            builder.ApplyConfiguration(new ProductInCategoriesConfigurations());
             builder.ApplyConfiguration(new ProductsConfigurations());
             builder.ApplyConfiguration(new CommentConfigurations());
             builder.ApplyConfiguration(new CommentInproductConfigurations());
@@ -61,7 +60,6 @@ namespace Thinh_Ecom.Data
             builder.ApplyConfiguration(new CartsDeviceConfigurations());
             builder.ApplyConfiguration(new ProductInCartDevicesConfigurations());
             builder.ApplyConfiguration(new ShippingConfigurations());
-            builder.ApplyConfiguration(new SubReviewInReviewConfigurations());
           
 
 

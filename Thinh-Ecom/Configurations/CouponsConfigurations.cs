@@ -17,7 +17,8 @@ namespace Thinh_Ecom.Configurations
             builder.HasKey(t => new { t.couponId });
 
 
-
+            builder.HasOne(t => t.AppUser).WithMany(ur => ur.CouponsU)
+     .HasForeignKey(pc => pc.coupon_AppUserFK);
         }
 
     }

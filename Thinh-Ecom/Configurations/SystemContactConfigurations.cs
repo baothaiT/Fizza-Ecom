@@ -15,6 +15,9 @@ namespace Thinh_Ecom.Configurations
         {
             builder.ToTable("ContactSystems");
             builder.HasKey(t => new { t.Contact_Id });
+
+            builder.HasOne(t => t.AppUser).WithMany(ur => ur.SystemContactU)
+.HasForeignKey(pc => pc.Contact_AppUserFK);
         }
     }
 }

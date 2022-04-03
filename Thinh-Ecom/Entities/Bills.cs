@@ -23,9 +23,6 @@ namespace Thinh_Ecom.Entities
         public string bill_Note { set; get; }
         public string bill_Quantity { set; get; }
         public bool bill_HideStatus { set; get; }
-
-
-
         public bool bill_WaitForConfirmation { set; get; }
         public bool bill_WaitPickup { set; get; }
         public bool bill_Delivering { set; get; }

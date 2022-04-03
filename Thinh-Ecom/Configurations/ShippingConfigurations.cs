@@ -18,7 +18,8 @@ namespace Thinh_Ecom.Configurations
             builder.HasKey(t => new { t.ship_Id });
 
 
-
+            builder.HasOne(t => t.AppUser).WithMany(ur => ur.ShippingU)
+.HasForeignKey(pc => pc.ship_AppUserFK);
         }
     }
 }

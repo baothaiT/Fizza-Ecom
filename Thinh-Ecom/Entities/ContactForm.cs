@@ -8,7 +8,7 @@ namespace Thinh_Ecom.Entities
     public class ContactForm
     {
 
-        public int cu_Id { set; get; }
+        public string cu_Id { set; get; }
         public string cu_FirstName { set; get; }
         public string cu_LastName { set; get; }
         public string cu_Email { set; get; }

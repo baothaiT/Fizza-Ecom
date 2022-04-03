@@ -14,9 +14,9 @@ namespace Thinh_Ecom.Configurations
         public void Configure(EntityTypeBuilder<Comment> builder)
         {
             builder.ToTable("Reviews");
-            builder.HasKey(t => new { t.review_id });
+            builder.HasKey(t => new { t.Comment_id });
             builder.HasOne(t => t.AppUserR).WithMany(ur => ur.ReviewsU)
-     .HasForeignKey(pc => pc.review_UserId);
+     .HasForeignKey(pc => pc.Comment_UserId);
         }
     }
 }

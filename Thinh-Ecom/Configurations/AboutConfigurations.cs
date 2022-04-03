@@ -16,7 +16,8 @@ namespace Thinh_Ecom.Configurations
             builder.ToTable("About");
             builder.HasKey(t => new { t.about_id });
 
-
+            builder.HasOne(t => t.AppUser).WithMany(ur => ur.AboutU)
+     .HasForeignKey(pc => pc.about_AppUserFK);
 
         }
     }
