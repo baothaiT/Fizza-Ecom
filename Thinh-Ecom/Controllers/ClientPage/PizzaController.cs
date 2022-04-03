@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Thinh_Ecom.Data;
 using System.Linq;
 using Thinh_Ecom.Models;
+using Thinh_Ecom.Function;
+using Microsoft.EntityFrameworkCore;
 
 namespace Thinh_Ecom.Controllers.ClientPage
 {
@@ -16,7 +18,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
         // GET: PizzaController
         [Route("/pizza")]
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, int? pageNumber)
         {
             //Query Food
             var queryFood = from a in _context.Products
@@ -41,7 +43,9 @@ namespace Thinh_Ecom.Controllers.ClientPage
             var queryCategories = _context.Categories;
             ViewBag.Categories = queryCategories;
 
-            return View(FoodModelQuery);
+            //Paging
+            int pageSize = 8;
+            return View(PaginatedList<FoodModels>.Create(FoodModelQuery.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: PizzaController/Details/5
