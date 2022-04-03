@@ -10,6 +10,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
         [HttpGet]
         public ActionResult Index()
         {
+            var a = "";
             return View();
         }
 
