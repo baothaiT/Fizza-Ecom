@@ -1,4 +1,4 @@
-/*Template Name: Fruitkha - Responsive Bootstrap4 Shop TemplateTemplate URI: Description: Bootstrap template for fruits or any other kind of shopAuthor: Imran HossainAuthor URI: https://imransdesign.com/Version: 1.0*/
+/*Template Name: pizza - Responsive Bootstrap4 Shop TemplateTemplate URI: Description: Bootstrap template for fruits or any other kind of shopAuthor: Imran HossainAuthor URI: https://imransdesign.com/Version: 1.0*/
 /* -----------------------------------------------------------------------------
 
 # Base - Genral & Typography
@@ -805,9 +805,9 @@ a.mobile-show {
   color: #fff;
 }
 
-.search-bar-tablecell input::-ms-input-placeholder {
+/*.search-bar-tablecell input::-ms-input-placeholder {
   color: #fff;
-}
+}*/
 
 .search-bar-tablecell input::placeholder {
   color: #fff;
