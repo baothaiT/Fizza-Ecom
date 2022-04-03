@@ -1,16 +1,47 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Thinh_Ecom.Data;
+using System.Linq;
+using Thinh_Ecom.Models;
 
 namespace Thinh_Ecom.Controllers.ClientPage
 {
     public class PizzaController : Controller
     {
+        private readonly ApplicationDbContext _context;
+        public PizzaController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         // GET: PizzaController
         [Route("/pizza")]
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            //Query Food
+            var queryFood = from a in _context.Products
+                            join b in _context.Categories on a.CategoriesFK equals b.cg_Id
+                            select new { a, b };
+
+            // Insert data into model
+            var FoodModelQuery = queryFood
+                .Select(x => new FoodModels()
+                {
+                    Id = x.a.pd_Id,
+                    Img = x.a.pd_Img1,
+                    Name = x.a.pd_Name,
+                    Price = x.a.pd_Price,
+                    CategoriesName = x.b.cg_Name,
+                    Discount = x.a.pd_ReducePrice
+                });
+
+
+            //Query Categories Name
+
+            var queryCategories = _context.Categories;
+            ViewBag.Categories = queryCategories;
+
+            return View(FoodModelQuery);
         }
 
         // GET: PizzaController/Details/5

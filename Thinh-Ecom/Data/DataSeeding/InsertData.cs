@@ -42,7 +42,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                 new Categories()
                 {
                     cg_Id = categoriesId3,
-                    cg_Name = "Side dishes",
+                    cg_Name = "Sidedishes",
                     cg_Type = "",
                     cg_Sale = ""
 
@@ -158,7 +158,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Rate = 5,
                     pd_ShortDescription = "",
                     pd_Size = "",
-                    CategoriesFK = categoriesId1
+                    CategoriesFK = categoriesId2
                 },
                 new Products()
                 {
@@ -174,7 +174,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Rate = 5,
                     pd_ShortDescription = "",
                     pd_Size = "",
-                    CategoriesFK = categoriesId1
+                    CategoriesFK = categoriesId2
                 },
                 new Products()
                 {
@@ -190,7 +190,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Rate = 5,
                     pd_ShortDescription = "",
                     pd_Size = "",
-                    CategoriesFK = categoriesId1
+                    CategoriesFK = categoriesId3
                 },
                 new Products()
                 {
