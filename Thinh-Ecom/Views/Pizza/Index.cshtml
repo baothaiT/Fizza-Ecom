@@ -111,9 +111,6 @@
                             </a>
                         </li>
                         <li>
-                            @*<a href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                </a>*@
                             <a asp-action="Index"
                                asp-route-sortOrder="@ViewData["CurrentSort"]"
                                asp-route-pageNumber="@(Model.PageIndex + 1)"

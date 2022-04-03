@@ -17,14 +17,17 @@ namespace Thinh_Ecom.Controllers.ClientPage
         }
         // GET: PizzaController
         [Route("/pizza")]
-        [HttpGet]
-        public ActionResult Index(string sortOrder, string currentFilter, int? pageNumber)
+        [HttpGet("{Search}")]
+        public ActionResult Index(string Search, string sortOrder, string currentFilter, int? pageNumber)
         {
             //Query Food
             var queryFood = from a in _context.Products
                             join b in _context.Categories on a.CategoriesFK equals b.cg_Id
                             select new { a, b };
-
+            if (Search != null)
+            {
+                queryFood = queryFood.Where(a => a.a.pd_Name.Contains(Search));
+            }
             // Insert data into model
             var FoodModelQuery = queryFood
                 .Select(x => new FoodModels()
@@ -37,7 +40,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
                     Discount = x.a.pd_ReducePrice
                 });
 
-
+            
             //Query Categories Name
 
             var queryCategories = _context.Categories;
