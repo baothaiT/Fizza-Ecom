@@ -1,4 +1,11 @@
-/*Template Name: pizza - Responsive Bootstrap4 Shop TemplateTemplate URI: Description: Bootstrap template for fruits or any other kind of shopAuthor: Imran HossainAuthor URI: https://imransdesign.com/Version: 1.0*/
+/*
+Template Name: pizza - Responsive Bootstrap4 Shop Template
+Template URI: 
+Description: Bootstrap template for fruits or any other kind of shop
+Author: Imran Hossain
+Author URI: https://imransdesign.com/
+Version: 1.0
+*/
 /* -----------------------------------------------------------------------------
 
 # Base - Genral & Typography
@@ -1355,7 +1362,13 @@ a.mobile-show.search-bar-icon:hover {
 
 # Hero Styles
 
------------------------------------------------------------------------------ */.hero-bg {    background-image: url(../img/pizza-bg-1920x1281.jpg);    background-size: cover;    background-position: center;    background-attachment: fixed;}
+----------------------------------------------------------------------------- */
+.hero-bg {
+    background-image: url(../img/pizza-bg-1920x1281.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
 
 .hero-text {
   display: table;
@@ -1370,7 +1383,8 @@ a.mobile-show.search-bar-icon:hover {
   height: 100%;
   position: relative;
   z-index: 1;
-}
+}
+
 html, body {
   height: 100%;
   
@@ -2033,7 +2047,42 @@ p.testimonial-body {
 
 # About Styles
 
------------------------------------------------------------------------------ */a.video-play-btn {    position: absolute;    background-color: #F28123;    color: #051922;    width: 90px;    height: 90px;    text-align: center;    line-height: 92px;    border-radius: 50%;    font-size: 20px;    padding-left: 5px;    display: block;    z-index: 2;    top: 50%;    margin-top: -45px;    -webkit-box-shadow: 0 0 20px #adadad;    box-shadow: 0 0 20px #adadad;    left: 50%;    margin-left: -45px;}.abt-bg {    background-image: url(../img/youtube-787x580.png);    height: 100%;    width: 100%;    background-size: cover;    background-position: center;    border-top-right-radius: 10px;    border-bottom-left-radius: 10px;    position: relative;    z-index: 1;    overflow: hidden;}
+----------------------------------------------------------------------------- */
+a.video-play-btn {
+    position: absolute;
+    background-color: #F28123;
+    color: #051922;
+    width: 90px;
+    height: 90px;
+    text-align: center;
+    line-height: 92px;
+    border-radius: 50%;
+    font-size: 20px;
+    padding-left: 5px;
+    display: block;
+    z-index: 2;
+    top: 50%;
+    margin-top: -45px;
+    -webkit-box-shadow: 0 0 20px #adadad;
+    box-shadow: 0 0 20px #adadad;
+    left: 50%;
+    margin-left: -45px;
+}
+
+
+
+.abt-bg {
+    background-image: url(../img/youtube-787x580.png);
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
 
 .abt-bg:after {
   position: absolute;

@@ -1,17 +1,23 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Thinh_Ecom.Data;
 
 namespace Thinh_Ecom.Controllers.ClientPage
 {
     public class CartController : Controller
     {
+        private readonly ApplicationDbContext _context;
+        public CartController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         // GET: CartController
         [Route("cart")]
         [HttpGet]
         public ActionResult Index()
         {
-            var a = "";
-            return View();
+            var queryCart = _context.ProductInCart;
+            return View(queryCart);
         }
 
         // GET: CartController/Details/5
