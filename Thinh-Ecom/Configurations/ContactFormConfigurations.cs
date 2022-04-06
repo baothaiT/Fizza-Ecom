@@ -14,7 +14,7 @@ namespace Thinh_Ecom.Configurations
         public void Configure(EntityTypeBuilder<ContactForm> builder)
         {
             builder.ToTable("ContactUsers");
-            builder.HasKey(t => new { t.cu_Id });
+            builder.HasKey(t => new { t.cf_Id });
         }
     }
 }

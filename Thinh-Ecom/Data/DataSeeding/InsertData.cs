@@ -522,12 +522,12 @@ namespace Thinh_Ecom.Data.DataSeeding
             builder.Entity<ContactForm>().HasData(
                 new ContactForm()
                 {
-                    cu_Id = contactFormId1,
-                    cu_FirstName = "FirstName",
-                    cu_LastName = "LastName",
-                    cu_Email = "Email",
-                    cu_Subject = "Subject",
-                    cu_Description = "Description"
+                    cf_Id = contactFormId1,
+                    cf_Name = "Name",
+                    cf_Phone = "0123456789",
+                    cf_Email = "Email",
+                    cf_Subject = "Subject",
+                    cf_Description = "Description"
                 });
 
 
