@@ -7,11 +7,12 @@ namespace Thinh_Ecom.Entities
 {
     public class ProductInCart
     {
+        public string pic_ProductId { get; set; }
         public Products ProductsPICart { get; set; }
 
         public string pic_CartId { get; set; }
         public Cart CartPICart { get; set; }
-        public string pic_ProductId { get; set; }
+
 
         public int pic_amount { get; set; }
 
