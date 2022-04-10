@@ -5,6 +5,7 @@ using System.Security.Claims;
 using Thinh_Ecom.Data;
 using System.Linq;
 using Thinh_Ecom.Models;
+using System.Collections.Generic;
 
 namespace Thinh_Ecom.Controllers.ClientPage
 {
@@ -23,7 +24,6 @@ namespace Thinh_Ecom.Controllers.ClientPage
             string namePc = Environment.MachineName;
             bool checkLogin = (User?.Identity.IsAuthenticated).GetValueOrDefault();
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            string userIdString = "";
             if (checkLogin)
             {
                 //login
@@ -48,9 +48,9 @@ namespace Thinh_Ecom.Controllers.ClientPage
 
                      });
 
+                ViewBag.Cart = cartModelQuery;
 
-
-                return View(cartModelQuery);
+                return View();
             }
 
             return View();
@@ -90,12 +90,24 @@ namespace Thinh_Ecom.Controllers.ClientPage
         }
 
         // POST: CartController/Edit/5
+        [Route("cart/edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(ICollection<CartModels> cartModels)
         {
             try
             {
+                foreach (var itemProductInCart in cartModels)
+                {
+                    var queryCart = _context.ProductInCart.FirstOrDefault(a => a.pic_ProductId == itemProductInCart.cart_ProductId);
+
+                    queryCart.pic_amount = itemProductInCart.cart_ProductQuantity;
+
+                    _context.ProductInCart.Update(queryCart);
+                }
+
+                _context.SaveChanges();
+
                 return RedirectToAction(nameof(Index));
             }
             catch

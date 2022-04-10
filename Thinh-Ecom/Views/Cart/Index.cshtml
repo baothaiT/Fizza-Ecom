@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Thinh_Ecom.Models.CartModels>
+﻿@model ICollection<Thinh_Ecom.Models.CartModels>
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -24,10 +24,11 @@
         <div class="row">
             <div class="col-lg-8 col-md-12">
                 <div class="cart-table-wrap">
-                    <table class="cart-table">
+                    <table class="cart-table" id="TB1">
                         <thead class="cart-table-head">
                             <tr class="table-head-row">
                                 <th class="product-remove"></th>
+                                <th hidden> Product Id </th>
                                 <th class="product-image">Product Image</th>
                                 <th class="product-name">Name</th>
                                 <th class="product-price">Price</th>
@@ -36,21 +37,34 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @{
-                                foreach (var item in Model)
-                                {
-                                    
-                                    <tr class="table-body-row">
-                                        <td class="product-remove"><a href="cart/remove?pd_id=@item.cart_ProductId"><i class="far fa-window-close"></i></a></td>
-                                        <td class="product-image"><img src="@item.cart_ProductImg" alt=""></td>
-                                        <td class="product-name">@item.cart_ProductName</td>
-                                        <td class="product-price">$@item.cart_ProductPrice</td>
-                                        <td class="product-quantity"><input type="number" placeholder="@item.cart_ProductQuantity"></td>
-                                        <td class="product-total">@item.cart_ProductPrice</td>
-                                    </tr>
-                                }
-                            }
+                            <form asp-controller="Cart" asp-action="Edit" method="post">
+                                @{
+                                    var i = 0;
+                                    foreach (var item in ViewBag.Cart)
+                                    {
 
+                                        
+                                        <tr class="table-body-row">
+                                            <td class="product-remove"><a href="cart/remove?pd_id=@item.cart_ProductId"><i class="far fa-window-close"></i></a></td>
+                                            <td hidden>
+                                                <input type="text" value="@item.cart_ProductId" name="[@i].cart_ProductId" > 
+                                            </td>
+                                            <td class="product-image"><img src="@item.cart_ProductImg" alt=""></td>
+                                            <td class="product-name">@item.cart_ProductName</td>
+                                            <td class="product-price">$@item.cart_ProductPrice</td>
+                                            <td class="product-quantity">
+                                                <input type="number" id="quantityTXT" name="[@i].cart_ProductQuantity" value="@item.cart_ProductQuantity">
+                                            </td>
+                                            <td class="product-total">@item.cart_ProductPrice</td>
+                                        </tr>
+
+                                        i++;
+
+
+                                    }
+                                }
+                            <input type="submit" value="UpdateCart" id="UpdateCartButton" hidden>
+                            </form>
 
                         </tbody>
                     </table>
@@ -82,7 +96,8 @@
                         </tbody>
                     </table>
                     <div class="cart-buttons">
-                        <a href="cart.html" class="boxed-btn">Update Cart</a>
+                        <a href="#" onclick="UpdateButton()" class="boxed-btn">Update Cart</a>
+
                         <a href="checkout.html" class="boxed-btn black">Check Out</a>
                     </div>
                 </div>
@@ -101,3 +116,64 @@
     </div>
 </div>
 <!-- end cart -->
+
+
+<script>
+        function UpdateButton()
+        {
+
+            var updateBT = document.getElementById("UpdateCartButton");
+
+            updateBT.click();
+        }
+
+        function myCreateFunction() {
+      var table = document.getElementById("TB1");
+      var row = table.insertRow(table.length);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+      var cell4 = row.insertCell(3);
+      var cell5 = row.insertCell(4);
+      var cell6 = row.insertCell(5);
+
+      var cell7 = row.insertCell(6);
+      cell1.innerHTML = "<input type='text' value='' />";
+      cell2.innerHTML = "<input type='text' value='' />";
+      cell3.innerHTML = "<input type='text' value='' />";
+      cell4.innerHTML = "<input type='text' value='' />";
+      cell5.innerHTML = "<input type='text' value='' />";
+      cell6.innerHTML = "<input type='text' value='' />";
+      cell7.innerHTML = "<input type='button' onclick='getId(this)' value='Delete row' />";
+    }
+
+    function myDeleteFunction(id) {
+        document.getElementById("TB1").deleteRow(id.value);
+    }
+     function SendData() {
+            //document.getElementById('info').innerHTML = "";
+            var myTab = document.getElementById('TB1');
+            var cart = [[]];
+            // LOOP THROUGH EACH ROW OF THE TABLE AFTER HEADER.
+
+            for (i = 1; i < myTab.rows.length; i++) {
+
+                Details.push([myTab.rows[i].cells[1].children[0].value,
+                    myTab.rows[i].cells[2].children[0].value,
+                    myTab.rows[i].cells[3].children[0].value]);
+            };
+
+
+            $.ajax({
+                type: "POST",
+                url: "/cart/edit",
+                data: JSON.stringify(cart),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                traditional: true
+
+            });
+
+        }
+
+</script>

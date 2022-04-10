@@ -1,0 +1,43 @@
+﻿@model ICollection<Thinh_Ecom.Models.CartModels>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="cart-section mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            <form method="post" asp-controller="Test" asp-action="Create" >
+                <table>
+                    <tr>
+                        <td>
+                            <input type="text" value="123" name="[0].cart_ProductId" /> 
+                        </td>
+                        <td>
+                            <input type="number" id="quantityTXT" name="[0].cart_ProductQuantity" value="1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" value="1233" name="[1].cart_ProductId" /> 
+                        </td>
+                        <td>
+                            <input type="number" id="quantityTXT" name="[1].cart_ProductQuantity" value="2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" value="1234" name="[2].cart_ProductId" /> 
+                        </td>
+                        <td>
+                            <input type="number" id="quantityTXT" name="[2].cart_ProductQuantity" value="3">
+                        </td>
+                    </tr>
+                </table>
+                
+                <input type="submit" />
+            </form>
+        </div>
+    </div>
+</div>
