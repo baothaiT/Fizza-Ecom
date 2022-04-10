@@ -56,6 +56,8 @@ namespace Thinh_Ecom.Controllers.ClientPage
             return View(PaginatedList<FoodModels>.Create(FoodModelQuery.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
+
+
         // GET: PizzaController/Details/5
         public ActionResult Details(int id)
         {

@@ -4,14 +4,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Security.Claims;
+using Thinh_Ecom.Data;
 using Thinh_Ecom.Entities;
 using Thinh_Ecom.Models;
+using System.Linq;
 
 namespace Thinh_Ecom.Controllers.ClientPage
 {
     [Authorize]
     public class CheckoutController : Controller
     {
+        private readonly ApplicationDbContext _context;
+        public CheckoutController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         // GET: CheckoutController
         [Route("/checkout")]
         [HttpGet]
@@ -39,15 +47,27 @@ namespace Thinh_Ecom.Controllers.ClientPage
                 bool checkLogin = (User?.Identity.IsAuthenticated).GetValueOrDefault();
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 //Transfer Data
+
+                var query = from a in _context.Products
+                            join b in _context.ProductInCart on a.pd_Id equals b.pic_ProductId
+                            join c in _context.Cart on b.pic_CartId equals c.cart_Id
+                            join d in _context.AppUser on c.cart_UserID equals d.Id
+                            select new { a, b, c, d };
+
+                query = query.Where(x => x.d.Id == userId);
+
                 string productIdList = "";
                 string productNameList = "";
                 string productPriceList = "";
                 string productQuantityList = "";
 
-                //foreach (var item in checkoutModels)
-                //{
-
-                //}
+                foreach (var item in query)
+                {
+                    productIdList += item.a.pd_Id + "|";
+                    productNameList += item.a.pd_Name + "|";
+                    productPriceList += item.a.pd_Price + "|";
+                    productQuantityList += item.b.pic_amount + "|";
+                }
 
 
 
@@ -55,16 +75,16 @@ namespace Thinh_Ecom.Controllers.ClientPage
                 var createBill = new Bills()
                 {
                     bill_Id = Guid.NewGuid().ToString(),
-                    bill_ProductIdlist = "",
-                    bill_ProductNamelist = "",
-                    bill_ProductPricelist = "",
-                    bill_QuantityList = "",
+                    bill_ProductIdlist = productIdList,
+                    bill_ProductNamelist = productNameList,
+                    bill_ProductPricelist = productPriceList,
+                    bill_QuantityList = productQuantityList,
                     bill_DatetimeOrder = DateTime.Now,
                     bill_PaymentMethod = "Cash",
-                    bill_Shipping = 0,
-                    bill_Discount = 0,
+                    bill_Shipping = ShippingPrice(),
+                    bill_Discount = DiscountPrice(),
                     bill_Note = "",
-                    bill_UserId = "userId"
+                    bill_UserId = userId
 
                 };
 
@@ -94,6 +114,21 @@ namespace Thinh_Ecom.Controllers.ClientPage
                 smtppassword
 
             ).Wait();
+        }
+
+        public int ShippingPrice()
+        {
+            //Calculator price
+
+            return 1;
+        }
+
+        public int DiscountPrice()
+        {
+            //Calculator price
+            var price = HttpContext.Session.GetString(KeySession.SessionCoupon);
+            int discount = 0;
+            return discount = (price is null) ? 0 : Int32.Parse(HttpContext.Session.GetString(KeySession.SessionCoupon)); ;
         }
 
         // GET: CheckoutController/Edit/5
