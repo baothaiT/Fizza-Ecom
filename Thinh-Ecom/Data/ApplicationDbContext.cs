@@ -60,6 +60,7 @@ namespace Thinh_Ecom.Data
             builder.ApplyConfiguration(new CartsDeviceConfigurations());
             builder.ApplyConfiguration(new ProductInCartDevicesConfigurations());
             builder.ApplyConfiguration(new ShippingConfigurations());
+            builder.ApplyConfiguration(new EmailGuestConfigurations());
           
 
 
@@ -98,6 +99,7 @@ namespace Thinh_Ecom.Data
         public DbSet<ProductInCartDevices> ProductInCartDevices { set; get; }
 
         public DbSet<Shipping> Shipping { set; get; }
+        public DbSet<EmailGuest> EmailGuest { set; get; }
 
 
     }

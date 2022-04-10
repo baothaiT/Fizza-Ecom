@@ -1,118 +1,129 @@
-﻿@*
+﻿@model IEnumerable<Thinh_Ecom.Models.CartModels>
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
-	<!-- breadcrumb-section -->
-	<div class="breadcrumb-section breadcrumb-bg">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 offset-lg-2 text-center">
-					<div class="breadcrumb-text">
-						<p>Fresh and Organic</p>
-						<h1>Check Out Product</h1>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end breadcrumb section -->
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <p>Fresh and Organic</p>
+                    <h1>Check Out Product</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end breadcrumb section -->
+<!-- check out section -->
+<div class="checkout-section mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="checkout-accordion-wrap">
+                    <div class="accordion" id="accordionExample">
+                        <div class="card single-accordion">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" aria-expanded="true" aria-controls="collapseOne">
+                                        Billing Address
+                                    </button>
+                                </h5>
+                            </div>
 
-	<!-- check out section -->
-	<div class="checkout-section mt-150 mb-150">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8">
-					<div class="checkout-accordion-wrap">
-						<div class="accordion" id="accordionExample">
-						  <div class="card single-accordion">
-						    <div class="card-header" id="headingOne">
-						      <h5 class="mb-0">
-						        <button class="btn btn-link" type="button"  aria-expanded="true" aria-controls="collapseOne">
-						          Billing Address
-						        </button>
-						      </h5>
-						    </div>
-
-						    <div  class="collapse show"  >
-						      <div class="card-body">
-						        <div class="billing-address-form">
-						        	<form method="post" asp-controller="Checkout" asp-action="Create">
-						        		<p><input type="text" placeholder="Name"></p>
-						        		<p><input type="email" placeholder="Email"></p>
-						        		<p><input type="text" placeholder="Address"></p>
-						        		<p><input type="tel" placeholder="Phone"></p>
-						        		<p><textarea  id="bill" cols="30" rows="10" placeholder="Say Something" name="Note"> </textarea></p>
-										<input type="submit" value="Submit" id="submitCheckout" />
-						        	</form>
-						        </div>
-						      </div>
-						    </div>
-						  </div>
-						  
-						  
-						</div>
-
-					</div>
-				</div>
-
-				<div class="col-lg-4">
-					<div class="order-details-wrap">
-						<table class="order-details">
-							<thead>
-								<tr>
-									<th>Your order Details</th>
-									<th>Price</th>
-								</tr>
-							</thead>
-							<tbody class="order-details-body">
-								<tr>
-									<td>Product</td>
-									<td>Total</td>
-								</tr>
-								<tr>
-									<td>Strawberry</td>
-									<td>$85.00</td>
-								</tr>
-								<tr>
-									<td>Berry</td>
-									<td>$70.00</td>
-								</tr>
-								<tr>
-									<td>Lemon</td>
-									<td>$35.00</td>
-								</tr>
-							</tbody>
-							<tbody class="checkout-details">
-								<tr>
-									<td>Subtotal</td>
-									<td>$190</td>
-								</tr>
-								<tr>
-									<td>Shipping</td>
-									<td>$50</td>
-								</tr>
-								<tr>
-									<td>Total</td>
-									<td>$240</td>
-								</tr>
-							</tbody>
-						</table>
-						<a onclick="Checkout()" class="boxed-btn">Place Order</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end check out section -->
+                            <div class="collapse show">
+                                <div class="card-body">
+                                    <div class="billing-address-form">
+                                        <form method="post" asp-controller="Checkout" asp-action="Create">
+                                            <p><input type="text" placeholder="Name" name="Name"></p>
+                                            <p><input type="email" placeholder="Email" name="Email"></p>
+                                            <p><input type="text" placeholder="Address" name="Address"></p>
+                                            <p><input type="tel" placeholder="Phone" name="Phone"></p>
+                                            <p><textarea id="bill" cols="30" rows="10" placeholder="Say Something" name="Note"> </textarea></p>
+                                            <input type="submit" value="Submit" id="submitCheckout" hidden />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
-	<script>
-	
-		function Checkout()
-		{
-			var checkoutButton = document.getElementById("submitCheckout");
-			checkoutButton.click();
-		}
+                    </div>
 
-	</script>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="order-details-wrap">
+                    <table class="order-details">
+                        <thead>
+                            <tr>
+                                <th>Your order Details</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="order-details-body">
+                            <tr>
+                                <td>Product</td>
+                                <td>Total</td>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                int sum = item.cart_ProductQuantity * item.cart_ProductPrice;
+                                <tr>
+                                    <td>
+                                        @item.cart_ProductName
+                                    </td>
+                                    <td>
+                                        @sum
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+
+
+
+                        <tbody class="checkout-details">
+                            <tr>
+                                <td> <b>Subtotal</b></td>
+                                <td>$@ViewBag.SubToTal</td>
+                            </tr>
+                            <tr>
+                                <td> <b>Shipping</b></td>
+                                <td>$@ViewBag.Shipping</td>
+                            </tr>
+                            <tr>
+                                <td><b>Discount </b></td>
+                                <td>$@ViewBag.Discount</td>
+                            </tr>
+                            <tr>
+                                <td><b>Total </b></td>
+                                <td>$@ViewBag.Total</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a onclick="Checkout()" class="boxed-btn">Place Order</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end check out section -->
+
+
+<script>
+
+    function Checkout()
+    {
+        var checkoutButton = document.getElementById("submitCheckout");
+        checkoutButton.click();
+    }
+
+</script>

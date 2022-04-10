@@ -8,6 +8,7 @@ using Thinh_Ecom.Data;
 using Thinh_Ecom.Entities;
 using Thinh_Ecom.Models;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Thinh_Ecom.Controllers.ClientPage
 {
@@ -38,7 +39,38 @@ namespace Thinh_Ecom.Controllers.ClientPage
 
             query = query.Where(x => x.d.Id == userId);
 
-            return View();
+            var cartModelQuery = query
+                    .Select(x => new CartModels()
+                    {
+                        cart_ProductId = x.a.pd_Id,
+                        cart_ProductName = x.a.pd_Name,
+                        cart_ProductPrice = x.a.pd_Price,
+                        cart_ProductImg = x.a.pd_Img1,
+                        cart_ProductQuantity = x.b.pic_amount
+
+                    });
+            //Pass value to ViewBag
+            ViewBag.Cart = cartModelQuery;
+
+            //Pass SubToTal to ViewBag
+            ViewBag.SubToTal = CalculatorSubTotalPrice(cartModelQuery.ToList());
+
+            //Pass Discount to ViewBag
+            ViewBag.Discount = DiscountPrice();
+
+            //Pass Shipping to ViewBag
+            ViewBag.Shipping = ShippingPrice();
+
+            //Pass  Calculator Total to ViewBag
+            ViewBag.Total = CalculatorTotalPrice(cartModelQuery.ToList());
+            return View(cartModelQuery);
+        }
+
+        public int CalculatorTotalPrice(List<CartModels> cartModelQuery)
+        {
+            //Calculator price
+
+            return CalculatorSubTotalPrice(cartModelQuery) - DiscountPrice() + ShippingPrice();
         }
 
         // GET: CheckoutController/Details/5
@@ -48,9 +80,20 @@ namespace Thinh_Ecom.Controllers.ClientPage
             return View();
         }
 
+        public int CalculatorSubTotalPrice(List<CartModels> cartModelQuery)
+        {
+            //Calculator price
+            int subTotal = 0;
+            foreach (var itemProduct in cartModelQuery)
+            {
+                subTotal += itemProduct.cart_ProductPrice * itemProduct.cart_ProductQuantity;
+            }
 
+            return subTotal;
+        }
 
         // POST: CheckoutController/Create
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(CheckoutModels checkoutModels)
@@ -124,7 +167,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
             }
             catch
             {
-                return View();
+                return RedirectToAction(nameof(Index));
             }
         }
 

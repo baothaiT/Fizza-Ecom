@@ -171,8 +171,8 @@
                     <div class="footer-box subscribe">
                         <h2 class="widget-title">Subscribe</h2>
                         <p>Subscribe to our mailing list to get the latest updates.</p>
-                        <form action="index.html">
-                            <input type="email" placeholder="Email">
+                        <form method="post" asp-controller="EmailForSub" asp-action="Create">
+                            <input type="email" placeholder="Email" name="Email">
                             <button type="submit"><i class="fas fa-paper-plane"></i></button>
                         </form>
                     </div>
