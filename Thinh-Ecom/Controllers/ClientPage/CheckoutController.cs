@@ -9,6 +9,7 @@ using Thinh_Ecom.Entities;
 using Thinh_Ecom.Models;
 using System.Linq;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Thinh_Ecom.Controllers.ClientPage
 {
@@ -96,7 +97,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CheckoutModels checkoutModels)
+        public async Task<ActionResult>  Create(CheckoutModels checkoutModels)
         {
             try
             {
@@ -153,9 +154,19 @@ namespace Thinh_Ecom.Controllers.ClientPage
 
                 _context.Bills.Add(createBill);
 
-                _context.SaveChanges();
+                
 
-                // Done process with database 
+                // Done process with database
+                // Start Delete Cart
+                // // Query Cart
+                var queryCart = _context.Cart.FirstOrDefault(a => a.cart_UserID == userId);
+
+                // // Query Product in cart
+                var queryProductList = _context.ProductInCart.Where(a => a.pic_CartId == queryCart.cart_Id);
+
+                _context.ProductInCart.RemoveRange(queryProductList);
+                // End Delete Cart
+                await _context.SaveChangesAsync();
 
                 // Start Email for customer
                 SendByMail(checkoutModels.Email, 
@@ -163,7 +174,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
                     "Order Success!");
                 // End Email for customer
 
-                return RedirectToAction(nameof(Index));
+                return Redirect("thanks");
             }
             catch
             {

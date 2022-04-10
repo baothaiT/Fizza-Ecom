@@ -24,12 +24,14 @@ namespace Thinh_Ecom.Controllers.ClientPage
         {
             try
             {
+                //Create Email
                 var createEmail = new EmailGuest()
                 {
                     Id = Guid.NewGuid().ToString(),
                     Email = emailModels.Email
                 };
 
+                // Save Email 
                 await _context.EmailGuest.AddAsync(createEmail);
 
                 await _context.SaveChangesAsync();
