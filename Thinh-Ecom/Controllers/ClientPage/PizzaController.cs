@@ -42,6 +42,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
                     Img = x.a.pd_Img1,
                     Name = x.a.pd_Name,
                     Price = x.a.pd_Price,
+                    ShortDescription = x.a.pd_ShortDescription,
                     CategoriesName = x.b.cg_Name,
                     Discount = x.a.pd_ReducePrice
                 });
