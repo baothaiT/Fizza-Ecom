@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Security.Claims;
 using Thinh_Ecom.Entities;
@@ -37,6 +38,18 @@ namespace Thinh_Ecom.Controllers.ClientPage
             {
                 bool checkLogin = (User?.Identity.IsAuthenticated).GetValueOrDefault();
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                //Transfer Data
+                string productIdList = "";
+                string productNameList = "";
+                string productPriceList = "";
+                string productQuantityList = "";
+
+                //foreach (var item in checkoutModels)
+                //{
+
+                //}
+
+
 
                 // Create Bill
                 var createBill = new Bills()
@@ -61,6 +74,26 @@ namespace Thinh_Ecom.Controllers.ClientPage
             {
                 return View();
             }
+        }
+
+        public void SendMail(string Mailto, string subject, string boddy)
+        {
+            var smtpacountJson = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build().GetSection("MailSettings")["Mail"];
+            var smtppasswordJson = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build().GetSection("MailSettings")["Password"];
+
+            String mailgui = smtpacountJson.ToString();
+            string smtpacount = smtpacountJson.ToString();
+            string smtppassword = smtppasswordJson.ToString();
+
+            MailUtils.MailUtils.SendMailGoogleSmtp(
+                mailgui,
+                Mailto,
+                subject,
+                boddy,
+                smtpacount,
+                smtppassword
+
+            ).Wait();
         }
 
         // GET: CheckoutController/Edit/5
