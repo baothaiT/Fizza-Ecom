@@ -50,6 +50,11 @@ namespace Thinh_Ecom.Controllers.ClientPage
 
                 ViewBag.Cart = cartModelQuery;
 
+                ViewBag.SubToTal = 1;
+                ViewBag.Discount = 1;
+                ViewBag.Shipping = 1;
+                ViewBag.Total = 1;
+
                 return View();
             }
 

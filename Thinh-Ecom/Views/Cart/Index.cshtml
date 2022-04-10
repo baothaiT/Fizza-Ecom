@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-lg-8 col-md-12">
                 <div class="cart-table-wrap">
-                    <table class="cart-table" id="TB1">
+                    <table class="cart-table">
                         <thead class="cart-table-head">
                             <tr class="table-head-row">
                                 <th class="product-remove"></th>
@@ -40,28 +40,30 @@
                             <form asp-controller="Cart" asp-action="Edit" method="post">
                                 @{
                                     var i = 0;
+                                    int subtotal = 0;
+                                    int subProductPrice = 0;
                                     foreach (var item in ViewBag.Cart)
                                     {
 
-                                        
-                                        <tr class="table-body-row">
-                                            <td class="product-remove"><a href="cart/remove?pd_id=@item.cart_ProductId"><i class="far fa-window-close"></i></a></td>
-                                            <td hidden>
-                                                <input type="text" value="@item.cart_ProductId" name="[@i].cart_ProductId" > 
-                                            </td>
-                                            <td class="product-image"><img src="@item.cart_ProductImg" alt=""></td>
-                                            <td class="product-name">@item.cart_ProductName</td>
-                                            <td class="product-price">$@item.cart_ProductPrice</td>
-                                            <td class="product-quantity">
-                                                <input type="number" id="quantityTXT" name="[@i].cart_ProductQuantity" value="@item.cart_ProductQuantity">
-                                            </td>
-                                            <td class="product-total">@item.cart_ProductPrice</td>
-                                        </tr>
+                                        subProductPrice = item.cart_ProductPrice * item.cart_ProductQuantity;
+                                    <tr class="table-body-row">
+                                        <td class="product-remove"><a href="cart/remove?pd_id=@item.cart_ProductId"><i class="far fa-window-close"></i></a></td>
+                                        <td hidden>
+                                            <input type="text" value="@item.cart_ProductId" name="[@i].cart_ProductId">
+                                        </td>
+                                        <td class="product-image"><img src="@item.cart_ProductImg" alt=""></td>
+                                        <td class="product-name">@item.cart_ProductName</td>
+                                        <td class="product-price">$@item.cart_ProductPrice</td>
+                                        <td class="product-quantity">
+                                            <input type="number" id="quantityTXT" name="[@i].cart_ProductQuantity" value="@item.cart_ProductQuantity" >
+                                        </td>
+                                        <td class="product-total">@subProductPrice</td>
+                                    </tr>
 
+                                        subtotal += subProductPrice;
+                                        subProductPrice = 0;
                                         i++;
-
-
-                                    }
+                                    }                             
                                 }
                             <input type="submit" value="UpdateCart" id="UpdateCartButton" hidden>
                             </form>
@@ -83,15 +85,19 @@
                         <tbody>
                             <tr class="total-data">
                                 <td><strong>Subtotal: </strong></td>
-                                <td>$500</td>
+                                <td><span id="SubtotalPrice"></span></td>
+                            </tr>
+                            <tr class="total-data">
+                                <td><strong>Discount: </strong></td>
+                                <td><span id="DiscountPrice"></span></td>
                             </tr>
                             <tr class="total-data">
                                 <td><strong>Shipping: </strong></td>
-                                <td>$45</td>
+                                <td><span id="ShippingPrice"></span></td>
                             </tr>
                             <tr class="total-data">
                                 <td><strong>Total: </strong></td>
-                                <td>$545</td>
+                                <td><span id="TotalPrice"></span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -119,61 +125,42 @@
 
 
 <script>
-        function UpdateButton()
-        {
+    function UpdateButton()
+    {
 
-            var updateBT = document.getElementById("UpdateCartButton");
+        var updateBT = document.getElementById("UpdateCartButton");
 
-            updateBT.click();
-        }
-
-        function myCreateFunction() {
-      var table = document.getElementById("TB1");
-      var row = table.insertRow(table.length);
-      var cell1 = row.insertCell(0);
-      var cell2 = row.insertCell(1);
-      var cell3 = row.insertCell(2);
-      var cell4 = row.insertCell(3);
-      var cell5 = row.insertCell(4);
-      var cell6 = row.insertCell(5);
-
-      var cell7 = row.insertCell(6);
-      cell1.innerHTML = "<input type='text' value='' />";
-      cell2.innerHTML = "<input type='text' value='' />";
-      cell3.innerHTML = "<input type='text' value='' />";
-      cell4.innerHTML = "<input type='text' value='' />";
-      cell5.innerHTML = "<input type='text' value='' />";
-      cell6.innerHTML = "<input type='text' value='' />";
-      cell7.innerHTML = "<input type='button' onclick='getId(this)' value='Delete row' />";
+        updateBT.click();
+    }
+    var SubtotalPrice = 0;
+    function SetSubTotal(price)
+    {
+        SubtotalPrice = price;
     }
 
-    function myDeleteFunction(id) {
-        document.getElementById("TB1").deleteRow(id.value);
+
+    function CaculatorValueStart()
+    {
+        //SubtotalPrice
+        var SubtotalPrice = document.getElementById("SubtotalPrice");
+        SubtotalPrice.innerHTML = "$" +@ViewBag.SubToTal;
+
+        //DiscountPrice
+        var DiscountPrice = document.getElementById("DiscountPrice");
+        DiscountPrice.innerHTML = "$" + @ViewBag.Discount;
+
+
+        //ShippingPrice
+        var ShippingPrice = document.getElementById("ShippingPrice");
+        ShippingPrice.innerHTML = "$" + @ViewBag.Shipping;
+
+
+        //TotalPrice
+        var TotalPrice = document.getElementById("TotalPrice");
+        TotalPrice.innerHTML = "$" + @ViewBag.Total;
     }
-     function SendData() {
-            //document.getElementById('info').innerHTML = "";
-            var myTab = document.getElementById('TB1');
-            var cart = [[]];
-            // LOOP THROUGH EACH ROW OF THE TABLE AFTER HEADER.
-
-            for (i = 1; i < myTab.rows.length; i++) {
-
-                Details.push([myTab.rows[i].cells[1].children[0].value,
-                    myTab.rows[i].cells[2].children[0].value,
-                    myTab.rows[i].cells[3].children[0].value]);
-            };
+    
 
 
-            $.ajax({
-                type: "POST",
-                url: "/cart/edit",
-                data: JSON.stringify(cart),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                traditional: true
-
-            });
-
-        }
 
 </script>
