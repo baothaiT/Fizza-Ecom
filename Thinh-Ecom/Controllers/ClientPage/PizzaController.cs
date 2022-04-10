@@ -9,6 +9,7 @@ using Thinh_Ecom.Entities;
 using System.Threading.Tasks;
 using System;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Thinh_Ecom.Controllers.ClientPage
 {
@@ -124,7 +125,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
         }
 
 
-
+        [Authorize]
         // POST: PizzaController/Delete/5
         [Route("addtocart")]
         [HttpGet("pd_Id")]

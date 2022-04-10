@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Thinh_Ecom.Controllers.AdminPage.Staff
 {
+    [Authorize]
     public class CategoriesManagementController : Controller
     {
         // GET: CategoriesManagementController

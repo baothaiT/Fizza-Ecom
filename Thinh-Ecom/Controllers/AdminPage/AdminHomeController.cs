@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Thinh_Ecom.Controllers.AdminPage
 {
+    [Authorize]
     public class AdminHomeController : Controller
     {
         // GET: AdminHomeController

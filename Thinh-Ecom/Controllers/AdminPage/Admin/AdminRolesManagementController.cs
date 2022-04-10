@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using Thinh_Ecom.Data;
@@ -6,6 +7,7 @@ using Thinh_Ecom.EntitiesThinh_Ecom.Entities;
 
 namespace Thinh_Ecom.Controllers.AdminPage.Admin
 {
+    [Authorize]
     public class AdminRolesManagementController : Controller
     {
         private readonly ApplicationDbContext _context;

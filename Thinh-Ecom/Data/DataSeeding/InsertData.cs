@@ -531,9 +531,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                 });
 
 
-            var ReviewId1 = "EEBA6608-AB75-4E83-909F-604B1A06F16C";
-            var ReviewId2 = "9EED8607-D2BB-45EE-AEE3-C59D858A7F97";
-            var ReviewId3 = "C2A543C2-B1E2-4DC5-A131-9137E4673FA6";
+
 
 
 
@@ -572,13 +570,6 @@ namespace Thinh_Ecom.Data.DataSeeding
             //        review_ReviewType = "Review"
 
             //    });
-
-
-            //var SubReviewId1 = Guid.NewGuid().ToString(); 
-            //var SubReviewId2 = Guid.NewGuid().ToString();
-            //var SubReviewId3 = Guid.NewGuid().ToString();
-
-
 
 
 
@@ -653,13 +644,9 @@ namespace Thinh_Ecom.Data.DataSeeding
                     bill_DatetimeOrder = DateTime.Now,
                     bill_PaymentMethod = "Check Payment",
                     bill_Note = "",
-                    bill_Quantity = "1|1|2|1",
+                    bill_QuantityList = "1|1|2|1",
                     bill_HideStatus = false,
                     bill_WaitForConfirmation = false,
-                    bill_WaitPickup = false,
-                    bill_Delivering = false,
-                    bill_Delivered =  false,
-                    bill_Cancelled = false
                 }); ;
 
             //Table Shiping

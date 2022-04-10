@@ -1,8 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Security.Claims;
+using Thinh_Ecom.Entities;
+using Thinh_Ecom.Models;
 
 namespace Thinh_Ecom.Controllers.ClientPage
 {
+    [Authorize]
     public class CheckoutController : Controller
     {
         // GET: CheckoutController
@@ -20,19 +26,35 @@ namespace Thinh_Ecom.Controllers.ClientPage
             return View();
         }
 
-        // GET: CheckoutController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+
 
         // POST: CheckoutController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(CheckoutModels checkoutModels)
         {
             try
             {
+                bool checkLogin = (User?.Identity.IsAuthenticated).GetValueOrDefault();
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+                // Create Bill
+                var createBill = new Bills()
+                {
+                    bill_Id = Guid.NewGuid().ToString(),
+                    bill_ProductIdlist = "",
+                    bill_ProductNamelist = "",
+                    bill_ProductPricelist = "",
+                    bill_QuantityList = "",
+                    bill_DatetimeOrder = DateTime.Now,
+                    bill_PaymentMethod = "Cash",
+                    bill_Shipping = 0,
+                    bill_Discount = 0,
+                    bill_Note = "",
+                    bill_UserId = "userId"
+
+                };
+
                 return RedirectToAction(nameof(Index));
             }
             catch

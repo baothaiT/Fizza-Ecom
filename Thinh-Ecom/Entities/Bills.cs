@@ -21,13 +21,9 @@ namespace Thinh_Ecom.Entities
         public DateTime bill_DatetimeOrder { set; get; }
         public string bill_PaymentMethod { set; get; }
         public string bill_Note { set; get; }
-        public string bill_Quantity { set; get; }
+        public string bill_QuantityList { set; get; }
         public bool bill_HideStatus { set; get; }
         public bool bill_WaitForConfirmation { set; get; }
-        public bool bill_WaitPickup { set; get; }
-        public bool bill_Delivering { set; get; }
-        public bool bill_Delivered { set; get; }
-        public bool bill_Cancelled { set; get; }
 
     }
 }

@@ -6,9 +6,11 @@ using Thinh_Ecom.Data;
 using System.Linq;
 using Thinh_Ecom.Models;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Thinh_Ecom.Controllers.ClientPage
 {
+    [Authorize]
     public class CartController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -102,11 +104,6 @@ namespace Thinh_Ecom.Controllers.ClientPage
             return CalculatorSubTotalPrice(cartModelQuery) - DiscountPrice() + ShippingPrice();
         }
 
-        // GET: CartController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
 
         // GET: CartController/Create
         public ActionResult Create()
