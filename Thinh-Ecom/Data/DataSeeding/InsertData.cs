@@ -92,7 +92,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Img3 = "",
                     pd_Img4 = "",
                     pd_Rate = 5,
-                    pd_ShortDescription = "",
+                    pd_ShortDescription = "short 1",
                     pd_Size = "",
                     CategoriesFK = categoriesId1
                 },
@@ -108,7 +108,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Img3 = "",
                     pd_Img4 = "",
                     pd_Rate = 5,
-                    pd_ShortDescription = "",
+                    pd_ShortDescription = "short 2",
                     pd_Size = "",
                     CategoriesFK = categoriesId1
                 },
@@ -140,7 +140,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Img3 = "",
                     pd_Img4 = "",
                     pd_Rate = 5,
-                    pd_ShortDescription = "",
+                    pd_ShortDescription = "short 3",
                     pd_Size = "",
                     CategoriesFK = categoriesId1
                 },

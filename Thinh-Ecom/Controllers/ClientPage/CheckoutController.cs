@@ -25,6 +25,19 @@ namespace Thinh_Ecom.Controllers.ClientPage
         [HttpGet]
         public ActionResult Index()
         {
+            // Query 
+            bool checkLogin = (User?.Identity.IsAuthenticated).GetValueOrDefault();
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            //Transfer Data
+
+            var query = from a in _context.Products
+                        join b in _context.ProductInCart on a.pd_Id equals b.pic_ProductId
+                        join c in _context.Cart on b.pic_CartId equals c.cart_Id
+                        join d in _context.AppUser on c.cart_UserID equals d.Id
+                        select new { a, b, c, d };
+
+            query = query.Where(x => x.d.Id == userId);
+
             return View();
         }
 
@@ -68,7 +81,14 @@ namespace Thinh_Ecom.Controllers.ClientPage
                     productPriceList += item.a.pd_Price + "|";
                     productQuantityList += item.b.pic_amount + "|";
                 }
+                //Edit User
+                var queryUser = _context.AppUser.FirstOrDefault(a => a.Id == userId);
+                queryUser.FirstName = checkoutModels.Name;
+                queryUser.Email = checkoutModels.Email;
+                queryUser.user_Address1 = checkoutModels.Address;
+                queryUser.PhoneNumber = checkoutModels.Phone;
 
+                _context.AppUser.Update(queryUser);
 
 
                 // Create Bill
@@ -83,10 +103,22 @@ namespace Thinh_Ecom.Controllers.ClientPage
                     bill_PaymentMethod = "Cash",
                     bill_Shipping = ShippingPrice(),
                     bill_Discount = DiscountPrice(),
-                    bill_Note = "",
+                    bill_Note = checkoutModels.Note,
                     bill_UserId = userId
 
                 };
+
+                _context.Bills.Add(createBill);
+
+                _context.SaveChanges();
+
+                // Done process with database 
+
+                // Start Email for customer
+                SendByMail(checkoutModels.Email, 
+                    "Order ",
+                    "Order Success!");
+                // End Email for customer
 
                 return RedirectToAction(nameof(Index));
             }
@@ -96,22 +128,20 @@ namespace Thinh_Ecom.Controllers.ClientPage
             }
         }
 
-        public void SendMail(string Mailto, string subject, string boddy)
+        public void SendByMail( string subject, string boddy, string mailto)
         {
-            var smtpacountJson = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build().GetSection("MailSettings")["Mail"];
-            var smtppasswordJson = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build().GetSection("MailSettings")["Password"];
-
-            String mailgui = smtpacountJson.ToString();
-            string smtpacount = smtpacountJson.ToString();
-            string smtppassword = smtppasswordJson.ToString();
+            var smtpacountJson = new ConfigurationBuilder().AddJsonFile("appsettings.json").
+                Build().GetSection("MailSettings")["Mail"];
+            var smtppasswordJson = new ConfigurationBuilder().AddJsonFile("appsettings.json").
+                Build().GetSection("MailSettings")["Password"];
 
             MailUtils.MailUtils.SendMailGoogleSmtp(
-                mailgui,
-                Mailto,
+                smtpacountJson.ToString(),
+                mailto,
                 subject,
                 boddy,
-                smtpacount,
-                smtppassword
+                smtpacountJson.ToString(),
+                smtppasswordJson.ToString()
 
             ).Wait();
         }
