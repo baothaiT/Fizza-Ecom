@@ -47,18 +47,59 @@ namespace Thinh_Ecom.Controllers.ClientPage
                         cart_ProductQuantity = x.b.pic_amount
 
                      });
-
+                //Pass value to ViewBag
                 ViewBag.Cart = cartModelQuery;
 
-                ViewBag.SubToTal = 1;
-                ViewBag.Discount = 1;
-                ViewBag.Shipping = 1;
-                ViewBag.Total = 1;
+                //Pass SubToTal to ViewBag
+                ViewBag.SubToTal = CalculatorSubTotalPrice(cartModelQuery.ToList());
+
+                //Pass Discount to ViewBag
+                ViewBag.Discount = DiscountPrice();
+
+                //Pass Shipping to ViewBag
+                ViewBag.Shipping = ShippingPrice();
+
+                //Pass  Calculator Total to ViewBag
+                ViewBag.Total = CalculatorTotalPrice(cartModelQuery.ToList());
 
                 return View();
             }
 
             return View();
+        }
+
+        public int CalculatorSubTotalPrice(List<CartModels> cartModelQuery)
+        {
+            //Calculator price
+            int subTotal = 0;
+            foreach (var itemProduct in cartModelQuery)
+            {
+                subTotal += itemProduct.cart_ProductPrice * itemProduct.cart_ProductQuantity;
+            }
+
+            return subTotal;
+        }
+
+        public int DiscountPrice()
+        {
+            //Calculator price
+            var price = HttpContext.Session.GetString(KeySession.SessionCoupon);
+            int discount = 0;
+            return discount = (price is null) ? 0 : Int32.Parse(HttpContext.Session.GetString(KeySession.SessionCoupon)); ;
+        }
+
+        public int ShippingPrice()
+        {
+            //Calculator price
+
+            return 1;
+        }
+
+        public int CalculatorTotalPrice(List<CartModels> cartModelQuery)
+        {
+            //Calculator price
+
+            return CalculatorSubTotalPrice(cartModelQuery) - DiscountPrice() + ShippingPrice();
         }
 
         // GET: CartController/Details/5
@@ -146,6 +187,30 @@ namespace Thinh_Ecom.Controllers.ClientPage
             return RedirectToAction(nameof(Index));
         }
 
-        
+        // POST: CartController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddCoupon(CouponModels couponModels)
+        {
+            try
+            {
+
+                var queryCoupon = _context.Coupons.FirstOrDefault(a => a.couponCode == couponModels.Code);
+                if(queryCoupon is not null)
+                {
+                    HttpContext.Session.SetString(KeySession.SessionCoupon, queryCoupon.couponPrice.ToString());
+                }
+
+                
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+
     }
 }

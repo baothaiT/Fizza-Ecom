@@ -111,8 +111,8 @@
                 <div class="coupon-section">
                     <h3>Apply Coupon</h3>
                     <div class="coupon-form-wrap">
-                        <form action="index.html">
-                            <p><input type="text" placeholder="Coupon"></p>
+                        <form method="post" asp-controller="Cart" asp-action="AddCoupon">
+                            <p><input type="text" placeholder="Coupon" name="Code"></p>
                             <p><input type="submit" value="Apply"></p>
                         </form>
                     </div>

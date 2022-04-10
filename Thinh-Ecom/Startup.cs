@@ -45,9 +45,17 @@ namespace Thinh_Ecom
             .AddDefaultTokenProviders()
             .AddDefaultUI();
             services.AddHealthChecks();
-
+             
             services.AddMvc();
             services.AddControllersWithViews();
+            services.ConfigureApplicationCookie(options => {
+                // options.Cookie.HttpOnly = true;  
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+                options.LoginPath = $"/login/";
+                options.LogoutPath = $"/logout/";
+                options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+            });
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,7 +74,7 @@ namespace Thinh_Ecom
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthentication();
