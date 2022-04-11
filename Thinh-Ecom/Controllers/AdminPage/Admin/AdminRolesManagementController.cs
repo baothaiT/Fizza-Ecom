@@ -89,7 +89,7 @@ namespace Thinh_Ecom.Controllers.AdminPage.Admin
         {
             try
             {
-               var queryRole = _context.AppRole.Find(id);
+               var queryRole = _context.AppRole.Find(appRole.Id);
 
                 queryRole.Description = appRole.Description;
                 queryRole.Name = appRole.Name;
@@ -121,11 +121,11 @@ namespace Thinh_Ecom.Controllers.AdminPage.Admin
         [Route("/rolesmanagement/delete/{id:guid}")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, AppRole appRole)
         {
             try
             {
-                var queryRole = _context.AppRole.Find(id);
+                var queryRole = _context.AppRole.Find(appRole.Id);
 
                 //Remove role 
                 _context.AppRole.Remove(queryRole);

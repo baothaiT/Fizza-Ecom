@@ -62,7 +62,7 @@ namespace Thinh_Ecom.Controllers.AdminPage.Admin
             try
             {
                 //Edit information or user
-                var queryUsers = _context.AppUser.Find(id);
+                var queryUsers = _context.AppUser.Find(appUser.Id);
                 queryUsers.FirstName = appUser.FirstName;
                 queryUsers.UserName = appUser.UserName;
                 queryUsers.LastName = appUser.LastName;
@@ -96,7 +96,7 @@ namespace Thinh_Ecom.Controllers.AdminPage.Admin
             try
             {
                 //Find user by id
-                var queryUsers = _context.AppUser.Find(id);
+                var queryUsers = _context.AppUser.Find(appUser.Id);
 
                 //Remove User
                 _context.Remove(queryUsers);
