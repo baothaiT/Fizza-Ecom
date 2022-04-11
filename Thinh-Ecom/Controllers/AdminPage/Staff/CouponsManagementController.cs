@@ -7,7 +7,7 @@ using Thinh_Ecom.Entities;
 
 namespace Thinh_Ecom.Controllers.AdminPage.Staff
 {
-    [Authorize]
+    [Authorize(Roles = "admin,staff")]
     public class CouponsManagementController : Controller
     {
         public readonly ApplicationDbContext _context;

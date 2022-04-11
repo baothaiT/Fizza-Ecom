@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Thinh_Ecom.Controllers.AdminPage
 {
-    [Authorize]
+    [Authorize(Roles = "admin,staff")]
     public class AdminHomeController : Controller
     {
         // GET: AdminHomeController

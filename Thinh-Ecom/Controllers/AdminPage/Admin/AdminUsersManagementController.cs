@@ -4,9 +4,11 @@ using Thinh_Ecom.Data;
 using Thinh_Ecom.Models;
 using Thinh_Ecom.Entities;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Thinh_Ecom.Controllers.AdminPage.Admin
 {
+    [Authorize(Roles =  "admin")]
     public class AdminUsersManagementController : Controller
     {
 
@@ -99,7 +101,7 @@ namespace Thinh_Ecom.Controllers.AdminPage.Admin
                 var queryUsers = _context.AppUser.Find(appUser.Id);
 
                 //Remove User
-                _context.Remove(queryUsers);
+                _context.AppUser.Remove(queryUsers);
                 _context.SaveChanges();
                 
 

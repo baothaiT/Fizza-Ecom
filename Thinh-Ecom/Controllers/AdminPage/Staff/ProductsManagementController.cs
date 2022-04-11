@@ -1,13 +1,15 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
+using System.Collections.Generic;
 using Thinh_Ecom.Data;
 using Thinh_Ecom.Entities;
 
 namespace Thinh_Ecom.Controllers.AdminPage.Staff
 {
-    [Authorize]
+    [Authorize(Roles = "admin,staff")]
     public class ProductsManagementController : Controller
     {
 
@@ -39,6 +41,17 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
         [HttpGet]
         public ActionResult Create()
         {
+            //Query Academic Year 
+            var categoriesYearQuery = _context.Categories;
+
+            List<SelectListItem> AcademicYearList = new List<SelectListItem>();
+            foreach (var categories in categoriesYearQuery)
+            {
+                var itemCategories = new SelectListItem { Value = categories.cg_Id, Text = categories.cg_Name };
+                AcademicYearList.Add(itemCategories);
+            }
+            ViewBag.idea_CategoriesId = AcademicYearList;
+
             return View();
         }
 
@@ -89,7 +102,7 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
             try
             {
                 //Edit info of product
-                var queryProduct = _context.Products.Find(id);
+                var queryProduct = _context.Products.Find(products.pd_Id);
                 queryProduct.pd_Name = products.pd_Name;
                 queryProduct.pd_Description = products.pd_Description;
                 queryProduct.pd_Img1 = products.pd_Img1;
@@ -121,11 +134,11 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
         [Route("productsmanagement/delete/{id:guid}")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, Products products)
         {
             try
             {
-                var queryProduct = _context.Products.Find(id);
+                var queryProduct = _context.Products.Find(products.pd_Id);
                 _context.Products.Remove(queryProduct);
                 _context.SaveChanges();
 

@@ -37,13 +37,21 @@ namespace Thinh_Ecom
             //services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddIdentity<AppUser, AppRole>(options =>
-             {
-                 options.User.RequireUniqueEmail = false;
-             })
-            .AddEntityFrameworkStores<ApplicationDbContext>()
-            .AddDefaultTokenProviders()
-            .AddDefaultUI();
+            //services.AddIdentity<AppUser, AppRole>(options =>
+            // {
+            //     options.User.RequireUniqueEmail = false;
+            // })
+            //.AddEntityFrameworkStores<ApplicationDbContext>()
+            //.AddRoles<AppRole>()
+            //.AddDefaultTokenProviders()
+            //.AddDefaultUI();
+
+            services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<AppRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders()
+                .AddDefaultUI(); ;
+
             services.AddHealthChecks();
              
             services.AddMvc();

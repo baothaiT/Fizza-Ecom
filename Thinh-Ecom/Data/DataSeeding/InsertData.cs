@@ -110,7 +110,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Rate = 5,
                     pd_ShortDescription = "short 2",
                     pd_Size = "",
-                    CategoriesFK = categoriesId1
+                    CategoriesFK = categoriesId4
                 },
                 new Products()
                 {
@@ -142,7 +142,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Rate = 5,
                     pd_ShortDescription = "short 3",
                     pd_Size = "",
-                    CategoriesFK = categoriesId1
+                    CategoriesFK = categoriesId4
                 },
                 new Products()
                 {
@@ -158,7 +158,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Rate = 5,
                     pd_ShortDescription = "",
                     pd_Size = "",
-                    CategoriesFK = categoriesId2
+                    CategoriesFK = categoriesId1
                 },
                 new Products()
                 {
@@ -174,7 +174,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Rate = 5,
                     pd_ShortDescription = "",
                     pd_Size = "",
-                    CategoriesFK = categoriesId2
+                    CategoriesFK = categoriesId1
                 },
                 new Products()
                 {
@@ -206,7 +206,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Rate = 5,
                     pd_ShortDescription = "",
                     pd_Size = "",
-                    CategoriesFK = categoriesId1
+                    CategoriesFK = categoriesId2
                 },
                 new Products()
                 {
@@ -318,7 +318,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Rate = 5,
                     pd_ShortDescription = "",
                     pd_Size = "",
-                    CategoriesFK = categoriesId1
+                    CategoriesFK = categoriesId2
                 },
                 new Products()
                 {
@@ -394,14 +394,16 @@ namespace Thinh_Ecom.Data.DataSeeding
                 new AppRole()
                 {
                     Id = IdRoleStaff,
-                    Name ="staff",
-                    Description = "Staff"
+                    Name ="Staff",
+                    Description = "Staff",
+                    NormalizedName = "Staff"
                 },
                 new AppRole()
                 {
                     Id = IdRoleAdmin,
-                    Name = "admin",
-                    Description = "admin"
+                    Name = "Admin",
+                    Description = "admin",
+                    NormalizedName = "Admin"
                 });
 
 
@@ -536,77 +538,7 @@ namespace Thinh_Ecom.Data.DataSeeding
 
 
 
-            ////Table Reviews new DateTime(2020, 01, 02)
-
-
-            //builder.Entity<Comment>().HasData(
-            //    new Comment()
-            //    {
-            //        review_id = ReviewId1,
-            //        review_Comment = "Good1",
-            //        review_UserId = IdAdmin,
-            //        review_UploadTime = new DateTime(2020, 01, 02),
-            //        review_HideStatus = false,
-            //        review_ReviewType = "Review"
-
-            //    },
-            //    new Comment()
-            //    {
-            //        review_id = ReviewId2,
-            //        review_Comment = "Good2",
-            //        review_UserId = IdStaff,
-            //        review_UploadTime = new DateTime(2020, 01, 02),
-            //        review_HideStatus = false,
-            //        review_ReviewType = "Review"
-
-            //    },
-            //    new Comment()
-            //    {
-            //        review_id = ReviewId3,
-            //        review_Comment = "Good3",
-            //        review_UserId = IdAdmin,
-            //        review_UploadTime = new DateTime(2020, 01, 02),
-            //        review_HideStatus = false,
-            //        review_ReviewType = "Review"
-
-            //    });
-
-
-
-
-
-
-
-            //Table ProductInCategories
-
-
-
-
-
-
-
-
-            //Table ReviewInproduct
-
-
-
-            //builder.Entity<CommentInproduct>().HasData(
-            //    new CommentInproduct()
-            //    {
-            //        rip_ProductId = productId1,
-            //        rip_ReviewId = ReviewId1,
-            //    },
-            //    new CommentInproduct()
-            //    {
-            //        rip_ProductId = productId1,
-            //        rip_ReviewId = ReviewId2,
-            //    },
-            //    new CommentInproduct()
-            //    {
-            //        rip_ProductId = productId1,
-            //        rip_ReviewId = ReviewId3,
-            //    });
-
+           
 
             builder.Entity<Coupons>().HasData(
                 new Coupons()

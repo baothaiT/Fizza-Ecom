@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Thinh_Ecom.Data;
 
 namespace Thinh_Ecom.Controllers.AdminPage.Staff
 {
+    [Authorize(Roles = "admin,staff")]
     public class EmailStaffController : Controller
     {
         private readonly ApplicationDbContext _context;

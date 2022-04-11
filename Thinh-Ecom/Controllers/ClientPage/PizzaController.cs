@@ -52,7 +52,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
             ViewBag.Categories = queryCategories;
 
             //Paging
-            int pageSize = 8;
+            int pageSize = 20;
             return View(PaginatedList<FoodModels>.Create(FoodModelQuery.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
