@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Thinh_Ecom.Controllers.AdminPage.Staff
 {
-    [Authorize(Roles = "admin,staff")]
+    [Authorize(Roles = "Admin, Staff")]
     public class CategoriesManagementController : Controller
     {
         // GET: CategoriesManagementController

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Thinh_Ecom.Controllers.AdminPage.Admin
 {
-    [Authorize(Roles =  "admin")]
+    [Authorize(Roles =  "Admin")]
     public class AdminUsersManagementController : Controller
     {
 

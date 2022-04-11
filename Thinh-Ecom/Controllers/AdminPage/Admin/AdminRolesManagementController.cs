@@ -7,7 +7,7 @@ using Thinh_Ecom.EntitiesThinh_Ecom.Entities;
 
 namespace Thinh_Ecom.Controllers.AdminPage.Admin
 {
-    [Authorize(Roles ="admin")]
+    [Authorize(Roles ="Admin")]
     public class AdminRolesManagementController : Controller
     {
         private readonly ApplicationDbContext _context;

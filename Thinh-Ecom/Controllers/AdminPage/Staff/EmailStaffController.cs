@@ -5,7 +5,7 @@ using Thinh_Ecom.Data;
 
 namespace Thinh_Ecom.Controllers.AdminPage.Staff
 {
-    [Authorize(Roles = "admin,staff")]
+    [Authorize(Roles = "Admin, Staff")]
     public class EmailStaffController : Controller
     {
         private readonly ApplicationDbContext _context;
