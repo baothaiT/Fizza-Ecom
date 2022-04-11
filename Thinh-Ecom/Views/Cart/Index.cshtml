@@ -33,6 +33,7 @@
                                 <th class="product-name">Name</th>
                                 <th class="product-price">Price</th>
                                 <th class="product-quantity">Quantity</th>
+                                <th class="product-quantity">Size</th>
                                 <th class="product-total">Total</th>
                             </tr>
                         </thead>
@@ -54,8 +55,40 @@
                                         <td class="product-image"><img src="@item.cart_ProductImg" alt=""></td>
                                         <td class="product-name">@item.cart_ProductName</td>
                                         <td class="product-price">$@item.cart_ProductPrice</td>
+
                                         <td class="product-quantity">
-                                            <input type="number" id="quantityTXT" name="[@i].cart_ProductQuantity" value="@item.cart_ProductQuantity" >
+                                            <input type="number" id="quantityTXT" name="[@i].cart_ProductQuantity" value="@item.cart_ProductQuantity">
+                                        </td>
+                                        <td class="product-name">
+                                            <select name="[@i].cart_ProductSize" id="cart_ProductSize" class="form-select">
+                                                    @{
+                                                        switch (item.cart_ProductSize)
+                                                        {
+                                                            case "S":
+                                                                // code block
+                                                            <option value="S" selected>S</option>
+                                                            <option value="M">M</option>
+                                                            <option value="L">L</option>
+                                                                break;
+                                                            case "M":
+                                                                // code block
+                                                            <option value="S">S</option>
+                                                            <option value="M" selected>M</option>
+                                                            <option value="L">L</option>
+                                                                break;
+                                                            case "L":
+                                                                // code block
+                                                            <option value="S">S</option>
+                                                            <option value="M">M</option>
+                                                            <option value="L" selected>L</option>
+                                                                break;
+                                                            default:
+                                                                // code block
+                                                                break;
+                                                        }
+                                                    }
+
+                                            </select>
                                         </td>
                                         <td class="product-total">@subProductPrice</td>
                                     </tr>
@@ -63,7 +96,7 @@
                                         subtotal += subProductPrice;
                                         subProductPrice = 0;
                                         i++;
-                                    }                             
+                                    }
                                 }
                             <input type="submit" value="UpdateCart" id="UpdateCartButton" hidden>
                             </form>
@@ -159,7 +192,7 @@
         var TotalPrice = document.getElementById("TotalPrice");
         TotalPrice.innerHTML = "$" + @ViewBag.Total;
     }
-    
+
 
 
 

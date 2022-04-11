@@ -23,7 +23,6 @@ namespace Thinh_Ecom.Controllers.ClientPage
         [HttpGet]
         public ActionResult Index()
         {
-            string namePc = Environment.MachineName;
             bool checkLogin = (User?.Identity.IsAuthenticated).GetValueOrDefault();
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (checkLogin)
@@ -46,9 +45,10 @@ namespace Thinh_Ecom.Controllers.ClientPage
                         cart_ProductName = x.a.pd_Name,
                         cart_ProductPrice = x.a.pd_Price,
                         cart_ProductImg = x.a.pd_Img1,
-                        cart_ProductQuantity = x.b.pic_amount
+                        cart_ProductQuantity = x.b.pic_amount, 
+                        cart_ProductSize = x.b.pic_size
 
-                     });
+                    });
                 //Pass value to ViewBag
                 ViewBag.Cart = cartModelQuery;
 
@@ -105,29 +105,10 @@ namespace Thinh_Ecom.Controllers.ClientPage
         }
 
 
-        // GET: CartController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: CartController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
         // GET: CartController/Edit/5
-        public ActionResult Edit(int id)
+        [Route("cart/edit")]
+        public ActionResult Edit()
         {
             return View();
         }
@@ -145,6 +126,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
                     var queryCart = _context.ProductInCart.FirstOrDefault(a => a.pic_ProductId == itemProductInCart.cart_ProductId);
 
                     queryCart.pic_amount = itemProductInCart.cart_ProductQuantity;
+                    queryCart.pic_size = itemProductInCart.cart_ProductSize;
 
                     _context.ProductInCart.Update(queryCart);
                 }

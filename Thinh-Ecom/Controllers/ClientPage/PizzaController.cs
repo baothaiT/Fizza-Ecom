@@ -64,69 +64,6 @@ namespace Thinh_Ecom.Controllers.ClientPage
             return View();
         }
 
-        // GET: PizzaController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: PizzaController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: PizzaController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: PizzaController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: PizzaController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: PizzaController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
 
         [Authorize]
         // POST: PizzaController/Delete/5
@@ -137,35 +74,41 @@ namespace Thinh_Ecom.Controllers.ClientPage
 
             try
             {
-                string namePc = Environment.MachineName;
-                bool checkLogin = (User?.Identity.IsAuthenticated).GetValueOrDefault();
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 var userName = User.FindFirstValue(ClaimTypes.Name);
                 string cartId = Guid.NewGuid().ToString();
 
+                // Logined
+                // Query cart
+                var queryCart = _context.Cart.FirstOrDefault(a => a.cart_UserID == userId.ToString());
 
-                if (checkLogin)
+                // Check Cart
+                if (queryCart == null)
                 {
-                    // Logined
-                    // Query cart
-                    var queryCart = _context.Cart.FirstOrDefault(a => a.cart_UserID == userId.ToString());
-
-                    // Check Cart
-                    if (queryCart == null)
+                    //Create cart 
+                    var cartCreate = new Cart()
                     {
-                        //Create cart 
-                        var cartCreate = new Cart()
-                        {
-                            cart_Id = cartId,
-                            cart_UserID = userId
-                        };
-                        _context.Cart.Add(cartCreate);
-                    }
-                    else
-                    {
-                        cartId = queryCart.cart_Id;
-                    }
+                        cart_Id = cartId,
+                        cart_UserID = userId
+                    };
+                    _context.Cart.Add(cartCreate);
+                }
+                else
+                {
+                    cartId = queryCart.cart_Id;
+                }
 
+                //Check product in cart
+                var queryProductInCart = _context.ProductInCart.FirstOrDefault(a => a.pic_ProductId == pd_Id);
+
+                if (queryProductInCart is not null)
+                {
+                    queryProductInCart.pic_amount += 1;
+
+                    _context.ProductInCart.Update(queryProductInCart);
+                }
+                else
+                {
                     //Create ProductInCart
                     var ProductInCartCreate = new ProductInCart()
                     {
@@ -174,48 +117,14 @@ namespace Thinh_Ecom.Controllers.ClientPage
                         pic_amount = 1,
                     };
                     _context.ProductInCart.Add(ProductInCartCreate);
-
-
-                    await _context.SaveChangesAsync();
                 }
-                else
-                {
-                    ///// No logined
-                    ///// Create Device in DB
-                    //var deviceQuery = _context.Devices.FirstOrDefault(a => a.deviceName == namePc);
 
-                    //if (deviceQuery == null)
-                    //{
-                    //    string DeviceId = Guid.NewGuid().ToString();
-                    //    var AddDevice = new Device()
-                    //    {
-                    //        deviceId = DeviceId,
-                    //        deviceName = namePc
-                    //    };
-                    //    _context.Devices.Add(AddDevice);
-                    //    await _context.SaveChangesAsync();
-                    //}
-                    ///// Create Device in DB
-                    //var deviceQueryre = _context.Devices.FirstOrDefault(a => a.deviceName == namePc);
 
-                    ////Create cart
-                    //var CartsDevice = new CartsDevice()
-                    //{
-                    //    cartd_Id = cartId,
-                    //    cartd_DeviceId = deviceQueryre.deviceId
-                    //};
+                
 
-                    //_context.CartsDevice.Add(CartsDevice);
-                    //var ProductInCartDevices = new ProductInCartDevices()
-                    //{
-                    //    picd_CartId = cartId,
-                    //    picd_ProductId = productid.ToString(),
-                    //    picd_amount = quantityProduct
-                    //};
 
-                    //_context.ProductInCartDevices.Add(ProductInCartDevices);
-                    //await _context.SaveChangesAsync();
-                }
+                await _context.SaveChangesAsync();
+
                 return Redirect("/cart");
             }
             catch
