@@ -206,7 +206,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Rate = 5,
                     pd_ShortDescription = "",
                     pd_Size = "",
-                    CategoriesFK = categoriesId2
+                    CategoriesFK = categoriesId3
                 },
                 new Products()
                 {
@@ -222,7 +222,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Rate = 5,
                     pd_ShortDescription = "",
                     pd_Size = "",
-                    CategoriesFK = categoriesId1
+                    CategoriesFK = categoriesId3
                 },
                 new Products()
                 {
@@ -238,7 +238,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Rate = 5,
                     pd_ShortDescription = "",
                     pd_Size = "",
-                    CategoriesFK = categoriesId1
+                    CategoriesFK = categoriesId3
                 },
                 new Products()
                 {
@@ -286,7 +286,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Rate = 5,
                     pd_ShortDescription = "",
                     pd_Size = "",
-                    CategoriesFK = categoriesId1
+                    CategoriesFK = categoriesId2
                 },
                 new Products()
                 {
@@ -302,7 +302,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Rate = 5,
                     pd_ShortDescription = "",
                     pd_Size = "",
-                    CategoriesFK = categoriesId1
+                    CategoriesFK = categoriesId2
                 },
                 new Products()
                 {
@@ -334,7 +334,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Rate = 5,
                     pd_ShortDescription = "",
                     pd_Size = "",
-                    CategoriesFK = categoriesId2
+                    CategoriesFK = categoriesId1
                 },
                 new Products()
                 {
@@ -350,7 +350,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Rate = 5,
                     pd_ShortDescription = "",
                     pd_Size = "",
-                    CategoriesFK = categoriesId3
+                    CategoriesFK = categoriesId1
                 },
                 new Products()
                 {
