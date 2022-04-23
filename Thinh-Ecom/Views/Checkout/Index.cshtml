@@ -38,10 +38,10 @@
                                 <div class="card-body">
                                     <div class="billing-address-form">
                                         <form method="post" asp-controller="Checkout" asp-action="Create">
-                                            <p><input type="text" placeholder="Name" name="Name"></p>
-                                            <p><input type="email" placeholder="Email" name="Email"></p>
-                                            <p><input type="text" placeholder="Address" name="Address"></p>
-                                            <p><input type="tel" placeholder="Phone" name="Phone"></p>
+                                            <p><input type="text" placeholder="Name" name="Name" required></p>
+                                            <p><input type="email" placeholder="Email" name="Email" required></p>
+                                            <p><input type="text" placeholder="Address" name="Address" required></p>
+                                            <p><input type="tel" placeholder="Phone" name="Phone" required></p>
                                             <p><textarea id="bill" cols="30" rows="10" placeholder="Say Something" name="Note"> </textarea></p>
                                             <input type="submit" value="Submit" id="submitCheckout" hidden />
                                         </form>

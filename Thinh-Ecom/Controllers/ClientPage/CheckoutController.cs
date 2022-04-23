@@ -119,6 +119,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
                 string productNameList = "";
                 string productPriceList = "";
                 string productQuantityList = "";
+                int totalPrice = 0;
 
                 foreach (var item in query)
                 {
@@ -126,6 +127,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
                     productNameList += item.a.pd_Name + "|";
                     productPriceList += item.a.pd_Price + "|";
                     productQuantityList += item.b.pic_amount + "|";
+                    totalPrice = totalPrice + item.a.pd_Price;
                 }
                 //Edit User
                 var queryUser = _context.AppUser.FirstOrDefault(a => a.Id == userId);
@@ -150,7 +152,8 @@ namespace Thinh_Ecom.Controllers.ClientPage
                     bill_Shipping = ShippingPrice(),
                     bill_Discount = DiscountPrice(),
                     bill_Note = checkoutModels.Note,
-                    bill_UserId = userId
+                    bill_UserId = userId,
+                    bill_PaidTotal = totalPrice
 
                 };
                 _context.Bills.Add(createBill);

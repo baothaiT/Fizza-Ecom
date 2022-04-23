@@ -43,14 +43,14 @@ namespace Thinh_Ecom.Controllers.ClientPage
                 PaymentId = x.a.bill_Id,
                 Date = x.a.bill_DatetimeOrder,
                 Status_Confirm = x.a.bill_Confirmation,
-                Name_Product = "",
-                Type_Payment = "",
+                Name_Product = "Product Name",
+                Type_Payment = x.a.bill_PaymentMethod,
                 Check_Receive = true,
-                Price = 1
+                Price = x.a.bill_PaidTotal
 
             });
 
-            return View();
+            return View(DataForHistoryModel);
         }
 
     }
