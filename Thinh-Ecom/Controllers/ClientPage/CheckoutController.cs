@@ -180,7 +180,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
             }
             catch
             {
-                return RedirectToAction(nameof(Index));
+                return Redirect("thanks");
             }
         }
 
