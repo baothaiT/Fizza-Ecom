@@ -59,11 +59,11 @@
                         <!-- menu start -->
                         <nav class="main-menu">
                             <ul>
-                                <li class="current-list-item"><a href="/">Home</a></li>
-                                <li><a href="/about">About</a></li>
-                                <li><a href="/pizza">Pizza</a></li>
-                                <li><a href="/contact">Contact</a></li>
-                                <li><a href="/admin">Admin</a></li>
+                                <li class="@ViewBag.ActiveClassHome"><a href="/">Home</a></li>
+                                <li class="@ViewBag.ActiveClassAbout"><a href="/about">About</a></li>
+                                <li class="@ViewBag.ActiveClassMenu"><a href="/pizza">Menu</a></li>
+                                <li class="@ViewBag.ActiveClassContact"><a href="/contact">Contact</a></li>
+                                <li class="@ViewBag.ActiveClass"><a href="/admin">Admin</a></li>
                                 <partial name="_LoginPartial.cshtml" />
 
                                 <li>

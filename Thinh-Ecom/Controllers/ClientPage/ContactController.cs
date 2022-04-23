@@ -19,6 +19,9 @@ namespace Thinh_Ecom.Controllers.ClientPage
         [HttpGet]
         public ActionResult Index()
         {
+            // Acctive Menu
+            ViewBag.ActiveClassContact = "current-list-item";
+
             return View();
         }
 

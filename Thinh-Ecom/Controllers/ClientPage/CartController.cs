@@ -23,6 +23,9 @@ namespace Thinh_Ecom.Controllers.ClientPage
         [HttpGet]
         public ActionResult Index()
         {
+            // Acctive Menu
+            ViewBag.ActiveClassMenu = "current-list-item";
+
             bool checkLogin = (User?.Identity.IsAuthenticated).GetValueOrDefault();
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (checkLogin)

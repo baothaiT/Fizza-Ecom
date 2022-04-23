@@ -25,6 +25,9 @@ namespace Thinh_Ecom.Controllers.ClientPage
         [HttpGet("{Search}")]
         public ActionResult Index(string Search, string sortOrder, string currentFilter, int? pageNumber)
         {
+            // Acctive Menu
+            ViewBag.ActiveClassMenu = "current-list-item";
+
             //Query Food
             var queryFood = from a in _context.Products
                             join b in _context.Categories on a.CategoriesFK equals b.cg_Id

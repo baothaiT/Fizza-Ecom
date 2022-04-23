@@ -22,6 +22,8 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
         [Route("productsmanagement")]
         public ActionResult Index()
         {
+            
+
             var queryProduct = _context.Products;
             return View(queryProduct);
         }

@@ -23,6 +23,9 @@ namespace Thinh_Ecom.Controllers.ClientPage
 
         public IActionResult Index()
         {
+            // Acctive Menu
+            ViewBag.ActiveClassHome = "current-list-item";
+
             var queryProduct = _context.Products;
             ViewBag.ProductList = queryProduct;
             return View();

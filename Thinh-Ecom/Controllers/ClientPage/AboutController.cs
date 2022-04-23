@@ -15,6 +15,9 @@ namespace Thinh_Ecom.Controllers.ClientPage
         [Route("about")]
         public ActionResult Index()
         {
+            // Acctive Menu
+            ViewBag.ActiveClassAbout = "current-list-item";
+
             return View();
         }
 
