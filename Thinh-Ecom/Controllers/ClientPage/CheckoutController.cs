@@ -107,7 +107,6 @@ namespace Thinh_Ecom.Controllers.ClientPage
                 bool checkLogin = (User?.Identity.IsAuthenticated).GetValueOrDefault();
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 //Transfer Data
-
                 var query = from a in _context.Products
                             join b in _context.ProductInCart on a.pd_Id equals b.pic_ProductId
                             join c in _context.Cart on b.pic_CartId equals c.cart_Id
@@ -154,10 +153,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
                     bill_UserId = userId
 
                 };
-
                 _context.Bills.Add(createBill);
-
-                
 
                 // Done process with database
                 // Start Delete Cart
