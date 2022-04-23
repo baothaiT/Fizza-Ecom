@@ -35,7 +35,8 @@ namespace Thinh_Ecom.Controllers.ClientPage
                             join b in _context.ProductInCart on a.pd_Id equals b.pic_ProductId
                             join c in _context.Cart on b.pic_CartId equals c.cart_Id
                             join d in _context.AppUser on c.cart_UserID equals d.Id
-                            select new { a, b, c, d };
+                            join f in _context.Categories on a.CategoriesFK equals f.cg_Id
+                            select new { a, b, c, d ,f };
 
 
 
@@ -46,6 +47,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
                      {
                         cart_ProductId = x.a.pd_Id,
                         cart_ProductName = x.a.pd_Name,
+                        cart_ProductType = x.f.cg_Name,
                         cart_ProductPrice = x.a.pd_Price,
                         cart_ProductImg = x.a.pd_Img1,
                         cart_ProductQuantity = x.b.pic_amount, 

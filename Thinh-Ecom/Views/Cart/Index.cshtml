@@ -59,37 +59,46 @@
                                         <td class="product-quantity">
                                             <input type="number" id="quantityTXT" name="[@i].cart_ProductQuantity" value="@item.cart_ProductQuantity">
                                         </td>
-                                        <td class="product-name">
-                                            <select name="[@i].cart_ProductSize" id="cart_ProductSize" class="form-select">
-                                                    @{
-                                                        switch (item.cart_ProductSize)
-                                                        {
-                                                            case "S":
-                                                                // code block
-                                                            <option value="S" selected>S</option>
-                                                            <option value="M">M</option>
-                                                            <option value="L">L</option>
-                                                                break;
-                                                            case "M":
-                                                                // code block
-                                                            <option value="S">S</option>
-                                                            <option value="M" selected>M</option>
-                                                            <option value="L">L</option>
-                                                                break;
-                                                            case "L":
-                                                                // code block
-                                                            <option value="S">S</option>
-                                                            <option value="M">M</option>
-                                                            <option value="L" selected>L</option>
-                                                                break;
-                                                            default:
-                                                                // code block
-                                                                break;
+                                            @if (@item.cart_ProductType == "Drink")
+                                            {
+                                                <td class="product-name">
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                            <td class="product-name">
+                                                <select name="[@i].cart_ProductSize" id="cart_ProductSize" class="form-select">
+                                                        @{
+                                                            switch (item.cart_ProductSize)
+                                                            {
+                                                                case "S":
+                                                                    // code block
+                                                                <option value="S" selected>S</option>
+                                                                <option value="M">M</option>
+                                                                <option value="L">L</option>
+                                                                    break;
+                                                                case "M":
+                                                                    // code block
+                                                                <option value="S">S</option>
+                                                                <option value="M" selected>M</option>
+                                                                <option value="L">L</option>
+                                                                    break;
+                                                                case "L":
+                                                                    // code block
+                                                                <option value="S">S</option>
+                                                                <option value="M">M</option>
+                                                                <option value="L" selected>L</option>
+                                                                    break;
+                                                                default:
+                                                                    // code block
+                                                                    break;
+                                                            }
                                                         }
-                                                    }
 
-                                            </select>
-                                        </td>
+                                                </select>
+                                            </td>
+                                            }
+
                                         <td class="product-total">@subProductPrice</td>
                                     </tr>
 

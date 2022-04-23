@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Thinh_Ecom.Data;
+using System.Linq;
+using System.Security.Claims;
+using Thinh_Ecom.Models;
 
 namespace Thinh_Ecom.Controllers.ClientPage
 {
@@ -16,78 +19,39 @@ namespace Thinh_Ecom.Controllers.ClientPage
         [Route("paymenthistory")]
         public ActionResult Index()
         {
+            // Get Data Of User
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             // Active Color Payment
             ViewBag.ActiveClassPaymentHistory = "current-list-item";
+
+            // Query Data Bill and User Table
+
+            var queryBill = from a in _context.Bills
+                            join b in _context.Users on a.bill_UserId equals b.Id
+                            select new { a, b };
+
+            queryBill = queryBill.Where(a => a.b.Id == userId);
+
+            // // Start Proccess Product Name
+
+
+            // // End Proccess Product Name
+
+            var DataForHistoryModel = queryBill.Select(x => new HistoryPaymentModels()
+            {
+                PaymentId = x.a.bill_Id,
+                Date = x.a.bill_DatetimeOrder,
+                Status_Confirm = x.a.bill_Confirmation,
+                Name_Product = "",
+                Type_Payment = "",
+                Check_Receive = true,
+                Price = 1
+
+            });
+
             return View();
         }
 
-        // GET: HistoryOfPaymentController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: HistoryOfPaymentController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: HistoryOfPaymentController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: HistoryOfPaymentController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: HistoryOfPaymentController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: HistoryOfPaymentController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: HistoryOfPaymentController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }
