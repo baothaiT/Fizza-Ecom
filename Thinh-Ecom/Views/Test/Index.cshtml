@@ -6,43 +6,29 @@
 @{
 }
 
-<style>
-    /* The popup form - hidden by default */
-    .form-popup {
-        display: none;
-
-    }
-</style>
 <div class="cart-section mt-150 mb-150">
     <div class="container">
         <div class="row">
-            <div>
-                <button onclick="openForm()">Open</button>
-                <button onclick="closeForm()">Close</button>
+            <h1>Popup/Modal Windows without JavaScript</h1>
+            <div class="box">
+                <a class="button" href="#popup1">Let me Pop up</a>
             </div>
 
-
-            <div class="form-popup" id="myForm">
-                <form action="/action_page.php" class="form-container">
-                    <h1>Login</h1>
-                    <label for="email"><b>Email</b></label>
-                    <input type="text" placeholder="Enter Email" name="email" required>
-
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
-
-                    <button type="submit" class="btn">Login</button>
-                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                </form>
+            <div id="popup1" class="overlay">
+                <div class="popup">
+                    <h2>Here i am</h2>
+                    <a class="close" href="#">&times;</a>
+                    <div class="content">
+                        Thank to pop me out of that button, but now i'm done so you can close this window.
+                    </div>
+                </div>
             </div>
         </div>
 
     </div>
 </div>
 
-<div>
 
-</div>
 
 <script>
         function openForm() {

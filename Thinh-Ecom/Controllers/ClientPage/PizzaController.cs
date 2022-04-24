@@ -123,16 +123,13 @@ namespace Thinh_Ecom.Controllers.ClientPage
                 }
 
 
-                
-
-
                 await _context.SaveChangesAsync();
 
-                return Redirect("/cart");
+                return Redirect("/pizza");
             }
             catch
             {
-                return Redirect("/cart");
+                return Redirect("/pizza");
             }
 
         }
