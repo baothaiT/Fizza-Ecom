@@ -29,7 +29,7 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
                             select new { a, b };
 
             // // Start Proccess Product Name
-
+             queryBill = queryBill.OrderByDescending(s => s.a.bill_DatetimeOrder);
 
             // // End Proccess Product Name
 

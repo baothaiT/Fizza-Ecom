@@ -176,11 +176,11 @@ namespace Thinh_Ecom.Controllers.ClientPage
                     "Order Success!");
                 // End Email for customer
 
-                return Redirect("thanks");
+                return Redirect("/thanks");
             }
             catch
             {
-                return Redirect("thanks");
+                return Redirect("/thanks");
             }
         }
 

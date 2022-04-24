@@ -7,6 +7,7 @@ using System.Linq;
 using Thinh_Ecom.Models;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
+using Thinh_Ecom.Function;
 
 namespace Thinh_Ecom.Controllers.ClientPage
 {
@@ -31,6 +32,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
             if (checkLogin)
             {
                 //login
+                // Query data
                 var query = from a in _context.Products
                             join b in _context.ProductInCart on a.pd_Id equals b.pic_ProductId
                             join c in _context.Cart on b.pic_CartId equals c.cart_Id
@@ -42,13 +44,14 @@ namespace Thinh_Ecom.Controllers.ClientPage
 
                 query = query.Where(x => x.d.Id == userId);
 
+                // Pass Query data to Cart Model
                 var cartModelQuery = query
                     .Select(x => new CartModels()
                      {
                         cart_ProductId = x.a.pd_Id,
                         cart_ProductName = x.a.pd_Name,
                         cart_ProductType = x.f.cg_Name,
-                        cart_ProductPrice = x.a.pd_Price,
+                        cart_ProductPrice = CalculatorStatic.CalculatorPriceForSize(x.b.pic_size, x.a.pd_Price),
                         cart_ProductImg = x.a.pd_Img1,
                         cart_ProductQuantity = x.b.pic_amount, 
                         cart_ProductSize = x.b.pic_size
@@ -132,6 +135,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
 
                     queryCart.pic_amount = itemProductInCart.cart_ProductQuantity;
                     queryCart.pic_size = itemProductInCart.cart_ProductSize;
+                    
 
                     _context.ProductInCart.Update(queryCart);
                 }
@@ -145,6 +149,8 @@ namespace Thinh_Ecom.Controllers.ClientPage
                 return View();
             }
         }
+
+       
 
         // GET: CartController/Delete/5
         [Route("cart/remove")]

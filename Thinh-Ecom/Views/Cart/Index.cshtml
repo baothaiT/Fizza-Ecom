@@ -59,10 +59,12 @@
                                         <td class="product-quantity">
                                             <input type="number" id="quantityTXT" name="[@i].cart_ProductQuantity" value="@item.cart_ProductQuantity">
                                         </td>
-                                            @if (@item.cart_ProductType == "Drink")
+                                            @if ((@item.cart_ProductType == "Drink") ||
+                                (@item.cart_ProductType == "Spaghetti") ||
+                                (@item.cart_ProductType == "Sidedishes"))
                                             {
-                                                <td class="product-name">
-                                                </td>
+                                            <td class="product-name">
+                                            </td>
                                             }
                                             else
                                             {
@@ -91,6 +93,9 @@
                                                                     break;
                                                                 default:
                                                                     // code block
+                                                                <option value="S" selected>S</option>
+                                                                <option value="M">M</option>
+                                                                <option value="L">L</option>
                                                                     break;
                                                             }
                                                         }
