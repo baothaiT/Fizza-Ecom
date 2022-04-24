@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using Thinh_Ecom.Data;
 using Thinh_Ecom.Entities;
+using System.Linq;
 
 namespace Thinh_Ecom.Controllers.AdminPage.Staff
 {
@@ -71,7 +72,9 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
                     pd_Description = products.pd_Description,
                     pd_Img1 = products.pd_Img1,
                     pd_Price = products.pd_Price,
-                    pd_ReducePrice = products.pd_ReducePrice
+                    pd_ReducePrice = products.pd_ReducePrice,
+                    pd_ShortDescription = products.pd_ShortDescription
+
 
                 };
                 _context.Products.Add(productInfo);
@@ -92,6 +95,14 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
         {
             //Print information of product
             var queryProduct = _context.Products.Find(id);
+
+            //Query Current Categories
+            var queryCurrentCategories = _context.Categories.FirstOrDefault(a => a.cg_Id == queryProduct.CategoriesFK);
+            ViewBag.CurrentCategories = queryCurrentCategories;
+            //List Categories
+            var queryCategoriesList = _context.Categories.Where(a => a.cg_Id != queryCurrentCategories.cg_Id);
+            ViewBag.CategoriesList = queryCategoriesList;
+            
             return View(queryProduct);
         }
 
@@ -110,6 +121,8 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
                 queryProduct.pd_Img1 = products.pd_Img1;
                 queryProduct.pd_Price = products.pd_Price;
                 queryProduct.pd_ReducePrice = products.pd_ReducePrice;
+                queryProduct.pd_ShortDescription = products.pd_ShortDescription;
+                queryProduct.CategoriesFK = products.CategoriesFK;
 
                 _context.Products.Update(queryProduct);
                 _context.SaveChanges();

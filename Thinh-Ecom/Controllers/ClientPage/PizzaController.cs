@@ -25,6 +25,10 @@ namespace Thinh_Ecom.Controllers.ClientPage
         [HttpGet("{Search}")]
         public ActionResult Index(string Search, string sortOrder, string currentFilter, int? pageNumber)
         {
+            bool checkLogin = (User?.Identity.IsAuthenticated).GetValueOrDefault();
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            // Count Cart
+            ViewBag.CountCart = CalculatorStatic.CountProductInCart(_context, checkLogin, userId);
             // Acctive Menu
             ViewBag.ActiveClassMenu = "current-list-item";
 

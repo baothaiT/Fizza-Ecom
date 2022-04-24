@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Security.Claims;
 using Thinh_Ecom.Data;
 using Thinh_Ecom.Entities;
+using Thinh_Ecom.Function;
 
 namespace Thinh_Ecom.Controllers.ClientPage
 {
@@ -33,6 +35,10 @@ namespace Thinh_Ecom.Controllers.ClientPage
         {
             try
             {
+                bool checkLogin = (User?.Identity.IsAuthenticated).GetValueOrDefault();
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                // Count Cart
+                ViewBag.CountCart = CalculatorStatic.CountProductInCart(_context, checkLogin, userId);
                 // Insert Data to ContactForm
                 var createForm = new ContactForm();
                 {

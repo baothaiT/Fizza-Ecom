@@ -4,8 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Thinh_Ecom.Data;
+using Thinh_Ecom.Function;
 using Thinh_Ecom.Models;
 
 namespace Thinh_Ecom.Controllers.ClientPage
@@ -23,8 +25,13 @@ namespace Thinh_Ecom.Controllers.ClientPage
 
         public IActionResult Index()
         {
+            bool checkLogin = (User?.Identity.IsAuthenticated).GetValueOrDefault();
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            // Count Cart
+            ViewBag.CountCart = CalculatorStatic.CountProductInCart(_context, checkLogin, userId);
             // Acctive Menu
             ViewBag.ActiveClassHome = "current-list-item";
+           
 
             var queryProduct = _context.Products;
             ViewBag.ProductList = queryProduct;

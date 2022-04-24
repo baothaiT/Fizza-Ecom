@@ -84,7 +84,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                 {
                     pd_Id = productId1,
                     pd_Name = "Pizza",
-                    pd_Description = "pizza-bo",
+                    pd_Description = "Pizza: bo",
                     pd_Price = 10,
                     pd_ReducePrice = 5,
                     pd_Img1 = "/img/pizza-300x300/pizza-bo.png",

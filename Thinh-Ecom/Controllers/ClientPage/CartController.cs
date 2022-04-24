@@ -24,11 +24,14 @@ namespace Thinh_Ecom.Controllers.ClientPage
         [HttpGet]
         public ActionResult Index()
         {
+            bool checkLogin = (User?.Identity.IsAuthenticated).GetValueOrDefault();
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            // Count Cart
+            ViewBag.CountCart = CalculatorStatic.CountProductInCart(_context, checkLogin, userId);
             // Acctive Menu
             ViewBag.ActiveClassMenu = "current-list-item";
 
-            bool checkLogin = (User?.Identity.IsAuthenticated).GetValueOrDefault();
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             if (checkLogin)
             {
                 //login

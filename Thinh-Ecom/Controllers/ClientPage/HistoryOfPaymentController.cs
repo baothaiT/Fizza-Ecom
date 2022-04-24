@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using Thinh_Ecom.Models;
 using Microsoft.AspNetCore.Authorization;
+using Thinh_Ecom.Function;
 
 namespace Thinh_Ecom.Controllers.ClientPage
 {
@@ -22,7 +23,10 @@ namespace Thinh_Ecom.Controllers.ClientPage
         public ActionResult Index()
         {
             // Get Data Of User
+            bool checkLogin = (User?.Identity.IsAuthenticated).GetValueOrDefault();
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            // Count Cart
+            ViewBag.CountCart = CalculatorStatic.CountProductInCart(_context, checkLogin, userId);
 
             // Active Color Payment
             ViewBag.ActiveClassPaymentHistory = "current-list-item";
