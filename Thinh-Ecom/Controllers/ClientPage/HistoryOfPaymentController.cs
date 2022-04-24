@@ -4,9 +4,11 @@ using Thinh_Ecom.Data;
 using System.Linq;
 using System.Security.Claims;
 using Thinh_Ecom.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Thinh_Ecom.Controllers.ClientPage
 {
+    [Authorize]
     public class HistoryOfPaymentController : Controller
     {
         private readonly ApplicationDbContext _context;

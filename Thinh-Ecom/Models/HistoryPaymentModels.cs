@@ -10,6 +10,7 @@ namespace Thinh_Ecom.Models
         public string Name_Product { get; set; }
         public string Type_Payment { get; set; }
         public bool Check_Receive { get; set; }
+        
         public int Price { get; set; }
     }
 }
