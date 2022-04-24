@@ -174,9 +174,10 @@ namespace Thinh_Ecom.Controllers.ClientPage
                 await _context.SaveChangesAsync();
 
                 // Start Email for customer
-                SendByMail(checkoutModels.Email, 
-                    "Order ",
-                    "Order Success!");
+                SendByMail("Order Success!", 
+                    "Order ", 
+                    checkoutModels.Email
+                    );
                 // End Email for customer
 
                 return Redirect("/thanks");

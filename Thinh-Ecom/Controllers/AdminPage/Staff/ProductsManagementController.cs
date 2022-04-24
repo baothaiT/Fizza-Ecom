@@ -73,7 +73,8 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
                     pd_Img1 = products.pd_Img1,
                     pd_Price = products.pd_Price,
                     pd_ReducePrice = products.pd_ReducePrice,
-                    pd_ShortDescription = products.pd_ShortDescription
+                    pd_ShortDescription = products.pd_ShortDescription,
+                    CategoriesFK = products.CategoriesFK
 
 
                 };
