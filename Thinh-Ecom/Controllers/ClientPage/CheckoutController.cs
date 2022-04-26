@@ -121,6 +121,9 @@ namespace Thinh_Ecom.Controllers.ClientPage
                 string productQuantityList = "";
                 int totalPrice = 0;
 
+                string productListreate = "";
+                int i = 0;
+
                 foreach (var item in query)
                 {
                     productIdList += item.a.pd_Id + "|";
@@ -128,7 +131,20 @@ namespace Thinh_Ecom.Controllers.ClientPage
                     productPriceList += item.a.pd_Price + "|";
                     productQuantityList += item.b.pic_amount + "|";
                     totalPrice = totalPrice + item.a.pd_Price;
+
+                    productListreate += "<tr>" +
+                    "<td>"+ i + "</td>" +
+                    "<td>"+ item.a.pd_Name + "</td>" +
+                    "<td>"+ item.b.pic_amount + "</td>" +
+                    "<td>"+ item.a.pd_Price * item.b.pic_amount + "</td>" +
+                    "</tr>";
+
+                    i++;
                 }
+
+                
+
+                
                 //Edit User
                 var queryUser = _context.AppUser.FirstOrDefault(a => a.Id == userId);
                 queryUser.FirstName = checkoutModels.Name;
@@ -171,11 +187,12 @@ namespace Thinh_Ecom.Controllers.ClientPage
                 await _context.SaveChangesAsync();
 
                 // Start product list
+               
 
                 string contentEmail = "<div>" +
-                    "<p>Name: NameVariable</p>" +
-                    "<p>Address: AddressVariable</p>" +
-                    "<p>Phone : PhoneVariable</p>" +
+                    "<p>Name: "+ queryUser.UserName+ "</p>" +
+                    "<p>Address: "+ queryUser.user_Address1+ "</p>" +
+                    "<p>Phone : "+ queryUser.PhoneNumber+ "</p>" +
                     "<table>" +
                     "<tr>" +
                     "<th>Id:</th>" +
@@ -183,18 +200,11 @@ namespace Thinh_Ecom.Controllers.ClientPage
                     "<th>Quantity:</th>" +
                     "<th>Price:</th>" +
                     "</tr>" +
-                    "<tr>" +
-                    "<td>1</td>" +
-                    "<td>Product Name</td>" +
-                    "<td>3</td>" +
-                    "<td>$4</td>" +
-                    "</tr>" +
+                    productListreate +
                     "</table>" +
-                    "<p>Subtotal: SubtotalVariable</p>" +
-                    "<p>Discount: DiscountVariable</p>" +
-                    "<p>Shipping: ShippingVariable</p>" +
-                    "<p>Total: TotalVariable</p>";
-
+                    "<p>Discount: "+ DiscountPrice() + "</p>" +
+                    "<p>Shipping: "+ ShippingPrice() + "</p>" +
+                    "<p>Total: "+ totalPrice + "</p>";
                 // End product list
 
 
