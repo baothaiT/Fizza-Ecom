@@ -17,6 +17,8 @@ namespace Thinh_Ecom.Controllers
         // GET: TestController/Details/5
         public ActionResult Details(int id)
         {
+
+
             return View();
         }
 

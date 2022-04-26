@@ -170,9 +170,37 @@ namespace Thinh_Ecom.Controllers.ClientPage
                 // End Delete Cart
                 await _context.SaveChangesAsync();
 
+                // Start product list
+
+                string contentEmail = "<div>" +
+                    "<p>Name: NameVariable</p>" +
+                    "<p>Address: AddressVariable</p>" +
+                    "<p>Phone : PhoneVariable</p>" +
+                    "<table>" +
+                    "<tr>" +
+                    "<th>Id:</th>" +
+                    "<th>ProductName:</th>" +
+                    "<th>Quantity:</th>" +
+                    "<th>Price:</th>" +
+                    "</tr>" +
+                    "<tr>" +
+                    "<td>1</td>" +
+                    "<td>Product Name</td>" +
+                    "<td>3</td>" +
+                    "<td>$4</td>" +
+                    "</tr>" +
+                    "</table>" +
+                    "<p>Subtotal: SubtotalVariable</p>" +
+                    "<p>Discount: DiscountVariable</p>" +
+                    "<p>Shipping: ShippingVariable</p>" +
+                    "<p>Total: TotalVariable</p>";
+
+                // End product list
+
+
                 // Start Email for customer
-                SendByMail(checkoutModels.Email, 
-                    "Order ",
+                SendByMail(checkoutModels.Email,
+                    contentEmail,
                     "Order Success!");
                 // End Email for customer
 
