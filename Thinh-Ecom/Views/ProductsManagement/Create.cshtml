@@ -1,4 +1,4 @@
-﻿@model Thinh_Ecom.Entities.Products
+﻿@model Thinh_Ecom.Models.ProductModels
 
 @{
     ViewData["Title"] = "Create";
@@ -11,7 +11,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="pd_Name" class="control-label"></label>
@@ -36,8 +36,7 @@
 
             <div class="form-group">
                 <label asp-for="pd_Img1" class="control-label"></label>
-                <input asp-for="pd_Img1" class="form-control" />
-                <span asp-validation-for="pd_Img1" class="text-danger"></span>
+                 <input type="file" name="pd_Img1" class="form-control" required />
             </div>
             
 

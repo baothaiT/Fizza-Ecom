@@ -7,17 +7,22 @@ using System.Collections.Generic;
 using Thinh_Ecom.Data;
 using Thinh_Ecom.Entities;
 using System.Linq;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
+using Thinh_Ecom.Models;
+using System.Threading.Tasks;
 
 namespace Thinh_Ecom.Controllers.AdminPage.Staff
 {
     [Authorize(Roles = "Admin, Staff")]
     public class ProductsManagementController : Controller
     {
-
+        private readonly IWebHostEnvironment _hostEnvironment;
         public readonly ApplicationDbContext _context;
-        public ProductsManagementController(ApplicationDbContext context)
+        public ProductsManagementController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            _hostEnvironment = hostEnvironment;
         }
         // GET: ProductsManagementController
         [Route("productsmanagement")]
@@ -61,25 +66,40 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
         // POST: ProductsManagementController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Products products)
+        public async Task<ActionResult> Create(ProductModels productModels)
         {
             try
             {
-                var productInfo = new Products()
+                if (ModelState.IsValid)
                 {
-                    pd_Id = Guid.NewGuid().ToString(),
-                    pd_Name = products.pd_Name,
-                    pd_Description = products.pd_Description,
-                    pd_Img1 = products.pd_Img1,
-                    pd_Price = products.pd_Price,
-                    pd_ReducePrice = products.pd_ReducePrice,
-                    pd_ShortDescription = products.pd_ShortDescription,
-                    CategoriesFK = products.CategoriesFK
+                    string wwwRootPath = _hostEnvironment.WebRootPath;
+                    string fileName = Path.GetFileNameWithoutExtension(productModels.pd_Img1.FileName);
+                    string extension = Path.GetExtension(productModels.pd_Img1.FileName);
+                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                    string path = Path.Combine(wwwRootPath + "/Image/", fileName);
+
+                    var productInfo = new Products()
+                    {
+                        pd_Id = Guid.NewGuid().ToString(),
+                        pd_Name = productModels.pd_Name,
+                        pd_Description = productModels.pd_Description,
+                        pd_Img1 = "./Image/" + fileName,
+                        pd_Price = productModels.pd_Price,
+                        pd_ReducePrice = productModels.pd_ReducePrice,
+                        pd_ShortDescription = productModels.pd_ShortDescription,
+                        CategoriesFK = productModels.CategoriesFK
 
 
-                };
-                _context.Products.Add(productInfo);
-                _context.SaveChanges();
+                    };
+
+                    // Insert image File
+                    using (var fileStream = new FileStream(path, FileMode.Create))
+                    {
+                        await productModels.pd_Img1.CopyToAsync(fileStream);
+                    }
+                    _context.Products.Add(productInfo);
+                    _context.SaveChanges();
+                }
 
                 return RedirectToAction(nameof(Index));
             }
