@@ -24,6 +24,7 @@ namespace Thinh_Ecom.Entities
         public string bill_QuantityList { set; get; }
         public bool bill_HideStatus { set; get; }
         public bool bill_WaitForConfirmation { set; get; }
+        public bool IsDelete { set; get; }
 
     }
 }

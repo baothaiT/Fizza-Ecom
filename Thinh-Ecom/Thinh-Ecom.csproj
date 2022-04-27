@@ -171,7 +171,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="HTML\pizza\assets\css\scss\prepros-6.config" />
     <None Include="wwwroot\assets\bootstrap\css\bootstrap-grid.css" />
     <None Include="wwwroot\assets\bootstrap\css\bootstrap-grid.css.map" />
     <None Include="wwwroot\assets\bootstrap\css\bootstrap-grid.min.css" />

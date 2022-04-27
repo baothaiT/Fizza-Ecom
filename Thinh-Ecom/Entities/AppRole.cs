@@ -9,7 +9,7 @@ namespace Thinh_Ecom.EntitiesThinh_Ecom.Entities
     public class AppRole : IdentityRole
     {
         public string Description { set; get; }
-
+        public bool IsDelete { set; get; }
         
 
     }

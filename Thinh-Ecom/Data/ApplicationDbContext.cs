@@ -52,13 +52,7 @@ namespace Thinh_Ecom.Data
             builder.ApplyConfiguration(new ContactFormConfigurations());
             builder.ApplyConfiguration(new ProductInCartConfigurations());
             builder.ApplyConfiguration(new ProductsConfigurations());
-            builder.ApplyConfiguration(new CommentConfigurations());
-            builder.ApplyConfiguration(new CommentInproductConfigurations());
             builder.ApplyConfiguration(new CouponsConfigurations());
-            builder.ApplyConfiguration(new DeviceInfoConfigurations());
-            builder.ApplyConfiguration(new DeviceInfoConfigurations());
-            builder.ApplyConfiguration(new CartsDeviceConfigurations());
-            builder.ApplyConfiguration(new ProductInCartDevicesConfigurations());
             builder.ApplyConfiguration(new ShippingConfigurations());
             builder.ApplyConfiguration(new EmailGuestConfigurations());
           
@@ -89,15 +83,9 @@ namespace Thinh_Ecom.Data
         public DbSet<SystemContact> SystemContact { set; get; }
         public DbSet<ContactForm> ContactForm { set; get; }
         public DbSet<Products> Products { set; get; }
-        public DbSet<Comment> Comment { set; get; }
-        public DbSet<CommentInproduct> CommentInproduct { set; get; }
         public DbSet<ProductInCart> ProductInCart { set; get; }
         public DbSet<Cart> Cart { set; get; }
         public DbSet<Coupons> Coupons { set; get; }
-        public DbSet<DeviceInfo> DeviceInfo { set; get; }
-        public DbSet<CartsDevice> CartsDevice { set; get; }
-        public DbSet<ProductInCartDevices> ProductInCartDevices { set; get; }
-
         public DbSet<Shipping> Shipping { set; get; }
         public DbSet<EmailGuest> EmailGuest { set; get; }
 

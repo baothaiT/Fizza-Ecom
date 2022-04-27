@@ -22,7 +22,6 @@ namespace Thinh_Ecom.Entities
         public string user_Address1 { set; get; }
         public string user_Address2 { set; get; }
         public List<Bills> BillsAU { get; set; }
-        public List<Comment> ReviewsU { get; set; }
         public List<Cart> CartU { get; set; }
         public List<About> AboutU { get; set; }
 
@@ -30,7 +29,7 @@ namespace Thinh_Ecom.Entities
         public List<Shipping> ShippingU { get; set; }
         public List<SystemContact> SystemContactU { get; set; }
 
-
+        public bool IsDelete { set; get; }
 
 
 

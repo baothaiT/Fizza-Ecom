@@ -13,6 +13,6 @@ namespace Thinh_Ecom.Entities
         public string cg_Sale { set; get; }
         public List<Products> Products { get; set; }
 
-
+        public bool IsDelete { set; get; }
     }
 }
