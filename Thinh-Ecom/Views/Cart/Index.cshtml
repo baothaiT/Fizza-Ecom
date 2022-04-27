@@ -57,7 +57,7 @@
                                         <td class="product-price">$@item.cart_ProductPrice</td>
 
                                         <td class="product-quantity">
-                                            <input type="number" id="quantityTXT" name="[@i].cart_ProductQuantity" value="@item.cart_ProductQuantity">
+                                            <input type="number" id="quantityTXT" name="[@i].cart_ProductQuantity" value="@item.cart_ProductQuantity" min="1">
                                         </td>
                                             @if ((@item.cart_ProductType == "Drink") ||
                                 (@item.cart_ProductType == "Spaghetti") ||

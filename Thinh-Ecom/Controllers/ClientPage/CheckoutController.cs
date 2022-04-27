@@ -124,6 +124,9 @@ namespace Thinh_Ecom.Controllers.ClientPage
                 string productQuantityList = "";
                 int totalPrice = 0;
 
+                string productListreate = "";
+                int i = 0;
+
                 foreach (var item in query)
                 {
                     productIdList += item.a.pd_Id + "|";
@@ -131,7 +134,20 @@ namespace Thinh_Ecom.Controllers.ClientPage
                     productPriceList += item.a.pd_Price + "|";
                     productQuantityList += item.b.pic_amount + "|";
                     totalPrice = totalPrice + item.a.pd_Price;
+
+                    productListreate += "<tr>" +
+                    "<td>"+ i + "</td>" +
+                    "<td>"+ item.a.pd_Name + "</td>" +
+                    "<td>"+ item.b.pic_amount + "</td>" +
+                    "<td>"+ item.a.pd_Price * item.b.pic_amount + "</td>" +
+                    "</tr>";
+
+                    i++;
                 }
+
+                
+
+                
                 //Edit User
                 var queryUser = _context.AppUser.FirstOrDefault(a => a.Id == userId);
                 queryUser.FirstName = checkoutModels.Name;
@@ -173,11 +189,32 @@ namespace Thinh_Ecom.Controllers.ClientPage
                 // End Delete Cart
                 await _context.SaveChangesAsync();
 
+                // Start product list
+               
+
+                string contentEmail = "<div>" +
+                    "<p>Name: "+ queryUser.UserName+ "</p>" +
+                    "<p>Address: "+ queryUser.user_Address1+ "</p>" +
+                    "<p>Phone : "+ queryUser.PhoneNumber+ "</p>" +
+                    "<table>" +
+                    "<tr>" +
+                    "<th>Id:</th>" +
+                    "<th>ProductName:</th>" +
+                    "<th>Quantity:</th>" +
+                    "<th>Price:</th>" +
+                    "</tr>" +
+                    productListreate +
+                    "</table>" +
+                    "<p>Discount: "+ DiscountPrice() + "</p>" +
+                    "<p>Shipping: "+ ShippingPrice() + "</p>" +
+                    "<p>Total: "+ totalPrice + "</p>";
+                // End product list
+
+
                 // Start Email for customer
-                SendByMail("Order Success!", 
-                    "Order ", 
-                    checkoutModels.Email
-                    );
+                SendByMail(checkoutModels.Email,
+                    contentEmail,
+                    "Order Success!");
                 // End Email for customer
 
                 return Redirect("/thanks");
