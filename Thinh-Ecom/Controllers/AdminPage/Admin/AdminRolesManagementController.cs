@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using Thinh_Ecom.Data;
 using Thinh_Ecom.EntitiesThinh_Ecom.Entities;
+using System.Linq;
 
 namespace Thinh_Ecom.Controllers.AdminPage.Admin
 {
@@ -20,7 +21,8 @@ namespace Thinh_Ecom.Controllers.AdminPage.Admin
         [HttpGet]
         public ActionResult Index()
         {
-            var QueryRole = _context.AppRole;
+            var QueryRole = from a in _context.AppRole select a;
+            QueryRole = QueryRole.Where(a => a.IsDelete != true);
             return View(QueryRole);
         }
 
@@ -58,7 +60,7 @@ namespace Thinh_Ecom.Controllers.AdminPage.Admin
                     Name = appRole.Name,
                     Description = appRole.Description,
                     NormalizedName = appRole.Name.ToUpper(),
-                    
+                    IsDelete = false,
                 };
                 //Add approle
                 _context.AppRole.Add(roleInfo);
@@ -127,9 +129,9 @@ namespace Thinh_Ecom.Controllers.AdminPage.Admin
             try
             {
                 var queryRole = _context.AppRole.Find(appRole.Id);
-
+                queryRole.IsDelete = true;
                 //Remove role 
-                _context.AppRole.Remove(queryRole);
+                _context.AppRole.Update(queryRole);
                 _context.SaveChanges();
 
                 return RedirectToAction(nameof(Index));

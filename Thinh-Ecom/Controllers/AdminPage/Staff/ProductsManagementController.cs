@@ -49,16 +49,16 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
         [HttpGet]
         public ActionResult Create()
         {
-            //Query Academic Year 
-            var categoriesYearQuery = _context.Categories;
+            //Query Categories 
+            var categoriesQuery = _context.Categories;
 
-            List<SelectListItem> AcademicYearList = new List<SelectListItem>();
-            foreach (var categories in categoriesYearQuery)
+            List<SelectListItem> categoriesList = new List<SelectListItem>();
+            foreach (var categories in categoriesQuery)
             {
                 var itemCategories = new SelectListItem { Value = categories.cg_Id, Text = categories.cg_Name };
-                AcademicYearList.Add(itemCategories);
+                categoriesList.Add(itemCategories);
             }
-            ViewBag.idea_CategoriesId = AcademicYearList;
+            ViewBag.idea_CategoriesId = categoriesList;
 
             return View();
         }
