@@ -54,7 +54,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
                         cart_ProductId = x.a.pd_Id,
                         cart_ProductName = x.a.pd_Name,
                         cart_ProductType = x.f.cg_Name,
-                        cart_ProductPrice = CalculatorStatic.CalculatorPriceForSize(x.b.pic_size, x.a.pd_Price),
+                        cart_ProductPrice = CalculatorStatic.CalculatorPriceForSize(x.b.pic_size, x.a.pd_Price,_context),
                         cart_ProductImg = x.a.pd_Img1,
                         cart_ProductQuantity = x.b.pic_amount, 
                         cart_ProductSize = x.b.pic_size

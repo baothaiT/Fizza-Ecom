@@ -7,8 +7,13 @@ namespace Thinh_Ecom.Function
 {
     public static class CalculatorStatic
     {
-        public static int CalculatorPriceForSize(string CurrentSize, int DefaultPrice)
+        public static int CalculatorPriceForSize(string CurrentSize, int DefaultPrice, ApplicationDbContext _context)
         {
+            var querySizeM = _context.PriceForSize.FirstOrDefault(a=>a.SizeName == "M");
+
+            var querySizeL = _context.PriceForSize.FirstOrDefault(a=>a.SizeName == "L");
+
+
             switch (CurrentSize)
             {
                 case "S":
@@ -16,10 +21,10 @@ namespace Thinh_Ecom.Function
                     return DefaultPrice;
                 case "M":
                     // code block
-                    return DefaultPrice + 5;
+                    return DefaultPrice + querySizeM.Price;
                 case "L":
                     // code block
-                    return DefaultPrice + 7;
+                    return DefaultPrice + querySizeL.Price;
                 default:
                     // code block
                     return DefaultPrice;

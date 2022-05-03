@@ -55,7 +55,8 @@ namespace Thinh_Ecom.Data
             builder.ApplyConfiguration(new CouponsConfigurations());
             builder.ApplyConfiguration(new ShippingConfigurations());
             builder.ApplyConfiguration(new EmailGuestConfigurations());
-          
+            builder.ApplyConfiguration(new PriceForSizeConfigurations());
+
 
 
 
@@ -88,6 +89,7 @@ namespace Thinh_Ecom.Data
         public DbSet<Coupons> Coupons { set; get; }
         public DbSet<Shipping> Shipping { set; get; }
         public DbSet<EmailGuest> EmailGuest { set; get; }
+        public DbSet<PriceForSize> PriceForSize { set; get; }
 
 
     }

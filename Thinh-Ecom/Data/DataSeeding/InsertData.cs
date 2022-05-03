@@ -521,6 +521,25 @@ namespace Thinh_Ecom.Data.DataSeeding
                     ship_Price = 5
                 });
 
+            //Table Price for size
+
+            string PriceForSizeId1 = Guid.NewGuid().ToString();
+            string PriceForSizeId2 = Guid.NewGuid().ToString();
+
+            builder.Entity<PriceForSize>().HasData(
+                new PriceForSize()
+                {
+                    Id = PriceForSizeId1,
+                    SizeName = "M",
+                    Price = 10
+                },
+                new PriceForSize()
+                {
+                    Id = PriceForSizeId2,
+                    SizeName = "L",
+                    Price = 15
+                });
+
 
         }    
                 
