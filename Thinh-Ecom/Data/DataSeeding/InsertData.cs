@@ -112,7 +112,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Price = 10,
                     pd_ReducePrice = 5,
                     pd_Img1 = "/img/pizza-300x300/Extravaganza.png",
-                    pd_ShortDescription = "",
+                    pd_ShortDescription = "short 1",
                     pd_Size = "",
                     CategoriesFK = categoriesId1
                 },
@@ -136,7 +136,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Price = 10,
                     pd_ReducePrice = 5,
                     pd_Img1 = "/img/pizza-300x300/Haft-haft.png",
-                    pd_ShortDescription = "",
+                    pd_ShortDescription = "short 1",
                     pd_Size = "",
                     CategoriesFK = categoriesId1
                 },
@@ -148,7 +148,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Price = 10,
                     pd_ReducePrice = 5,
                     pd_Img1 = "/img/pizza-300x300/Meat-lover.png",
-                    pd_ShortDescription = "",
+                    pd_ShortDescription = "short 1",
                     pd_Size = "",
                     CategoriesFK = categoriesId1
                 },
@@ -160,7 +160,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Price = 10,
                     pd_ReducePrice = 5,
                     pd_Img1 = "/img/pizza-300x300/MENU-PC.png",
-                    pd_ShortDescription = "",
+                    pd_ShortDescription = "short 1",
                     pd_Size = "",
                     CategoriesFK = categoriesId3
                 },
@@ -172,7 +172,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Price = 10,
                     pd_ReducePrice = 5,
                     pd_Img1 = "/img/pizza-300x300/MENU-PC-BBQ.png",
-                    pd_ShortDescription = "",
+                    pd_ShortDescription = "short 1",
                     pd_Size = "",
                     CategoriesFK = categoriesId3
                 },
@@ -184,7 +184,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Price = 10,
                     pd_ReducePrice = 5,
                     pd_Img1 = "/img/pizza-300x300/MENU-PC-my.png",
-                    pd_ShortDescription = "",
+                    pd_ShortDescription = "short 1",
                     pd_Size = "",
                     CategoriesFK = categoriesId3
                 },
@@ -196,7 +196,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Price = 10,
                     pd_ReducePrice = 5,
                     pd_Img1 = "/img/pizza-300x300/MENU-PC-Pho-Mai.png",
-                    pd_ShortDescription = "",
+                    pd_ShortDescription = "short 1",
                     pd_Size = "",
                     CategoriesFK = categoriesId3
                 },
@@ -208,7 +208,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Price = 10,
                     pd_ReducePrice = 5,
                     pd_Img1 = "/img/pizza-300x300/Ocean-mania.png",
-                    pd_ShortDescription = "",
+                    pd_ShortDescription = "short 1",
                     pd_Size = "",
                     CategoriesFK = categoriesId1
                 },
@@ -220,7 +220,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Price = 10,
                     pd_ReducePrice = 5,
                     pd_Img1 = "/img/pizza-300x300/Okonomiyaki.png",
-                    pd_ShortDescription = "",
+                    pd_ShortDescription = "short 1",
                     pd_Size = "",
                     CategoriesFK = categoriesId1
                 },
@@ -232,7 +232,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Price = 10,
                     pd_ReducePrice = 5,
                     pd_Img1 = "/img/pizza-300x300/pasta-bo-bam.png",
-                    pd_ShortDescription = "",
+                    pd_ShortDescription = "short 1",
                     pd_Size = "",
                     CategoriesFK = categoriesId2
                 },
@@ -244,7 +244,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Price = 10,
                     pd_ReducePrice = 5,
                     pd_Img1 = "/img/pizza-300x300/pasta-hai-san.png",
-                    pd_ShortDescription = "",
+                    pd_ShortDescription = "short 1",
                     pd_Size = "",
                     CategoriesFK = categoriesId2
                 },
@@ -256,7 +256,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Price = 10,
                     pd_ReducePrice = 5,
                     pd_Img1 = "/img/pizza-300x300/pasta-rau-cu.png",
-                    pd_ShortDescription = "",
+                    pd_ShortDescription = "short 1",
                     pd_Size = "",
                     CategoriesFK = categoriesId2
                 },
@@ -268,7 +268,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Price = 10,
                     pd_ReducePrice = 5,
                     pd_Img1 = "/img/pizza-300x300/pizza-bo.png",
-                    pd_ShortDescription = "",
+                    pd_ShortDescription = "short 1",
                     pd_Size = "",
                     CategoriesFK = categoriesId1
                 },
@@ -280,7 +280,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Price = 10,
                     pd_ReducePrice = 5,
                     pd_Img1 = "/img/pizza-300x300/Pizzaminsea.png",
-                    pd_ShortDescription = "",
+                    pd_ShortDescription = "short 1",
                     pd_Size = "",
                     CategoriesFK = categoriesId1
                 },
@@ -292,7 +292,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                     pd_Price = 10,
                     pd_ReducePrice = 5,
                     pd_Img1 = "/img/pizza-300x300/Sprite-15L.png",
-                    pd_ShortDescription = "",
+                    pd_ShortDescription = "short 1",
                     pd_Size = "",
                     CategoriesFK = categoriesId4
                 }
