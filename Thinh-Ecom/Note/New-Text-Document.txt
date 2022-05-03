@@ -1,0 +1,39 @@
+Quy định giá tiền size
+
+hình gán cứng ko đc hình lớn nhỏ
+
+Xóa những thứ thừa thải xóa toàn bộ sản phẩm ở trang admin nhưng ko add lại dc sản phẩm( reset update lại database cũng ko có sản phẩm(t tưởng gán cứng r thì ko xóa dc))
+User
+
+Limit số lượng sản sp đặt (min 1 max 100)
+
+Sp
+Xóa sp -- nhấn 2 cái mới tạo đc
+Sp giá-sl (ko dc có số âm)
+Thêm sp, Ko đc thiếu trường (tên-giá-sl)
+Thêm sp ko đc trùng tên
+
+
+Admin
+Xóa tk của admin vs staff (Arlet ko dc xóa)
+User management:chỉ đc change password/role của khách hàng-(Email-username ko đc sửa)
+
+
+Đơn hàng
+(admin)Lịch sử đơn hàng-- chi tiết ng đăt(tên-sđt-đchi) (ý là phải có phần detail như xem phần Email management)
+(khach)Lịch sử đơn hàng chi tiết sản phầm giá tiền (như trên, phải có detail)
+
+Checkout
+ko update đúng giá của sản phẩm (nghĩa là mua hàng hết 100 nhưng khi check out thì giá vẫn 70)
+
+
+bắt buộc phải có{
+Xóa Sp trong admin nhưng Account --- sau khi xóa lịch sử vẫn còn lưu(nghĩa là khi xóa 1 sản phẩm trong admin mak trong đơn hàng có sản phẩm đó thì lịch sử vẫn phải lưu lại ko dc xóa theo)
+
+phần Contact Phone phải kiểu int
+
+Thanh Toán online
+}
+
+
+đơn hàng ko có sản phẩm có check out đc ko?
