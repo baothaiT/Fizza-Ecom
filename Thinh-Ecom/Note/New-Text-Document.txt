@@ -1,8 +1,8 @@
 Done - Quy định giá tiền size
 
-hình gán cứng ko đc hình lớn nhỏ
+Done - hình gán cứng ko đc hình lớn nhỏ
 
-Xóa những thứ thừa thải xóa toàn bộ sản phẩm ở trang admin nhưng ko add lại dc sản phẩm( reset update lại database cũng ko có sản phẩm(t tưởng gán cứng r thì ko xóa dc))
+Chua hieu lam --Xóa những thứ thừa thải xóa toàn bộ sản phẩm ở trang admin nhưng ko add lại dc sản phẩm( reset update lại database cũng ko có sản phẩm(t tưởng gán cứng r thì ko xóa dc))
 User
 
 Limit số lượng sản sp đặt (min 1 max 100)
