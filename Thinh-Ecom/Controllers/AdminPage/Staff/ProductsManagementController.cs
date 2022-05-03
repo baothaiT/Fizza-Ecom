@@ -49,6 +49,12 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
         [HttpGet]
         public ActionResult Create()
         {
+            // Query List Product Name 
+
+            var queryProduct = _context.Products.Select(p => p.pd_Name).ToArray();
+            ViewBag.ProduceName = queryProduct;
+            ViewBag.ProduceNameCount = queryProduct.Count();
+
             //Query Categories 
             var categoriesQuery = _context.Categories;
 
@@ -78,6 +84,7 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
                     fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
                     string path = Path.Combine(wwwRootPath + "/Image/", fileName);
 
+
                     var productInfo = new Products()
                     {
                         pd_Id = Guid.NewGuid().ToString(),
@@ -85,7 +92,6 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
                         pd_Description = productModels.pd_Description,
                         pd_Img1 = "./Image/" + fileName,
                         pd_Price = productModels.pd_Price,
-                        pd_ReducePrice = productModels.pd_ReducePrice,
                         pd_ShortDescription = productModels.pd_ShortDescription,
                         CategoriesFK = productModels.CategoriesFK
 
@@ -93,7 +99,7 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
                     };
 
                     // Insert image File
-                    using (var fileStream = new FileStream(path, FileMode.Create))
+                    await using( var fileStream = new FileStream(path, FileMode.Create))
                     {
                         await productModels.pd_Img1.CopyToAsync(fileStream);
                     }
