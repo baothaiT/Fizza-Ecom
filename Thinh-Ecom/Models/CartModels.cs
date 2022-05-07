@@ -10,5 +10,6 @@
         public int cart_ProductPrice { get; set; }
         public string cart_ProductSize { get; set; }
         public string cart_ProductImg { get; set; }
+        public int cart_totalPrice { set; get; }
     }
 }

@@ -22,6 +22,37 @@
 <div class="cart-section mt-150 mb-150">
     <div class="container">
         <div class="row">
+
+            <div>
+                <table>
+                    <tr>
+                        <th>
+                            S
+                        </th>
+                        <td>
+                            Default
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            M
+                        </th>
+                        <td>
+                            @ViewBag.queryPriceM
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            L
+                        </th>
+                        <td>
+                            @ViewBag.queryPriceL
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br />
+
             <div class="col-lg-8 col-md-12">
                 <div class="cart-table-wrap">
                     <table class="cart-table">
@@ -104,7 +135,7 @@
                                             </td>
                                             }
 
-                                        <td class="product-total">@subProductPrice</td>
+                                        <td class="product-total">@item.cart_totalPrice</td>
                                     </tr>
 
                                         subtotal += subProductPrice;

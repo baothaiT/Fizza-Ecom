@@ -43,8 +43,6 @@ namespace Thinh_Ecom.Controllers.ClientPage
                             join f in _context.Categories on a.CategoriesFK equals f.cg_Id
                             select new { a, b, c, d ,f };
 
-
-
                 query = query.Where(x => x.d.Id == userId);
 
                 // Pass Query data to Cart Model
@@ -54,17 +52,27 @@ namespace Thinh_Ecom.Controllers.ClientPage
                         cart_ProductId = x.a.pd_Id,
                         cart_ProductName = x.a.pd_Name,
                         cart_ProductType = x.f.cg_Name,
-                        cart_ProductPrice = CalculatorStatic.CalculatorPriceForSize(x.b.pic_size, x.a.pd_Price,_context),
+                        //cart_ProductPrice = CalculatorStatic.CalculatorPriceForSize(x.b.pic_size, x.a.pd_Price,_context),
+                        cart_ProductPrice = x.a.pd_Price,
                         cart_ProductImg = x.a.pd_Img1,
                         cart_ProductQuantity = x.b.pic_amount, 
-                        cart_ProductSize = x.b.pic_size
+                        cart_ProductSize = x.b.pic_size,
+                        cart_totalPrice = CalculatorStatic.CalculatorPriceForSize(x.b.pic_size, x.a.pd_Price, _context) * x.b.pic_amount
 
                     });
+
+                // Query Price
+                var queryPriceM = _context.PriceForSize.FirstOrDefault(a => a.SizeName == "M");
+                ViewBag.queryPriceM = queryPriceM.Price;
+
+                var queryPriceL = _context.PriceForSize.FirstOrDefault(a => a.SizeName == "L");
+                ViewBag.queryPriceL = queryPriceL.Price;
+
                 //Pass value to ViewBag
                 ViewBag.Cart = cartModelQuery;
 
                 //Pass SubToTal to ViewBag
-                ViewBag.SubToTal = CalculatorSubTotalPrice(cartModelQuery.ToList());
+                ViewBag.SubToTal = CalculatorSubTotalPrice(cartModelQuery.ToList(),_context);
 
                 //Pass Discount to ViewBag
                 ViewBag.Discount = DiscountPrice();
@@ -73,7 +81,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
                 ViewBag.Shipping = ShippingPrice();
 
                 //Pass  Calculator Total to ViewBag
-                ViewBag.Total = CalculatorTotalPrice(cartModelQuery.ToList());
+                ViewBag.Total = CalculatorTotalPrice(cartModelQuery.ToList(), _context);
 
                 return View();
             }
@@ -81,15 +89,15 @@ namespace Thinh_Ecom.Controllers.ClientPage
             return View();
         }
 
-        public int CalculatorSubTotalPrice(List<CartModels> cartModelQuery)
+        public int CalculatorSubTotalPrice(List<CartModels> cartModelQuery, ApplicationDbContext context)
         {
             //Calculator price
             int subTotal = 0;
             foreach (var itemProduct in cartModelQuery)
             {
-                subTotal += itemProduct.cart_ProductPrice * itemProduct.cart_ProductQuantity;
+                //subTotal += itemProduct.cart_ProductPrice * itemProduct.cart_ProductQuantity;
+                subTotal += CalculatorStatic.CalculatorPriceForSize(itemProduct.cart_ProductSize, itemProduct.cart_ProductPrice, context) * itemProduct.cart_ProductQuantity;
             }
-
             return subTotal;
         }
 
@@ -108,11 +116,11 @@ namespace Thinh_Ecom.Controllers.ClientPage
             return 1;
         }
 
-        public int CalculatorTotalPrice(List<CartModels> cartModelQuery)
+        public int CalculatorTotalPrice(List<CartModels> cartModelQuery, ApplicationDbContext context)
         {
             //Calculator price
 
-            return CalculatorSubTotalPrice(cartModelQuery) - DiscountPrice() + ShippingPrice();
+            return CalculatorSubTotalPrice(cartModelQuery,context) - DiscountPrice() + ShippingPrice();
         }
 
 
