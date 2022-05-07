@@ -36,6 +36,9 @@ namespace Thinh_Ecom.Controllers.ClientPage
             var queryFood = from a in _context.Products
                             join b in _context.Categories on a.CategoriesFK equals b.cg_Id
                             select new { a, b };
+
+            queryFood = queryFood.Where(a=> a.a.IsDelete != true);
+
             if (Search != null)
             {
                 queryFood = queryFood.Where(a => a.a.pd_Name.Contains(Search));
@@ -78,7 +81,6 @@ namespace Thinh_Ecom.Controllers.ClientPage
         [HttpGet("pd_Id")]
         public async Task<IActionResult> AddToCart(Products products, string pd_Id)
         {
-
             try
             {
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -107,7 +109,6 @@ namespace Thinh_Ecom.Controllers.ClientPage
 
                 //Check product in cart
                 var queryProductInCart = _context.ProductInCart.FirstOrDefault(a => a.pic_ProductId == pd_Id);
-
                 if (queryProductInCart is not null)
                 {
                     queryProductInCart.pic_amount += 1;
@@ -126,9 +127,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
                     _context.ProductInCart.Add(ProductInCartCreate);
                 }
 
-
                 await _context.SaveChangesAsync();
-
                 return Redirect("/pizza");
             }
             catch
