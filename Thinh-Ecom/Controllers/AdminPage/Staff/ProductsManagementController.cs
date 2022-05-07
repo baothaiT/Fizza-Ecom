@@ -28,9 +28,8 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
         [Route("productsmanagement")]
         public ActionResult Index()
         {
-            
-
-            var queryProduct = _context.Products;
+            var queryProduct = from a in _context.Products select a;
+            queryProduct = queryProduct.Where(a => a.IsDelete != true);
             return View(queryProduct);
         }
 
@@ -93,9 +92,8 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
                         pd_Img1 = "./Image/" + fileName,
                         pd_Price = productModels.pd_Price,
                         pd_ShortDescription = productModels.pd_ShortDescription,
-                        CategoriesFK = productModels.CategoriesFK
-
-
+                        CategoriesFK = productModels.CategoriesFK,
+                        IsDelete = false
                     };
 
                     // Insert image File
@@ -167,7 +165,6 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
         [HttpGet]
         public ActionResult Delete(string id)
         {
-
             var queryProduct = _context.Products.Find(id);
             return View(queryProduct);
         }
@@ -181,7 +178,9 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
             try
             {
                 var queryProduct = _context.Products.Find(products.pd_Id);
-                _context.Products.Remove(queryProduct);
+                queryProduct.IsDelete = true;
+                _context.Products.Update(queryProduct);
+
                 _context.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
