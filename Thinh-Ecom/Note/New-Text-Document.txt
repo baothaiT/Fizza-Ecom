@@ -11,7 +11,7 @@ Sp
 Done (do may lag) -- Xóa sp -- nhấn 2 cái mới tạo đc
 Done -- Sp giá-sl (ko dc có số âm)
 Done -- Thêm sp, Ko đc thiếu trường (tên-giá-sl)
-Thêm sp ko đc trùng tên
+Done -- Thêm sp ko đc trùng tên
 
 
 Admin
