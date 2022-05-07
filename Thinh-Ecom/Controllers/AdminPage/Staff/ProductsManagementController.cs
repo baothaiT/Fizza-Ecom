@@ -30,6 +30,7 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
         {
             var queryProduct = from a in _context.Products select a;
             queryProduct = queryProduct.Where(a => a.IsDelete != true);
+
             return View(queryProduct);
         }
 
@@ -45,8 +46,8 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
 
         // GET: ProductsManagementController/Create
         [Route("productsmanagement/create")]
-        [HttpGet]
-        public ActionResult Create()
+        [HttpGet("{errorProdudctName}")]
+        public ActionResult Create(string errorProdudctName = "")
         {
             // Query List Product Name 
 
@@ -65,10 +66,14 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
             }
             ViewBag.idea_CategoriesId = categoriesList;
 
+            // Print product
+            ViewBag.ErrorProdudctName = errorProdudctName;
+
             return View();
         }
 
         // POST: ProductsManagementController/Create
+        [Route("productsmanagement/create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ProductModels productModels)
@@ -83,7 +88,13 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
                     fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
                     string path = Path.Combine(wwwRootPath + "/Image/", fileName);
 
+                    var checkExistProduct = _context.Products.FirstOrDefault(a => a.pd_Name == productModels.pd_Name);
 
+
+                    if(checkExistProduct != null)
+                    {
+                        return RedirectToAction("Create", new { errorProdudctName = "Product is existed in database"});
+                    }
                     var productInfo = new Products()
                     {
                         pd_Id = Guid.NewGuid().ToString(),

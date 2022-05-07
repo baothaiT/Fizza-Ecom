@@ -56,7 +56,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
                     CategoriesName = x.b.cg_Name,
                     Discount = x.a.pd_ReducePrice
                 });
-
+            
             //Query Categories Name
             var queryCategories = _context.Categories;
             ViewBag.Categories = queryCategories;
@@ -67,6 +67,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
         }
 
 
+        
 
         // GET: PizzaController/Details/5
         public ActionResult Details(int id)

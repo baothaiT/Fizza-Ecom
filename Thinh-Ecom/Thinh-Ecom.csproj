@@ -353,6 +353,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Image\" />
+    <Folder Include="wwwroot\image\" />
   </ItemGroup>
 
 </Project>
