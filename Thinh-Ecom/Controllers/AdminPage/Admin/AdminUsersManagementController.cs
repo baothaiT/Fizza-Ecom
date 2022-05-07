@@ -44,8 +44,6 @@ namespace Thinh_Ecom.Controllers.AdminPage.Admin
             return View(queryUsers);
         }
 
-
-
         // GET: AdminUsersManagementController/Edit/5
         [Route("/usersmanagement/edit/{id:guid}")]
         [HttpGet]
@@ -53,8 +51,6 @@ namespace Thinh_Ecom.Controllers.AdminPage.Admin
         {
             // Edit Users
             var queryUsers = _context.AppUser.Find(id);
-
-
 
             return View(queryUsers);
         }
@@ -70,8 +66,8 @@ namespace Thinh_Ecom.Controllers.AdminPage.Admin
                 //Edit information or user
                 var queryUsers = _context.AppUser.Find(appUser.Id);
                 queryUsers.FirstName = appUser.FirstName;
-                queryUsers.UserName = appUser.UserName;
                 queryUsers.LastName = appUser.LastName;
+
                 _context.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
