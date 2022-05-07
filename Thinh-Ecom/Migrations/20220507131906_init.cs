@@ -28,7 +28,7 @@ namespace Thinh_Ecom.Migrations
                 {
                     cf_Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     cf_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    cf_Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    cf_Phone = table.Column<int>(type: "int", nullable: false),
                     cf_Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     cf_Subject = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     cf_Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -425,10 +425,10 @@ namespace Thinh_Ecom.Migrations
                 columns: new[] { "cg_Id", "IsDelete", "cg_Name", "cg_Sale", "cg_Type" },
                 values: new object[,]
                 {
-                    { "436314dc-6db0-4346-a250-d006c60afa6f", false, "Pizza", "", "" },
-                    { "90be5462-391a-440d-a2fb-1fcbf21241d5", false, "Spaghetti", "", "" },
-                    { "a1fc0dac-d13b-4190-a5cb-0105aecb79e6", false, "Sidedishes", "", "" },
-                    { "c15b582d-12d4-4af3-9721-1123cc0c8af9", false, "Drink", "", "" }
+                    { "175ffbbe-3fcb-4642-b6d7-726cf83ad977", false, "Pizza", "", "" },
+                    { "b41715f2-7088-4195-b662-fb91b78fff57", false, "Spaghetti", "", "" },
+                    { "5c59c33d-937e-463b-a1cf-fae11f08e384", false, "Sidedishes", "", "" },
+                    { "4f0cc366-0f91-4ee2-a4c6-566e933ea58d", false, "Drink", "", "" }
                 });
 
             migrationBuilder.InsertData(
@@ -439,15 +439,15 @@ namespace Thinh_Ecom.Migrations
             migrationBuilder.InsertData(
                 table: "ContactUsers",
                 columns: new[] { "cf_Id", "cf_Description", "cf_Email", "cf_Name", "cf_Phone", "cf_Subject" },
-                values: new object[] { "37c9e0c1-3c5f-4dc0-a77f-8c1c839c9cae", "Description", "Email", "Name", "0123456789", "Subject" });
+                values: new object[] { "c76791a0-8ce6-41cb-8acc-e8ab1ea936e7", "Description", "Email", "Name", 123456789, "Subject" });
 
             migrationBuilder.InsertData(
                 table: "Coupons",
                 columns: new[] { "couponId", "EndTime", "StartTime", "couponCode", "couponPrice", "coupon_AppUserFK" },
                 values: new object[,]
                 {
-                    { "1d13e11a-91a0-4440-8c29-d5d8dc26b50a", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "code10", 10, null },
-                    { "0f960b89-10d1-4407-9f35-61f111bbc1eb", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "code50", 50, null }
+                    { "5e8d1ed2-af53-4172-ae46-8ed99c6d561c", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "code10", 10, null },
+                    { "2fc78922-c122-4397-829f-e63881344839", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "code50", 50, null }
                 });
 
             migrationBuilder.InsertData(
@@ -455,8 +455,8 @@ namespace Thinh_Ecom.Migrations
                 columns: new[] { "Id", "Price", "SizeName" },
                 values: new object[,]
                 {
-                    { "cd95219f-a86e-4fce-aff8-4ee9bf8751ef", 10, "M" },
-                    { "7765018b-4750-42e8-a1ef-f0f711bd8192", 15, "L" }
+                    { "84716680-7d2d-4d1a-93d1-4f8bb557d7f8", 10, "M" },
+                    { "34ea2050-b8b9-454a-b577-fec7edee40c2", 15, "L" }
                 });
 
             migrationBuilder.InsertData(
@@ -464,8 +464,8 @@ namespace Thinh_Ecom.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Description", "Discriminator", "IsDelete", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "f49e4348-718f-43e3-b1f6-6dc89c5Bb4fd", "0e690c2e-2a85-4afe-8c55-9534ab4e16d0", "Staff", "AppRole", false, "Staff", "Staff" },
-                    { "360E601E-92F2-4F08-832B-604A21293258", "d5a51024-3c72-4ee3-9012-c0b2387f152b", "admin", "AppRole", false, "Admin", "Admin" }
+                    { "f49e4348-718f-43e3-b1f6-6dc89c5Bb4fd", "8411ebfb-6a1a-4a09-9694-d3ef5cc26aae", "Staff", "AppRole", false, "Staff", "Staff" },
+                    { "360E601E-92F2-4F08-832B-604A21293258", "ff03e202-541a-40ac-bad4-69de5d84bc33", "admin", "AppRole", false, "Admin", "Admin" }
                 });
 
             migrationBuilder.InsertData(
@@ -478,14 +478,14 @@ namespace Thinh_Ecom.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "DoB", "Email", "EmailConfirmed", "FirstName", "IsDelete", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "user_Address1", "user_Address2", "user_City", "user_CompanyName", "user_Country", "user_PhoneNumber", "user_PostalCode", "user_State" },
                 values: new object[,]
                 {
-                    { "DE544998-A3CC-4E12-ABB4-0642E57BD222", 0, "61bcda2c-1df9-4576-be4b-a90f8a66024b", "AppUser", new DateTime(2020, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@gmail.com", true, "admin", false, "admin", false, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAEBaVTeh2D6Pae5uD4RY/k67irVlsQf+K6aTtSqz5KIydfr5KMBbaMYWru6JTR5R8CA==", null, false, "42672b33-d6c7-4feb-8b71-44245c8ea935", false, "Admin", null, null, null, null, null, null, null, null },
-                    { "f49e4348-718f-43e3-b1f6-6dc89c5Bb5ff", 0, "4b3d9c93-b236-4a3d-97f7-c4d336ccaa07", "AppUser", new DateTime(2020, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "staff@gmail.com", true, "staff", false, "staff", false, null, "STAFF@GMAIL.COM", "STAFF@GMAIL.COM", "AQAAAAEAACcQAAAAEKDXcx0saiPfm1IC+PeLB7h/3LmIYU6RgE23pFl3lhsoJdej1RfnF7VGqdw0z+vbCA==", null, false, "cf00503a-4d9f-4b80-931d-8aeb7d79713e", false, "Staff", null, null, null, null, null, null, null, null }
+                    { "DE544998-A3CC-4E12-ABB4-0642E57BD222", 0, "1d037712-a98d-41eb-8aa3-5c3c41e54552", "AppUser", new DateTime(2020, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@gmail.com", true, "admin", false, "admin", false, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAEK1WZ3WwrEw2n28UolusLIiin9vEuiE9xWbyzM1iRvx/wDmLQUAtX3kiLuIGnlUF6A==", null, false, "4e6e3fc4-5cc0-4f00-8bf2-6d9e0e0b3059", false, "Admin", null, null, null, null, null, null, null, null },
+                    { "f49e4348-718f-43e3-b1f6-6dc89c5Bb5ff", 0, "78bf7463-8f1b-47dc-a862-8a61ca6ae56c", "AppUser", new DateTime(2020, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "staff@gmail.com", true, "staff", false, "staff", false, null, "STAFF@GMAIL.COM", "STAFF@GMAIL.COM", "AQAAAAEAACcQAAAAEHlkU7Vu2udVH8sZc/sX37uV/jUjJWHsZoUA7TifBM3Fa3qeW9w+OPjoc4oSqGCRUg==", null, false, "46d5b77c-76c6-4d29-904a-c9e3c55612c0", false, "Staff", null, null, null, null, null, null, null, null }
                 });
 
             migrationBuilder.InsertData(
                 table: "Bills",
                 columns: new[] { "bill_Id", "IsDelete", "bill_Confirmation", "bill_DatetimeOrder", "bill_Discount", "bill_HideStatus", "bill_Note", "bill_PaidTotal", "bill_PaymentMethod", "bill_ProductIdlist", "bill_ProductNamelist", "bill_ProductPricelist", "bill_ProductSizelist", "bill_QuantityList", "bill_Shipping", "bill_UserId", "bill_WaitForConfirmation" },
-                values: new object[] { "D269BF93-A5E2-4C4A-8146-9967DDE80D30", false, true, new DateTime(2022, 5, 3, 14, 6, 35, 172, DateTimeKind.Local).AddTicks(265), 0, false, "", 2000, "Check Payment", "0181432f-e266-477b-9d90-b4afa69f92fb|aca589f8-5f3d-4bf5-b8e0-b49a23a42c40|322d37c2-be82-4c9b-9e6b-af65ef324a87|2ed56cce-1aa7-4f45-9a34-5836de62920c|", "product 1|product 2| product 3| product 4|", "550|450|350|640|", "7|8|9|14|", "1|1|2|1|", 10, "f49e4348-718f-43e3-b1f6-6dc89c5Bb5ff", false });
+                values: new object[] { "D269BF93-A5E2-4C4A-8146-9967DDE80D30", false, true, new DateTime(2022, 5, 7, 20, 19, 5, 500, DateTimeKind.Local).AddTicks(462), 0, false, "", 2000, "Check Payment", "ec4e57c9-e165-478d-a772-92adf74f248e|721e44f6-3b7c-403c-9bde-d824058e81e7|ff3ccf90-98b2-4c8f-8830-1b5ad323db26|430737e4-9adf-4e3c-87c8-de74f768f33f|", "product 1|product 2| product 3| product 4|", "550|450|350|640|", "7|8|9|14|", "1|1|2|1|", 10, "f49e4348-718f-43e3-b1f6-6dc89c5Bb5ff", false });
 
             migrationBuilder.InsertData(
                 table: "Carts",
@@ -501,24 +501,24 @@ namespace Thinh_Ecom.Migrations
                 columns: new[] { "pd_Id", "CategoriesFK", "IsDelete", "pd_Description", "pd_Img1", "pd_Name", "pd_Price", "pd_ReducePrice", "pd_ShortDescription", "pd_Size" },
                 values: new object[,]
                 {
-                    { "6be27934-bf99-4093-a231-700a7c5bc6db", "c15b582d-12d4-4af3-9721-1123cc0c8af9", false, "Sprite-15L", "/img/pizza-300x300/Sprite-15L.png", "Sprite-15L", 10, 5, "short 1", "" },
-                    { "2ed56cce-1aa7-4f45-9a34-5836de62920c", "c15b582d-12d4-4af3-9721-1123cc0c8af9", false, "pfanta-15", "/img/pizza-300x300/fanta-15.png", "fanta-1.5L", 10, 5, "short 3", "" },
-                    { "aca589f8-5f3d-4bf5-b8e0-b49a23a42c40", "c15b582d-12d4-4af3-9721-1123cc0c8af9", false, "coca-zero", "/img/pizza-300x300/coca-zero.png", "Cocacola Zero", 10, 5, "short 2", "" },
-                    { "2d737d36-b5ac-4269-badf-dcfdb452e654", "a1fc0dac-d13b-4190-a5cb-0105aecb79e6", false, "MENU-PC-Pho-Mai", "/img/pizza-300x300/MENU-PC-Pho-Mai.png", "MENU-PC-Pho-Mai", 10, 5, "short 1", "" },
-                    { "f48dec10-2b6d-4594-a94c-807e51422ef9", "a1fc0dac-d13b-4190-a5cb-0105aecb79e6", false, "MENU-PC-my", "/img/pizza-300x300/MENU-PC-my.png", "MENU-PC-my", 10, 5, "short 1", "" },
-                    { "096f7aeb-0747-4b87-bd48-f2cd272310b1", "a1fc0dac-d13b-4190-a5cb-0105aecb79e6", false, "MENU-PC-BBQ", "/img/pizza-300x300/MENU-PC-BBQ.png", "MENU-PC-BBQ", 10, 5, "short 1", "" },
-                    { "fcd226c2-f628-4d22-ab05-e6940fa54798", "a1fc0dac-d13b-4190-a5cb-0105aecb79e6", false, "MENU-PC", "/img/pizza-300x300/MENU-PC.png", "MENU-PC", 10, 5, "short 1", "" },
-                    { "2b5202d7-a9df-447a-97ee-140d30be427f", "90be5462-391a-440d-a2fb-1fcbf21241d5", false, "pasta-rau-cu", "/img/pizza-300x300/pasta-rau-cu.png", "pasta-rau-cu", 10, 5, "short 1", "" },
-                    { "82795a38-baf0-4dd5-b98c-d86a3ca1e51a", "90be5462-391a-440d-a2fb-1fcbf21241d5", false, "pasta-hai-san", "/img/pizza-300x300/pasta-hai-san.png", "pasta-hai-san", 10, 5, "short 1", "" },
-                    { "9c89d843-aee6-4a57-8b3a-02267e8d831d", "90be5462-391a-440d-a2fb-1fcbf21241d5", false, "pasta-bo-bam", "/img/pizza-300x300/pasta-bo-bam.png", "pasta", 10, 5, "short 1", "" },
-                    { "e0a0c77e-b1d8-4706-bd81-723fb0292b36", "436314dc-6db0-4346-a250-d006c60afa6f", false, "Pizzaminsea", "/img/pizza-300x300/Pizzaminsea.png", "Pizzaminsea", 10, 5, "short 1", "" },
-                    { "d35df30c-7912-4ae4-bf24-7e1a2c053796", "436314dc-6db0-4346-a250-d006c60afa6f", false, "pizza-bo", "/img/pizza-300x300/pizza-bo.png", "pizza-bo", 10, 5, "short 1", "" },
-                    { "0ff4cf5c-578f-441a-af37-51b5ed220205", "436314dc-6db0-4346-a250-d006c60afa6f", false, "Okonomiyaki", "/img/pizza-300x300/Okonomiyaki.png", "Okonomiyaki", 10, 5, "short 1", "" },
-                    { "55f18f70-7d03-412e-99b4-c17f48ce34f4", "436314dc-6db0-4346-a250-d006c60afa6f", false, "Ocean-mania", "/img/pizza-300x300/Ocean-mania.png", "Ocean-mania", 10, 5, "short 1", "" },
-                    { "7943ffd7-2e5f-4eac-baff-ebae7a3d0738", "436314dc-6db0-4346-a250-d006c60afa6f", false, "Meat-lover", "/img/pizza-300x300/Meat-lover.png", "Meat-lover", 10, 5, "short 1", "" },
-                    { "a9db94e4-ce4a-4b46-ba83-2ae45ebc83eb", "436314dc-6db0-4346-a250-d006c60afa6f", false, "Haft-haft", "/img/pizza-300x300/Haft-haft.png", "Haft-haft", 10, 5, "short 1", "" },
-                    { "322d37c2-be82-4c9b-9e6b-af65ef324a87", "436314dc-6db0-4346-a250-d006c60afa6f", false, "Extravaganza", "/img/pizza-300x300/Extravaganza.png", "Extravaganza", 10, 5, "short 1", "" },
-                    { "0181432f-e266-477b-9d90-b4afa69f92fb", "436314dc-6db0-4346-a250-d006c60afa6f", false, "Pizza: bo", "/img/pizza-300x300/pizza-bo.png", "Pizza", 10, 5, "short 1", "" }
+                    { "4cdd8b25-728d-4cfb-a940-5e594dfe245a", "4f0cc366-0f91-4ee2-a4c6-566e933ea58d", false, "Sprite-15L", "/img/pizza-300x300/Sprite-15L.png", "Sprite-15L", 10, 5, "short 1", "" },
+                    { "430737e4-9adf-4e3c-87c8-de74f768f33f", "4f0cc366-0f91-4ee2-a4c6-566e933ea58d", false, "pfanta-15", "/img/pizza-300x300/fanta-15.png", "fanta-1.5L", 10, 5, "short 3", "" },
+                    { "721e44f6-3b7c-403c-9bde-d824058e81e7", "4f0cc366-0f91-4ee2-a4c6-566e933ea58d", false, "coca-zero", "/img/pizza-300x300/coca-zero.png", "Cocacola Zero", 10, 5, "short 2", "" },
+                    { "e2b85337-3812-46e6-8d03-7880d0edfc23", "5c59c33d-937e-463b-a1cf-fae11f08e384", false, "MENU-PC-Pho-Mai", "/img/pizza-300x300/MENU-PC-Pho-Mai.png", "MENU-PC-Pho-Mai", 10, 5, "short 1", "" },
+                    { "250dda95-2bcf-4b59-ac14-100ae16ce182", "5c59c33d-937e-463b-a1cf-fae11f08e384", false, "MENU-PC-my", "/img/pizza-300x300/MENU-PC-my.png", "MENU-PC-my", 10, 5, "short 1", "" },
+                    { "b53f5212-a7c1-4250-b2d2-3805a0741b55", "5c59c33d-937e-463b-a1cf-fae11f08e384", false, "MENU-PC-BBQ", "/img/pizza-300x300/MENU-PC-BBQ.png", "MENU-PC-BBQ", 10, 5, "short 1", "" },
+                    { "c272536a-050e-46be-9771-7ba01e261f2a", "5c59c33d-937e-463b-a1cf-fae11f08e384", false, "MENU-PC", "/img/pizza-300x300/MENU-PC.png", "MENU-PC", 10, 5, "short 1", "" },
+                    { "b068295e-d54f-48e5-a3e8-cf3fc35cad28", "b41715f2-7088-4195-b662-fb91b78fff57", false, "pasta-rau-cu", "/img/pizza-300x300/pasta-rau-cu.png", "pasta-rau-cu", 10, 5, "short 1", "" },
+                    { "0d0e029b-1e2c-4671-b8ba-09f76b575a76", "b41715f2-7088-4195-b662-fb91b78fff57", false, "pasta-hai-san", "/img/pizza-300x300/pasta-hai-san.png", "pasta-hai-san", 10, 5, "short 1", "" },
+                    { "f3e60e8e-9d92-4290-8e93-e0be3c192c53", "b41715f2-7088-4195-b662-fb91b78fff57", false, "pasta-bo-bam", "/img/pizza-300x300/pasta-bo-bam.png", "pasta", 10, 5, "short 1", "" },
+                    { "8cab0b7c-81a1-4936-be44-b0ee3d9cd154", "175ffbbe-3fcb-4642-b6d7-726cf83ad977", false, "Pizzaminsea", "/img/pizza-300x300/Pizzaminsea.png", "Pizzaminsea", 10, 5, "short 1", "" },
+                    { "ec2f7b9c-c3b3-40a2-a270-bd2f93b2c1a3", "175ffbbe-3fcb-4642-b6d7-726cf83ad977", false, "pizza-bo", "/img/pizza-300x300/pizza-bo.png", "pizza-bo", 10, 5, "short 1", "" },
+                    { "79e8a471-f49c-4de2-859b-acf167b4dc7f", "175ffbbe-3fcb-4642-b6d7-726cf83ad977", false, "Okonomiyaki", "/img/pizza-300x300/Okonomiyaki.png", "Okonomiyaki", 10, 5, "short 1", "" },
+                    { "518ff4e9-0dfc-46b7-965b-b926bab56bad", "175ffbbe-3fcb-4642-b6d7-726cf83ad977", false, "Ocean-mania", "/img/pizza-300x300/Ocean-mania.png", "Ocean-mania", 10, 5, "short 1", "" },
+                    { "0f63d15f-6bad-44b3-8cbc-b6d421ff6cce", "175ffbbe-3fcb-4642-b6d7-726cf83ad977", false, "Meat-lover", "/img/pizza-300x300/Meat-lover.png", "Meat-lover", 10, 5, "short 1", "" },
+                    { "905ce4bf-d5e1-4741-bb6a-2c556a215c5b", "175ffbbe-3fcb-4642-b6d7-726cf83ad977", false, "Haft-haft", "/img/pizza-300x300/Haft-haft.png", "Haft-haft", 10, 5, "short 1", "" },
+                    { "ff3ccf90-98b2-4c8f-8830-1b5ad323db26", "175ffbbe-3fcb-4642-b6d7-726cf83ad977", false, "Extravaganza", "/img/pizza-300x300/Extravaganza.png", "Extravaganza", 10, 5, "short 1", "" },
+                    { "ec4e57c9-e165-478d-a772-92adf74f248e", "175ffbbe-3fcb-4642-b6d7-726cf83ad977", false, "Pizza: bo", "/img/pizza-300x300/pizza-bo.png", "Pizza", 10, 5, "short 1", "" }
                 });
 
             migrationBuilder.InsertData(
@@ -533,7 +533,7 @@ namespace Thinh_Ecom.Migrations
             migrationBuilder.InsertData(
                 table: "ProductInCart",
                 columns: new[] { "pic_CartId", "pic_ProductId", "pic_amount", "pic_color", "pic_size" },
-                values: new object[] { "D355458F-1DD3-4834-AA28-6DA34B6357FF", "0181432f-e266-477b-9d90-b4afa69f92fb", 2, null, null });
+                values: new object[] { "D355458F-1DD3-4834-AA28-6DA34B6357FF", "ec4e57c9-e165-478d-a772-92adf74f248e", 2, null, null });
 
             migrationBuilder.CreateIndex(
                 name: "IX_About_about_AppUserFK",
