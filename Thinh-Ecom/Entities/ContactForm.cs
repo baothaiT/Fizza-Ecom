@@ -15,7 +15,7 @@ namespace Thinh_Ecom.Entities
         public string cf_Name { set; get; }
 
         [DisplayName("Phone")]
-        public string cf_Phone { set; get; }
+        public int cf_Phone { set; get; }
 
         [DisplayName("Email")]
         public string cf_Email { set; get; }

@@ -454,7 +454,7 @@ namespace Thinh_Ecom.Data.DataSeeding
                 {
                     cf_Id = contactFormId1,
                     cf_Name = "Name",
-                    cf_Phone = "0123456789",
+                    cf_Phone = 0123456789,
                     cf_Email = "Email",
                     cf_Subject = "Subject",
                     cf_Description = "Description"

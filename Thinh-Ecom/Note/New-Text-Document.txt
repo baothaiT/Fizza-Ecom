@@ -28,7 +28,7 @@ ko update đúng giá của sản phẩm (nghĩa là mua hàng hết 100 nhưng 
 
 
 bắt buộc phải có{
-Xóa Sp trong admin nhưng Account --- sau khi xóa lịch sử vẫn còn lưu(nghĩa là khi xóa 1 sản phẩm trong admin mak trong đơn hàng có sản phẩm đó thì lịch sử vẫn phải lưu lại ko dc xóa theo)
+Done -- Xóa Sp trong admin nhưng Account --- sau khi xóa lịch sử vẫn còn lưu(nghĩa là khi xóa 1 sản phẩm trong admin mak trong đơn hàng có sản phẩm đó thì lịch sử vẫn phải lưu lại ko dc xóa theo)
 
 phần Contact Phone phải kiểu int
 
