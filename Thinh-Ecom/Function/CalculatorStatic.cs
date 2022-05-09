@@ -37,10 +37,13 @@ namespace Thinh_Ecom.Function
             if(isLogin)
             {
                 var queryCartId = _context.Cart.FirstOrDefault(a => a.cart_UserID == idUser);
+                if (queryCartId != null)
+                {
+                    var queryProductInCart = _context.ProductInCart.Where(a => a.pic_CartId == queryCartId.cart_Id);
 
-                var queryProductInCart = _context.ProductInCart.Where(a => a.pic_CartId == queryCartId.cart_Id);
-
-                return queryProductInCart.Count();
+                    return queryProductInCart.Count();
+                }
+                else { return 0; }
             }
             return 0;
         }

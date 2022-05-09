@@ -76,6 +76,7 @@ namespace Thinh_Ecom.Data
 
 
         }
+        //table
         public DbSet<About> About { set; get; }
         public DbSet<AppRole> AppRole { set; get; }
         public DbSet<AppUser> AppUser { set; get; }
