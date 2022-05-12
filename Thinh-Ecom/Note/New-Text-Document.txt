@@ -22,7 +22,7 @@ Done -- User management:chỉ đc change role của khách hàng
 
 Đơn hàng
 (admin)Lịch sử đơn hàng-- chi tiết ng đăt(tên-sđt-đchi) (ý là phải có phần detail như xem phần Email management)
-(khach)Lịch sử đơn hàng chi tiết sản phầm giá tiền (như trên, phải có detail)
+Done -- (khach)Lịch sử đơn hàng chi tiết sản phầm giá tiền (như trên, phải có detail)
 
 Checkout
 ko update đúng giá của sản phẩm (nghĩa là mua hàng hết 100 nhưng khi check out thì giá vẫn 70)

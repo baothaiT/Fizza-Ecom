@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Stripe;
 
 namespace Thinh_Ecom.Controllers
 {
     public class TestController : Controller
     {
+
+
         // GET: TestController
         [Route("/test")]
         public ActionResult Index()
@@ -12,6 +15,15 @@ namespace Thinh_Ecom.Controllers
             return View();
         }
 
+        // GET: TestController/Details/5
+        [Route("/testpay")]
+        public ActionResult TestPay(string stripeEmail, string stripeToken)
+        {
+            //var customerService = new StripeCustomerService();
+            //var customerService = new StripeCustomerService();
+
+            return View();
+        }
         // GET: TestController/Details/5
         public ActionResult Details(int id)
         {

@@ -103,7 +103,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult>  Create(CheckoutModels checkoutModels)
+        public async Task<ActionResult>  Create(CheckoutModels checkoutModels, string stripeEmail, string stripeToken)
         {
             try
             {

@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using Thinh_Ecom.Data;
 using Thinh_Ecom.Entities;
 using Thinh_Ecom.EntitiesThinh_Ecom.Entities;
+using Stripe;
 
 namespace Thinh_Ecom
 {
@@ -64,7 +65,7 @@ namespace Thinh_Ecom
                 options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
             });
             services.AddSession();
-
+            services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
             services.Configure<IdentityOptions>(options =>
             {
                 // Default Password settings.
@@ -80,6 +81,8 @@ namespace Thinh_Ecom
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            StripeConfiguration.SetApiKey(Configuration.GetSection("Stripe")["SecretKey"]);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
