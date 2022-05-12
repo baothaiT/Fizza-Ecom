@@ -41,6 +41,8 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
         {
             //Print information of product
             var queryProduct = _context.Products.Find(id);
+
+            ViewBag.img = queryProduct.pd_Img1;
             return View(queryProduct);
         }
 
@@ -131,7 +133,7 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
         {
             //Print information of product
             var queryProduct = _context.Products.Find(id);
-
+            ViewBag.img = queryProduct.pd_Img1;
             //Query Current Categories
             var queryCurrentCategories = _context.Categories.FirstOrDefault(a => a.cg_Id == queryProduct.CategoriesFK);
             ViewBag.CurrentCategories = queryCurrentCategories;
@@ -177,6 +179,7 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
         public ActionResult Delete(string id)
         {
             var queryProduct = _context.Products.Find(id);
+            ViewBag.img = queryProduct.pd_Img1;
             return View(queryProduct);
         }
 

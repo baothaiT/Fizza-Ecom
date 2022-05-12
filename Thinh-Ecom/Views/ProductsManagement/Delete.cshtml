@@ -42,6 +42,12 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.pd_Img1)
         </dd>
+        <dt class="col-sm-2">
+            <span>Image</span>
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@ViewBag.img" />       
+        </dd>
         
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.pd_ShortDescription)

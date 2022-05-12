@@ -23,7 +23,7 @@
                 @Html.DisplayNameFor(model => model.pd_Price)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.pd_ReducePrice)
+                <span>Image </span>
             </th>
 
             <th></th>
@@ -42,7 +42,7 @@
                 @Html.DisplayFor(modelItem => item.pd_Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.pd_ReducePrice)
+                <img src="@item.pd_Img1" />    
             </td>
 
             <td>

@@ -21,11 +21,11 @@ Done -- User management:chỉ đc change role của khách hàng
 
 
 Đơn hàng
-(admin)Lịch sử đơn hàng-- chi tiết ng đăt(tên-sđt-đchi) (ý là phải có phần detail như xem phần Email management)
+Done -- (admin)Lịch sử đơn hàng-- chi tiết ng đăt(tên-sđt-đchi) (ý là phải có phần detail như xem phần Email management)
 Done -- (khach)Lịch sử đơn hàng chi tiết sản phầm giá tiền (như trên, phải có detail)
 
 Checkout
-ko update đúng giá của sản phẩm (nghĩa là mua hàng hết 100 nhưng khi check out thì giá vẫn 70)
+Done -- ko update đúng giá của sản phẩm (nghĩa là mua hàng hết 100 nhưng khi check out thì giá vẫn 70)
 
 
 bắt buộc phải có{
@@ -33,7 +33,7 @@ Done -- Xóa Sp trong admin nhưng Account --- sau khi xóa lịch sử vẫn c�
 
 Done -- phần Contact Phone phải kiểu int
 
-Thanh Toán online
+Done -- Thanh Toán online
 }
 
 
