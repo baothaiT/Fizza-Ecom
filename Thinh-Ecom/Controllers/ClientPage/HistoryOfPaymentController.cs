@@ -52,7 +52,10 @@ namespace Thinh_Ecom.Controllers.ClientPage
                 Name_Product = "Product Name",
                 Type_Payment = x.a.bill_PaymentMethod,
                 Check_Receive = true,
-                Price = x.a.bill_PaidTotal
+                Price = x.a.bill_PaidTotal,
+                Discount = x.a.bill_Discount,
+                Shipping = x.a.bill_Shipping
+              
 
             });
 
