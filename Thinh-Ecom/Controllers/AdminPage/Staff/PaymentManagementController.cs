@@ -66,17 +66,30 @@ namespace Thinh_Ecom.Controllers.AdminPage.Staff
 
         // GET: PaymentManagementController/Details/5
         [Route("paymentconfirm/Details")]
-        [HttpGet("{id}")]
+
         public ActionResult Details(string id)
         {
 
-            //var queryPayment = _context.Bills.FirstOrDefault(a => a.bill_Id == id);
+            var queryPayment = _context.Bills.FirstOrDefault(a => a.bill_Id == id);
             //queryPayment.bill_Confirmation = true;
 
             //_context.Bills.Update(queryPayment);
             //_context.SaveChanges();
 
-            return View();
+            var DataForHistoryModel =  new PaymentManagement()
+            {
+                PaymentId = queryPayment.bill_Id,
+                Date = queryPayment.bill_DatetimeOrder,
+                Status_Confirm = queryPayment.bill_Confirmation,
+                //Name_Product = "Product Name",
+                Type_Payment = queryPayment.bill_PaymentMethod,
+                
+                Check_Receive = true,
+                Price = queryPayment.bill_PaidTotal
+
+            };
+
+            return View(DataForHistoryModel);
         }
 
 

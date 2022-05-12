@@ -8,6 +8,7 @@ using Thinh_Ecom.Configurations;
 using Thinh_Ecom.Data.DataSeeding;
 using Thinh_Ecom.Entities;
 using Thinh_Ecom.EntitiesThinh_Ecom.Entities;
+using Thinh_Ecom.Models;
 
 namespace Thinh_Ecom.Data
 {
@@ -91,6 +92,7 @@ namespace Thinh_Ecom.Data
         public DbSet<Shipping> Shipping { set; get; }
         public DbSet<EmailGuest> EmailGuest { set; get; }
         public DbSet<PriceForSize> PriceForSize { set; get; }
+        public DbSet<Thinh_Ecom.Models.PaymentManagement> PaymentManagement { get; set; }
 
 
     }
