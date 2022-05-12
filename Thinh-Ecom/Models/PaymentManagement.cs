@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Thinh_Ecom.Models
 {
     public class PaymentManagement
     {
+        [Key]
         public int IdConfirm { get; set; }
         public string PaymentId { get; set; }
         public DateTime Date { get; set; }

@@ -52,9 +52,8 @@ namespace Thinh_Ecom.Controllers.ClientPage
                 {
                     cart_ProductId = x.a.pd_Id,
                     cart_ProductName = x.a.pd_Name,
-                    cart_ProductType = x.f.cg_Name,
-                        //cart_ProductPrice = CalculatorStatic.CalculatorPriceForSize(x.b.pic_size, x.a.pd_Price,_context),
-                        cart_ProductPrice = x.a.pd_Price,
+
+                    cart_ProductPrice = x.a.pd_Price,
                     cart_ProductImg = x.a.pd_Img1,
                     cart_ProductQuantity = x.b.pic_amount,
                     cart_ProductSize = x.b.pic_size,
@@ -120,14 +119,14 @@ namespace Thinh_Ecom.Controllers.ClientPage
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult>  Create(CheckoutModels checkoutModels, string stripeEmail, string stripeToken)
+        public async Task<ActionResult> Create(CheckoutModels checkoutModels, string stripeEmail, string stripeToken)
         {
             try
             {
                 string MethodPayment;
                 if (stripeToken is not null)
                 {
-                    MethodPayment  = "Card";
+                    MethodPayment = "Card";
                 }
                 else
                 {
@@ -151,9 +150,8 @@ namespace Thinh_Ecom.Controllers.ClientPage
                     {
                         cart_ProductId = x.a.pd_Id,
                         cart_ProductName = x.a.pd_Name,
-                        cart_ProductType = x.f.cg_Name,
-                    //cart_ProductPrice = CalculatorStatic.CalculatorPriceForSize(x.b.pic_size, x.a.pd_Price,_context),
-                    cart_ProductPrice = x.a.pd_Price,
+                        //cart_ProductPrice = CalculatorStatic.CalculatorPriceForSize(x.b.pic_size, x.a.pd_Price,_context),
+                        cart_ProductPrice = x.a.pd_Price,
                         cart_ProductImg = x.a.pd_Img1,
                         cart_ProductQuantity = x.b.pic_amount,
                         cart_ProductSize = x.b.pic_size,
@@ -211,7 +209,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
                     bill_Note = checkoutModels.Note,
                     bill_UserId = userId,
                     bill_PaidTotal = CalculatorTotalPrice(cartModelQuery.ToList(), _context)
-            };
+                };
                 _context.Bills.Add(createBill);
 
                 // Done process with database
@@ -262,7 +260,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
             }
         }
 
-        public void SendByMail( string subject, string boddy, string mailto)
+        public void SendByMail(string subject, string boddy, string mailto)
         {
             var smtpacountJson = new ConfigurationBuilder().AddJsonFile("appsettings.json").
                 Build().GetSection("MailSettings")["Mail"];
