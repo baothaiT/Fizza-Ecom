@@ -107,7 +107,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <a onclick="Checkout()" class="boxed-btn">Place Order</a>
+                    <a onclick="Checkout()" class="boxed-btn">Payment With Cash</a>
                 </div>
                 <div>
 
@@ -117,7 +117,7 @@
                                 class="stripe-button"
                                 data-key="pk_test_51KyjlvC0Tt6T2dGNDbskEmHfYslqlkmo1KKX2MLDLuMXO4QcERSNtNUHAc7xRo5OielCFaD06GeMWMooe9nODSce00p2s3YGPb"
                                 data-description="ASP.NET core"
-                                data-amount="500">
+                                data-amount="'@ViewBag.Total'+'00'">
 
                         </script>
                     </form>
