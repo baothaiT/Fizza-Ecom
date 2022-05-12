@@ -147,9 +147,6 @@ namespace Thinh_Ecom.Controllers.ClientPage
                         i++;
                     }
 
-
-
-
                     //Edit User
                     var queryUser = _context.AppUser.FirstOrDefault(a => a.Id == userId);
                     queryUser.FirstName = checkoutModels.Name;
@@ -158,7 +155,6 @@ namespace Thinh_Ecom.Controllers.ClientPage
                     queryUser.PhoneNumber = checkoutModels.Phone;
 
                     _context.AppUser.Update(queryUser);
-
 
                     // Create Bill
                     var createBill = new Bills()
@@ -175,7 +171,6 @@ namespace Thinh_Ecom.Controllers.ClientPage
                         bill_Note = checkoutModels.Note,
                         bill_UserId = userId,
                         bill_PaidTotal = totalPrice
-
                     };
                     _context.Bills.Add(createBill);
 

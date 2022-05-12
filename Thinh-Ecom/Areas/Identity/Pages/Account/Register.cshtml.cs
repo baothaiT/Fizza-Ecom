@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Thinh_Ecom.Entities;
 
@@ -89,12 +90,11 @@ namespace Thinh_Ecom.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
+                    
+                    SendByMail("Confirm your email", $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.", Input.Email);
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
-                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                        //return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
                     }
                     else
                     {
@@ -110,6 +110,24 @@ namespace Thinh_Ecom.Areas.Identity.Pages.Account
 
             // If we got this far, something failed, redisplay form
             return Page();
+        }
+
+        public void SendByMail(string subject, string boddy, string mailto)
+        {
+            var smtpacountJson = new ConfigurationBuilder().AddJsonFile("appsettings.json").
+                Build().GetSection("MailSettings")["Mail"];
+            var smtppasswordJson = new ConfigurationBuilder().AddJsonFile("appsettings.json").
+                Build().GetSection("MailSettings")["Password"];
+
+            MailUtils.MailUtils.SendMailGoogleSmtp(
+                smtpacountJson.ToString(),
+                mailto,
+                subject,
+                boddy,
+                smtpacountJson.ToString(),
+                smtppasswordJson.ToString()
+
+            ).Wait();
         }
     }
 }
