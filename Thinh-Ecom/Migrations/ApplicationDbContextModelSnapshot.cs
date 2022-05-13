@@ -343,13 +343,13 @@ namespace Thinh_Ecom.Migrations
                             bill_Id = "D269BF93-A5E2-4C4A-8146-9967DDE80D30",
                             IsDelete = false,
                             bill_Confirmation = true,
-                            bill_DatetimeOrder = new DateTime(2022, 5, 9, 20, 15, 51, 282, DateTimeKind.Local).AddTicks(4627),
+                            bill_DatetimeOrder = new DateTime(2022, 5, 13, 8, 25, 54, 603, DateTimeKind.Local).AddTicks(1991),
                             bill_Discount = 0,
                             bill_HideStatus = false,
                             bill_Note = "",
                             bill_PaidTotal = 2000,
                             bill_PaymentMethod = "Check Payment",
-                            bill_ProductIdlist = "acfd4b88-195a-4fa6-9a51-7ccbe53f76fc|1d28674e-3152-49b2-84c0-3ca73950d598|b3152b04-38d2-4a47-8e1f-324edffdf922|c183ba54-2fcc-4d1f-80a0-619c0b3b82ee|",
+                            bill_ProductIdlist = "ade574f5-4daf-4cee-87fc-52e70b8b37c8|0a0a6589-7b06-448b-b916-192de3144b86|e21dedae-94f1-43d5-a1e5-81d7836e6bf8|6548a0de-3fa5-4c8f-bb16-dd6ce5dc5cc3|",
                             bill_ProductNamelist = "product 1|product 2| product 3| product 4|",
                             bill_ProductPricelist = "550|450|350|640|",
                             bill_ProductSizelist = "7|8|9|14|",
@@ -411,7 +411,7 @@ namespace Thinh_Ecom.Migrations
                     b.HasData(
                         new
                         {
-                            cg_Id = "3c82b2c6-4edc-4831-a1a1-0f2b824f0e02",
+                            cg_Id = "181c0691-051e-48c2-8a98-97756d2627cc",
                             IsDelete = false,
                             cg_Name = "Pizza",
                             cg_Sale = "",
@@ -419,7 +419,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            cg_Id = "80e7c6ff-cb4f-4686-8734-711fbd8f2976",
+                            cg_Id = "27a6b0e9-8c5d-4686-b11a-122bd8078c58",
                             IsDelete = false,
                             cg_Name = "Spaghetti",
                             cg_Sale = "",
@@ -427,7 +427,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            cg_Id = "fc6efae4-e1f6-446c-ae0d-1e39189a391b",
+                            cg_Id = "f0c3d0e7-c1e1-4edc-bf5c-39de434b7543",
                             IsDelete = false,
                             cg_Name = "Sidedishes",
                             cg_Sale = "",
@@ -435,7 +435,7 @@ namespace Thinh_Ecom.Migrations
                         },
                         new
                         {
-                            cg_Id = "1c6c8d59-85d8-4ce9-ab2d-0cdfc15ce8f0",
+                            cg_Id = "baf6acc2-f3fb-4a98-b91f-f4c7fe969f08",
                             IsDelete = false,
                             cg_Name = "Drink",
                             cg_Sale = "",
@@ -470,7 +470,7 @@ namespace Thinh_Ecom.Migrations
                     b.HasData(
                         new
                         {
-                            cf_Id = "56ccad35-2beb-46de-aaf2-ec9f541919e4",
+                            cf_Id = "ec48778e-6d1b-46fc-8e70-973ec6b1c7a9",
                             cf_Description = "Description",
                             cf_Email = "Email",
                             cf_Name = "Name",
@@ -496,6 +496,9 @@ namespace Thinh_Ecom.Migrations
                     b.Property<int>("couponPrice")
                         .HasColumnType("int");
 
+                    b.Property<int>("couponPricePercen")
+                        .HasColumnType("int");
+
                     b.Property<string>("coupon_AppUserFK")
                         .HasColumnType("nvarchar(450)");
 
@@ -508,19 +511,21 @@ namespace Thinh_Ecom.Migrations
                     b.HasData(
                         new
                         {
-                            couponId = "0df6ae7e-b5a6-4ed6-b543-c1c16aa55576",
+                            couponId = "fc4f4da1-d934-4f1d-a82f-ebaf6e2c4e65",
                             EndTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StartTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             couponCode = "code10",
-                            couponPrice = 10
+                            couponPrice = 10,
+                            couponPricePercen = 0
                         },
                         new
                         {
-                            couponId = "fccbf8e6-889c-4565-928d-c2bee8c37753",
+                            couponId = "78c1bd85-4056-461d-8057-7c539ce71979",
                             EndTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StartTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             couponCode = "code50",
-                            couponPrice = 50
+                            couponPrice = 50,
+                            couponPricePercen = 0
                         });
                 });
 
@@ -555,13 +560,13 @@ namespace Thinh_Ecom.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "00c0a786-040d-4a52-bdef-24f297dba1cd",
+                            Id = "a5bc491f-ae14-409b-ab13-67961ef1d2a6",
                             Price = 10,
                             SizeName = "M"
                         },
                         new
                         {
-                            Id = "56123819-d803-4a67-8c4a-c5538c25c3cd",
+                            Id = "f2ac1a38-5cea-4d86-9c17-177ad4e679f8",
                             Price = 15,
                             SizeName = "L"
                         });
@@ -594,7 +599,7 @@ namespace Thinh_Ecom.Migrations
                         new
                         {
                             pic_CartId = "D355458F-1DD3-4834-AA28-6DA34B6357FF",
-                            pic_ProductId = "acfd4b88-195a-4fa6-9a51-7ccbe53f76fc",
+                            pic_ProductId = "ade574f5-4daf-4cee-87fc-52e70b8b37c8",
                             pic_amount = 2
                         });
                 });
@@ -640,236 +645,184 @@ namespace Thinh_Ecom.Migrations
                     b.HasData(
                         new
                         {
-                            pd_Id = "acfd4b88-195a-4fa6-9a51-7ccbe53f76fc",
-                            CategoriesFK = "3c82b2c6-4edc-4831-a1a1-0f2b824f0e02",
+                            pd_Id = "ade574f5-4daf-4cee-87fc-52e70b8b37c8",
+                            CategoriesFK = "181c0691-051e-48c2-8a98-97756d2627cc",
                             IsDelete = false,
-                            pd_Description = "Pizza: bo",
-                            pd_Img1 = "/img/pizza-300x300/pizza-bo.png",
-                            pd_Name = "Pizza",
-                            pd_Price = 10,
-                            pd_ReducePrice = 5,
-                            pd_ShortDescription = "short 1",
-                            pd_Size = ""
-                        },
-                        new
-                        {
-                            pd_Id = "1d28674e-3152-49b2-84c0-3ca73950d598",
-                            CategoriesFK = "1c6c8d59-85d8-4ce9-ab2d-0cdfc15ce8f0",
-                            IsDelete = false,
-                            pd_Description = "coca-zero",
-                            pd_Img1 = "/img/pizza-300x300/coca-zero.png",
-                            pd_Name = "Cocacola Zero",
-                            pd_Price = 10,
-                            pd_ReducePrice = 5,
-                            pd_ShortDescription = "short 2",
-                            pd_Size = ""
-                        },
-                        new
-                        {
-                            pd_Id = "b3152b04-38d2-4a47-8e1f-324edffdf922",
-                            CategoriesFK = "3c82b2c6-4edc-4831-a1a1-0f2b824f0e02",
-                            IsDelete = false,
-                            pd_Description = "Extravaganza",
-                            pd_Img1 = "/img/pizza-300x300/Extravaganza.png",
+                            pd_Description = "",
+                            pd_Img1 = "/img/pizza/Extravaganza.png",
                             pd_Name = "Extravaganza",
                             pd_Price = 10,
                             pd_ReducePrice = 5,
-                            pd_ShortDescription = "short 1",
+                            pd_ShortDescription = "Tomato Sauce, Mozzarella Cheese, Pepperoni Sausage, Ham, Sausage, Beef Balls, Green Bell Peppers, Mushrooms, Onions, Olives",
                             pd_Size = ""
                         },
                         new
                         {
-                            pd_Id = "c183ba54-2fcc-4d1f-80a0-619c0b3b82ee",
-                            CategoriesFK = "1c6c8d59-85d8-4ce9-ab2d-0cdfc15ce8f0",
+                            pd_Id = "0a0a6589-7b06-448b-b916-192de3144b86",
+                            CategoriesFK = "181c0691-051e-48c2-8a98-97756d2627cc",
                             IsDelete = false,
-                            pd_Description = "pfanta-15",
-                            pd_Img1 = "/img/pizza-300x300/fanta-15.png",
-                            pd_Name = "fanta-1.5L",
-                            pd_Price = 10,
-                            pd_ReducePrice = 5,
-                            pd_ShortDescription = "short 3",
-                            pd_Size = ""
-                        },
-                        new
-                        {
-                            pd_Id = "b9fac9d7-09a1-4c3e-add4-83c5eb24b3c9",
-                            CategoriesFK = "3c82b2c6-4edc-4831-a1a1-0f2b824f0e02",
-                            IsDelete = false,
-                            pd_Description = "Haft-haft",
-                            pd_Img1 = "/img/pizza-300x300/Haft-haft.png",
+                            pd_Description = "",
+                            pd_Img1 = "/img/pizza/Haft-haft.png",
                             pd_Name = "Haft-haft",
                             pd_Price = 10,
                             pd_ReducePrice = 5,
-                            pd_ShortDescription = "short 1",
+                            pd_ShortDescription = "It is a topping combination of Ocean Mania pizza and Cheesy Chicken Bacon pizza",
                             pd_Size = ""
                         },
                         new
                         {
-                            pd_Id = "59b76b2e-f349-4023-b73b-6395aa421e88",
-                            CategoriesFK = "3c82b2c6-4edc-4831-a1a1-0f2b824f0e02",
+                            pd_Id = "e21dedae-94f1-43d5-a1e5-81d7836e6bf8",
+                            CategoriesFK = "181c0691-051e-48c2-8a98-97756d2627cc",
                             IsDelete = false,
-                            pd_Description = "Meat-lover",
-                            pd_Img1 = "/img/pizza-300x300/Meat-lover.png",
+                            pd_Description = "",
+                            pd_Img1 = "/img/pizza/Hawaiian.png",
+                            pd_Name = "Hawaiian",
+                            pd_Price = 10,
+                            pd_ReducePrice = 5,
+                            pd_ShortDescription = "Tomato Sauce, Mozzarella Cheese, Ham, Pineapple",
+                            pd_Size = ""
+                        },
+                        new
+                        {
+                            pd_Id = "6548a0de-3fa5-4c8f-bb16-dd6ce5dc5cc3",
+                            CategoriesFK = "181c0691-051e-48c2-8a98-97756d2627cc",
+                            IsDelete = false,
+                            pd_Description = "",
+                            pd_Img1 = "/img/pizza/Kid-mania.png",
+                            pd_Name = "Kid-mania",
+                            pd_Price = 10,
+                            pd_ReducePrice = 5,
+                            pd_ShortDescription = "Cheese Sauce, Mozzarella Cheese, Pickled Pork, Corn, Quail Egg",
+                            pd_Size = ""
+                        },
+                        new
+                        {
+                            pd_Id = "83259d88-2a1d-413f-a6ed-3f37a1d29842",
+                            CategoriesFK = "181c0691-051e-48c2-8a98-97756d2627cc",
+                            IsDelete = false,
+                            pd_Description = "",
+                            pd_Img1 = "/img/pizza/Meat-lover.png",
                             pd_Name = "Meat-lover",
                             pd_Price = 10,
                             pd_ReducePrice = 5,
-                            pd_ShortDescription = "short 1",
+                            pd_ShortDescription = "Tomato Sauce, Mozzarella Cheese, Pepperoni Sausage, Ham, Sausage, Beef Balls, Bacon",
                             pd_Size = ""
                         },
                         new
                         {
-                            pd_Id = "c605fe91-816d-4eef-b23a-b7ddaee697d8",
-                            CategoriesFK = "fc6efae4-e1f6-446c-ae0d-1e39189a391b",
+                            pd_Id = "f5afcac4-acd3-403d-81b6-490ea293a37d",
+                            CategoriesFK = "181c0691-051e-48c2-8a98-97756d2627cc",
                             IsDelete = false,
-                            pd_Description = "MENU-PC",
-                            pd_Img1 = "/img/pizza-300x300/MENU-PC.png",
-                            pd_Name = "MENU-PC",
+                            pd_Description = "",
+                            pd_Img1 = "/img/pizza/Cheese-mania.png",
+                            pd_Name = "Cheese-mania",
                             pd_Price = 10,
                             pd_ReducePrice = 5,
-                            pd_ShortDescription = "short 1",
+                            pd_ShortDescription = "Tomato Sauce, Mozzarella Cheese",
                             pd_Size = ""
                         },
                         new
                         {
-                            pd_Id = "10b5955d-b891-430b-b2d2-8d60337f248b",
-                            CategoriesFK = "fc6efae4-e1f6-446c-ae0d-1e39189a391b",
+                            pd_Id = "ca173235-2460-49f9-9611-377cc5cf3981",
+                            CategoriesFK = "27a6b0e9-8c5d-4686-b11a-122bd8078c58",
                             IsDelete = false,
-                            pd_Description = "MENU-PC-BBQ",
-                            pd_Img1 = "/img/pizza-300x300/MENU-PC-BBQ.png",
-                            pd_Name = "MENU-PC-BBQ",
+                            pd_Description = "",
+                            pd_Img1 = "/img/pizza/Baked Bolognese Pasta.png",
+                            pd_Name = "Baked Bolognese Pasta",
                             pd_Price = 10,
                             pd_ReducePrice = 5,
-                            pd_ShortDescription = "short 1",
+                            pd_ShortDescription = "Sauce Minced Beef Noodles, Mozzarella Cheese",
                             pd_Size = ""
                         },
                         new
                         {
-                            pd_Id = "bd9066fc-5b78-4624-9135-d29caa57e386",
-                            CategoriesFK = "fc6efae4-e1f6-446c-ae0d-1e39189a391b",
+                            pd_Id = "30662866-bb62-45cd-a1be-5fec0567e091",
+                            CategoriesFK = "27a6b0e9-8c5d-4686-b11a-122bd8078c58",
                             IsDelete = false,
-                            pd_Description = "MENU-PC-my",
-                            pd_Img1 = "/img/pizza-300x300/MENU-PC-my.png",
-                            pd_Name = "MENU-PC-my",
+                            pd_Description = "",
+                            pd_Img1 = "/img/pizza/Baked Seafood Pasta.png",
+                            pd_Name = "Baked Seafood Pasta",
                             pd_Price = 10,
                             pd_ReducePrice = 5,
-                            pd_ShortDescription = "short 1",
+                            pd_ShortDescription = "Light spicy noodle sauce, shrimp, crab stick, squid, Mozzarella cheese",
                             pd_Size = ""
                         },
                         new
                         {
-                            pd_Id = "b7221137-bcbd-4f0e-ba3f-be6425c284e6",
-                            CategoriesFK = "fc6efae4-e1f6-446c-ae0d-1e39189a391b",
+                            pd_Id = "ef394cb3-2263-4bcf-8cbf-be2b98186162",
+                            CategoriesFK = "27a6b0e9-8c5d-4686-b11a-122bd8078c58",
                             IsDelete = false,
-                            pd_Description = "MENU-PC-Pho-Mai",
-                            pd_Img1 = "/img/pizza-300x300/MENU-PC-Pho-Mai.png",
-                            pd_Name = "MENU-PC-Pho-Mai",
+                            pd_Description = "",
+                            pd_Img1 = "/img/pizza/Baked Veggie Pasta.png",
+                            pd_Name = "Baked Veggie Pasta",
                             pd_Price = 10,
                             pd_ReducePrice = 5,
-                            pd_ShortDescription = "short 1",
+                            pd_ShortDescription = "Sauce lightly spicy noodles, mushroom, green bell pepper, tomato, pineapple, black olive, mozzarella cheese.",
                             pd_Size = ""
                         },
                         new
                         {
-                            pd_Id = "c1cc1305-0a0a-4183-9094-a0b8a37a3a3f",
-                            CategoriesFK = "3c82b2c6-4edc-4831-a1a1-0f2b824f0e02",
+                            pd_Id = "19845f64-71d0-46d3-863e-be612324adcc",
+                            CategoriesFK = "f0c3d0e7-c1e1-4edc-bf5c-39de434b7543",
                             IsDelete = false,
-                            pd_Description = "Ocean-mania",
-                            pd_Img1 = "/img/pizza-300x300/Ocean-mania.png",
-                            pd_Name = "Ocean-mania",
+                            pd_Description = "",
+                            pd_Img1 = "/img/pizza/BBQ-Chicken-Kickers.png",
+                            pd_Name = "BBQ-Chicken-Kickers",
                             pd_Price = 10,
                             pd_ReducePrice = 5,
-                            pd_ShortDescription = "short 1",
+                            pd_ShortDescription = "Breaded Boneless Chicken served with delicious BBQ sauce.",
                             pd_Size = ""
                         },
                         new
                         {
-                            pd_Id = "0c655fca-6158-4825-a8f3-0b11df523fa6",
-                            CategoriesFK = "3c82b2c6-4edc-4831-a1a1-0f2b824f0e02",
+                            pd_Id = "0b2d975c-4fc1-4db4-a0cb-dceaa5ca1cea",
+                            CategoriesFK = "181c0691-051e-48c2-8a98-97756d2627cc",
                             IsDelete = false,
-                            pd_Description = "Okonomiyaki",
-                            pd_Img1 = "/img/pizza-300x300/Okonomiyaki.png",
-                            pd_Name = "Okonomiyaki",
+                            pd_Description = "",
+                            pd_Img1 = "/img/pizza/Cheesy-backed-chicken.png",
+                            pd_Name = "Cheesy-backed-chicken",
                             pd_Price = 10,
                             pd_ReducePrice = 5,
-                            pd_ShortDescription = "short 1",
+                            pd_ShortDescription = "Breaded chicken with fatty cheese, topped with bacon and served with BBQ sauce.",
                             pd_Size = ""
                         },
                         new
                         {
-                            pd_Id = "8e615b86-e19f-4a6c-94ad-76f20a8b51b4",
-                            CategoriesFK = "80e7c6ff-cb4f-4686-8734-711fbd8f2976",
+                            pd_Id = "01da4e37-9369-42d4-918f-1feab1acb68f",
+                            CategoriesFK = "baf6acc2-f3fb-4a98-b91f-f4c7fe969f08",
                             IsDelete = false,
-                            pd_Description = "pasta-bo-bam",
-                            pd_Img1 = "/img/pizza-300x300/pasta-bo-bam.png",
-                            pd_Name = "pasta",
+                            pd_Description = "",
+                            pd_Img1 = "/img/pizza/Coke.png",
+                            pd_Name = "Coke",
                             pd_Price = 10,
                             pd_ReducePrice = 5,
-                            pd_ShortDescription = "short 1",
+                            pd_ShortDescription = "Natural flavor",
                             pd_Size = ""
                         },
                         new
                         {
-                            pd_Id = "2ef37bcf-f4e2-4fc5-a817-a3bcde75f1cd",
-                            CategoriesFK = "80e7c6ff-cb4f-4686-8734-711fbd8f2976",
+                            pd_Id = "228c3276-4f89-49a9-83f5-225b6c763675",
+                            CategoriesFK = "baf6acc2-f3fb-4a98-b91f-f4c7fe969f08",
                             IsDelete = false,
-                            pd_Description = "pasta-hai-san",
-                            pd_Img1 = "/img/pizza-300x300/pasta-hai-san.png",
-                            pd_Name = "pasta-hai-san",
+                            pd_Description = "",
+                            pd_Img1 = "/img/pizza/Coke-light.png",
+                            pd_Name = "Coke-light",
                             pd_Price = 10,
                             pd_ReducePrice = 5,
-                            pd_ShortDescription = "short 1",
+                            pd_ShortDescription = "No sugar, for dieters",
                             pd_Size = ""
                         },
                         new
                         {
-                            pd_Id = "8799864d-b1af-43e2-8f75-67cded5d8060",
-                            CategoriesFK = "80e7c6ff-cb4f-4686-8734-711fbd8f2976",
+                            pd_Id = "35efd434-2e0d-44cf-abb0-d353cdf04e71",
+                            CategoriesFK = "baf6acc2-f3fb-4a98-b91f-f4c7fe969f08",
                             IsDelete = false,
-                            pd_Description = "pasta-rau-cu",
-                            pd_Img1 = "/img/pizza-300x300/pasta-rau-cu.png",
-                            pd_Name = "pasta-rau-cu",
+                            pd_Description = "",
+                            pd_Img1 = "/img/pizza/Peach-tea.png",
+                            pd_Name = "Peach-tea",
                             pd_Price = 10,
                             pd_ReducePrice = 5,
-                            pd_ShortDescription = "short 1",
-                            pd_Size = ""
-                        },
-                        new
-                        {
-                            pd_Id = "8b887617-9a92-4c61-b63c-36a2553b05df",
-                            CategoriesFK = "3c82b2c6-4edc-4831-a1a1-0f2b824f0e02",
-                            IsDelete = false,
-                            pd_Description = "pizza-bo",
-                            pd_Img1 = "/img/pizza-300x300/pizza-bo.png",
-                            pd_Name = "pizza-bo",
-                            pd_Price = 10,
-                            pd_ReducePrice = 5,
-                            pd_ShortDescription = "short 1",
-                            pd_Size = ""
-                        },
-                        new
-                        {
-                            pd_Id = "cf26418a-50ea-4abd-8155-24245944da01",
-                            CategoriesFK = "3c82b2c6-4edc-4831-a1a1-0f2b824f0e02",
-                            IsDelete = false,
-                            pd_Description = "Pizzaminsea",
-                            pd_Img1 = "/img/pizza-300x300/Pizzaminsea.png",
-                            pd_Name = "Pizzaminsea",
-                            pd_Price = 10,
-                            pd_ReducePrice = 5,
-                            pd_ShortDescription = "short 1",
-                            pd_Size = ""
-                        },
-                        new
-                        {
-                            pd_Id = "80432f9a-0804-4ee1-b90f-d728641cf6fe",
-                            CategoriesFK = "1c6c8d59-85d8-4ce9-ab2d-0cdfc15ce8f0",
-                            IsDelete = false,
-                            pd_Description = "Sprite-15L",
-                            pd_Img1 = "/img/pizza-300x300/Sprite-15L.png",
-                            pd_Name = "Sprite-15L",
-                            pd_Price = 10,
-                            pd_ReducePrice = 5,
-                            pd_ShortDescription = "short 1",
+                            pd_ShortDescription = "It is a combination of the freshest green tea leaves and nutritious aromatic chia seeds, combined with the seductive sweet peach flavor to help boost energy.",
                             pd_Size = ""
                         });
                 });
@@ -942,6 +895,42 @@ namespace Thinh_Ecom.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Thinh_Ecom.Models.PaymentManagement", b =>
+                {
+                    b.Property<int>("IdConfirm")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Check_Receive")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name_Product")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PaymentId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status_Confirm")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Type_Payment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdConfirm");
+
+                    b.ToTable("PaymentManagement");
+                });
+
             modelBuilder.Entity("Thinh_Ecom.EntitiesThinh_Ecom.Entities.AppRole", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityRole");
@@ -958,7 +947,7 @@ namespace Thinh_Ecom.Migrations
                         new
                         {
                             Id = "f49e4348-718f-43e3-b1f6-6dc89c5Bb4fd",
-                            ConcurrencyStamp = "1eebec4e-9b43-42f1-a915-647896df0088",
+                            ConcurrencyStamp = "c53788b9-aea4-4fe8-8d04-eb9da43d3919",
                             Name = "Staff",
                             NormalizedName = "Staff",
                             Description = "Staff",
@@ -967,7 +956,7 @@ namespace Thinh_Ecom.Migrations
                         new
                         {
                             Id = "360E601E-92F2-4F08-832B-604A21293258",
-                            ConcurrencyStamp = "cd3ed050-4f46-4451-8014-748bd3d7afa5",
+                            ConcurrencyStamp = "8f4ffe69-61b6-4733-9403-a4172a28659c",
                             Name = "Admin",
                             NormalizedName = "Admin",
                             Description = "admin",
@@ -1022,15 +1011,15 @@ namespace Thinh_Ecom.Migrations
                         {
                             Id = "DE544998-A3CC-4E12-ABB4-0642E57BD222",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "302d97ab-6625-49c4-bc82-7e178c6c253a",
+                            ConcurrencyStamp = "70bfc900-00b6-45e7-b5a6-ee5649c0e3a8",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJp5LgV59u4AdvMc5Som5qDIOG+Bp2zyvHRM6mGf7gKM1S7IUTONujToGsXFqNb94Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHRLJdI9QD8a9Orj+qCeCOZCUMrwgJaaTYvUpuPjkMYuGjYsbLn7U3UnAS3OwikEuQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "78d4e3c1-e653-49e6-a52a-f996876edef9",
+                            SecurityStamp = "c7325636-9264-420a-bb74-035dd3bc6a21",
                             TwoFactorEnabled = false,
                             UserName = "Admin",
                             DoB = new DateTime(2020, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1042,15 +1031,15 @@ namespace Thinh_Ecom.Migrations
                         {
                             Id = "f49e4348-718f-43e3-b1f6-6dc89c5Bb5ff",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0c4894e7-6a57-4d8d-acfa-d61d10bb214c",
+                            ConcurrencyStamp = "b90654d8-50c7-4d93-9fc0-a008b1914126",
                             Email = "staff@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "STAFF@GMAIL.COM",
                             NormalizedUserName = "STAFF@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHnJlVOXV/lHmaX533xEurhtrPQiWj0RprZpOPPTqpZhSVlllfhG1dsSSGCmPfuE4Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEebgRCL0gp9nyPMYS+9FZBB0fMghIB0H/easMFO4DTLG+M7EkTyaYFhu/a8IoCTUg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "86912a70-62d3-4c8d-8489-bf9af235aa7a",
+                            SecurityStamp = "08b4b7c4-f7a1-453b-b19c-6fb2e44a347c",
                             TwoFactorEnabled = false,
                             UserName = "Staff",
                             DoB = new DateTime(2020, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),

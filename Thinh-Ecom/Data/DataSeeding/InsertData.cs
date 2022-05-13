@@ -58,7 +58,6 @@ namespace Thinh_Ecom.Data.DataSeeding
 
             //var hasher = new PasswordHasher<AppUsers>();
 
-            //Create id for product
             var productId1 = Guid.NewGuid().ToString();
             var productId2 = Guid.NewGuid().ToString();
             var productId3 = Guid.NewGuid().ToString();
@@ -73,226 +72,175 @@ namespace Thinh_Ecom.Data.DataSeeding
             var productId12 = Guid.NewGuid().ToString();
             var productId13 = Guid.NewGuid().ToString();
             var productId14 = Guid.NewGuid().ToString();
-            var productId15 = Guid.NewGuid().ToString();
-            var productId16 = Guid.NewGuid().ToString();
-            var productId17 = Guid.NewGuid().ToString();
-            var productId18 = Guid.NewGuid().ToString();
+
 
             //Table Products
             builder.Entity<Products>().HasData(
                 new Products()
                 {
                     pd_Id = productId1,
-                    pd_Name = "Pizza",
-                    pd_Description = "Pizza: bo",
+                    pd_Name = "Extravaganza",
+                    pd_Description = "",
                     pd_Price = 10,
                     pd_ReducePrice = 5,
-                    pd_Img1 = "/img/pizza-300x300/pizza-bo.png",
-                    pd_ShortDescription = "short 1",
+                    pd_Img1 = "/img/pizza/Extravaganza.png",
+                    pd_ShortDescription = "Tomato Sauce, Mozzarella Cheese, Pepperoni Sausage, Ham, Sausage, Beef Balls, Green Bell Peppers, Mushrooms, Onions, Olives",
                     pd_Size = "",
                     CategoriesFK = categoriesId1
                 },
                 new Products()
                 {
                     pd_Id = productId2,
-                    pd_Name = "Cocacola Zero",
-                    pd_Description = "coca-zero",
+                    pd_Name = "Haft-haft",
+                    pd_Description = "",
                     pd_Price = 10,
                     pd_ReducePrice = 5,
-                    pd_Img1 = "/img/pizza-300x300/coca-zero.png",
-                    pd_ShortDescription = "short 2",
+                    pd_Img1 = "/img/pizza/Haft-haft.png",
+                    pd_ShortDescription = "It is a topping combination of Ocean Mania pizza and Cheesy Chicken Bacon pizza",
                     pd_Size = "",
-                    CategoriesFK = categoriesId4
+                    CategoriesFK = categoriesId1
                 },
                 new Products()
                 {
                     pd_Id = productId3,
-                    pd_Name = "Extravaganza",
-                    pd_Description = "Extravaganza",
+                    pd_Name = "Hawaiian",
+                    pd_Description = "",
                     pd_Price = 10,
                     pd_ReducePrice = 5,
-                    pd_Img1 = "/img/pizza-300x300/Extravaganza.png",
-                    pd_ShortDescription = "short 1",
+                    pd_Img1 = "/img/pizza/Hawaiian.png",
+                    pd_ShortDescription = "Tomato Sauce, Mozzarella Cheese, Ham, Pineapple",
                     pd_Size = "",
                     CategoriesFK = categoriesId1
                 },
                 new Products()
                 {
                     pd_Id = productId4,
-                    pd_Name = "fanta-1.5L",
-                    pd_Description = "pfanta-15",
+                    pd_Name = "Kid-mania",
+                    pd_Description = "",
                     pd_Price = 10,
                     pd_ReducePrice = 5,
-                    pd_Img1 = "/img/pizza-300x300/fanta-15.png",
-                    pd_ShortDescription = "short 3",
+                    pd_Img1 = "/img/pizza/Kid-mania.png",
+                    pd_ShortDescription = "Cheese Sauce, Mozzarella Cheese, Pickled Pork, Corn, Quail Egg",
                     pd_Size = "",
-                    CategoriesFK = categoriesId4
+                    CategoriesFK = categoriesId1
                 },
                 new Products()
                 {
                     pd_Id = productId5,
-                    pd_Name = "Haft-haft",
-                    pd_Description = "Haft-haft",
+                    pd_Name = "Meat-lover",
+                    pd_Description = "",
                     pd_Price = 10,
                     pd_ReducePrice = 5,
-                    pd_Img1 = "/img/pizza-300x300/Haft-haft.png",
-                    pd_ShortDescription = "short 1",
+                    pd_Img1 = "/img/pizza/Meat-lover.png",
+                    pd_ShortDescription = "Tomato Sauce, Mozzarella Cheese, Pepperoni Sausage, Ham, Sausage, Beef Balls, Bacon",
                     pd_Size = "",
                     CategoriesFK = categoriesId1
                 },
                 new Products()
                 {
                     pd_Id = productId6,
-                    pd_Name = "Meat-lover",
-                    pd_Description = "Meat-lover",
+                    pd_Name = "Cheese-mania",
+                    pd_Description = "",
                     pd_Price = 10,
                     pd_ReducePrice = 5,
-                    pd_Img1 = "/img/pizza-300x300/Meat-lover.png",
-                    pd_ShortDescription = "short 1",
+                    pd_Img1 = "/img/pizza/Cheese-mania.png",
+                    pd_ShortDescription = "Tomato Sauce, Mozzarella Cheese",
                     pd_Size = "",
                     CategoriesFK = categoriesId1
                 },
                 new Products()
                 {
                     pd_Id = productId7,
-                    pd_Name = "MENU-PC",
-                    pd_Description = "MENU-PC",
+                    pd_Name = "Baked Bolognese Pasta",
+                    pd_Description = "",
                     pd_Price = 10,
                     pd_ReducePrice = 5,
-                    pd_Img1 = "/img/pizza-300x300/MENU-PC.png",
-                    pd_ShortDescription = "short 1",
+                    pd_Img1 = "/img/pizza/Baked Bolognese Pasta.png",
+                    pd_ShortDescription = "Sauce Minced Beef Noodles, Mozzarella Cheese",
                     pd_Size = "",
-                    CategoriesFK = categoriesId3
+                    CategoriesFK = categoriesId2
                 },
                 new Products()
                 {
                     pd_Id = productId8,
-                    pd_Name = "MENU-PC-BBQ",
-                    pd_Description = "MENU-PC-BBQ",
+                    pd_Name = "Baked Seafood Pasta",
+                    pd_Description = "",
                     pd_Price = 10,
                     pd_ReducePrice = 5,
-                    pd_Img1 = "/img/pizza-300x300/MENU-PC-BBQ.png",
-                    pd_ShortDescription = "short 1",
+                    pd_Img1 = "/img/pizza/Baked Seafood Pasta.png",
+                    pd_ShortDescription = "Light spicy noodle sauce, shrimp, crab stick, squid, Mozzarella cheese",
                     pd_Size = "",
-                    CategoriesFK = categoriesId3
+                    CategoriesFK = categoriesId2
                 },
                 new Products()
                 {
                     pd_Id = productId9,
-                    pd_Name = "MENU-PC-my",
-                    pd_Description = "MENU-PC-my",
+                    pd_Name = "Baked Veggie Pasta",
+                    pd_Description = "",
                     pd_Price = 10,
                     pd_ReducePrice = 5,
-                    pd_Img1 = "/img/pizza-300x300/MENU-PC-my.png",
-                    pd_ShortDescription = "short 1",
+                    pd_Img1 = "/img/pizza/Baked Veggie Pasta.png",
+                    pd_ShortDescription = "Sauce lightly spicy noodles, mushroom, green bell pepper, tomato, pineapple, black olive, mozzarella cheese.",
                     pd_Size = "",
-                    CategoriesFK = categoriesId3
+                    CategoriesFK = categoriesId2
                 },
                 new Products()
                 {
                     pd_Id = productId10,
-                    pd_Name = "MENU-PC-Pho-Mai",
-                    pd_Description = "MENU-PC-Pho-Mai",
+                    pd_Name = "BBQ-Chicken-Kickers",
+                    pd_Description = "",
                     pd_Price = 10,
                     pd_ReducePrice = 5,
-                    pd_Img1 = "/img/pizza-300x300/MENU-PC-Pho-Mai.png",
-                    pd_ShortDescription = "short 1",
+                    pd_Img1 = "/img/pizza/BBQ-Chicken-Kickers.png",
+                    pd_ShortDescription = "Breaded Boneless Chicken served with delicious BBQ sauce.",
                     pd_Size = "",
                     CategoriesFK = categoriesId3
                 },
                 new Products()
                 {
                     pd_Id = productId11,
-                    pd_Name = "Ocean-mania",
-                    pd_Description = "Ocean-mania",
+                    pd_Name = "Cheesy-backed-chicken",
+                    pd_Description = "",
                     pd_Price = 10,
                     pd_ReducePrice = 5,
-                    pd_Img1 = "/img/pizza-300x300/Ocean-mania.png",
-                    pd_ShortDescription = "short 1",
+                    pd_Img1 = "/img/pizza/Cheesy-backed-chicken.png",
+                    pd_ShortDescription = "Breaded chicken with fatty cheese, topped with bacon and served with BBQ sauce.",
                     pd_Size = "",
                     CategoriesFK = categoriesId1
                 },
                 new Products()
                 {
                     pd_Id = productId12,
-                    pd_Name = "Okonomiyaki",
-                    pd_Description = "Okonomiyaki",
+                    pd_Name = "Coke",
+                    pd_Description = "",
                     pd_Price = 10,
                     pd_ReducePrice = 5,
-                    pd_Img1 = "/img/pizza-300x300/Okonomiyaki.png",
-                    pd_ShortDescription = "short 1",
+                    pd_Img1 = "/img/pizza/Coke.png",
+                    pd_ShortDescription = "Natural flavor",
                     pd_Size = "",
-                    CategoriesFK = categoriesId1
+                    CategoriesFK = categoriesId4
                 },
                 new Products()
                 {
                     pd_Id = productId13,
-                    pd_Name = "pasta",
-                    pd_Description = "pasta-bo-bam",
+                    pd_Name = "Coke-light",
+                    pd_Description = "",
                     pd_Price = 10,
                     pd_ReducePrice = 5,
-                    pd_Img1 = "/img/pizza-300x300/pasta-bo-bam.png",
-                    pd_ShortDescription = "short 1",
+                    pd_Img1 = "/img/pizza/Coke-light.png",
+                    pd_ShortDescription = "No sugar, for dieters",
                     pd_Size = "",
-                    CategoriesFK = categoriesId2
+                    CategoriesFK = categoriesId4
                 },
                 new Products()
                 {
                     pd_Id = productId14,
-                    pd_Name = "pasta-hai-san",
-                    pd_Description = "pasta-hai-san",
+                    pd_Name = "Peach-tea",
+                    pd_Description = "",
                     pd_Price = 10,
                     pd_ReducePrice = 5,
-                    pd_Img1 = "/img/pizza-300x300/pasta-hai-san.png",
-                    pd_ShortDescription = "short 1",
-                    pd_Size = "",
-                    CategoriesFK = categoriesId2
-                },
-                new Products()
-                {
-                    pd_Id = productId15,
-                    pd_Name = "pasta-rau-cu",
-                    pd_Description = "pasta-rau-cu",
-                    pd_Price = 10,
-                    pd_ReducePrice = 5,
-                    pd_Img1 = "/img/pizza-300x300/pasta-rau-cu.png",
-                    pd_ShortDescription = "short 1",
-                    pd_Size = "",
-                    CategoriesFK = categoriesId2
-                },
-                new Products()
-                {
-                    pd_Id = productId16,
-                    pd_Name = "pizza-bo",
-                    pd_Description = "pizza-bo",
-                    pd_Price = 10,
-                    pd_ReducePrice = 5,
-                    pd_Img1 = "/img/pizza-300x300/pizza-bo.png",
-                    pd_ShortDescription = "short 1",
-                    pd_Size = "",
-                    CategoriesFK = categoriesId1
-                },
-                new Products()
-                {
-                    pd_Id = productId17,
-                    pd_Name = "Pizzaminsea",
-                    pd_Description = "Pizzaminsea",
-                    pd_Price = 10,
-                    pd_ReducePrice = 5,
-                    pd_Img1 = "/img/pizza-300x300/Pizzaminsea.png",
-                    pd_ShortDescription = "short 1",
-                    pd_Size = "",
-                    CategoriesFK = categoriesId1
-                },
-                new Products()
-                {
-                    pd_Id = productId18,
-                    pd_Name = "Sprite-15L",
-                    pd_Description = "Sprite-15L",
-                    pd_Price = 10,
-                    pd_ReducePrice = 5,
-                    pd_Img1 = "/img/pizza-300x300/Sprite-15L.png",
-                    pd_ShortDescription = "short 1",
+                    pd_Img1 = "/img/pizza/Peach-tea.png",
+                    pd_ShortDescription = "It is a combination of the freshest green tea leaves and nutritious aromatic chia seeds, combined with the seductive sweet peach flavor to help boost energy.",
                     pd_Size = "",
                     CategoriesFK = categoriesId4
                 }
@@ -301,8 +249,8 @@ namespace Thinh_Ecom.Data.DataSeeding
 
 
 
-        //Table About
-        builder.Entity<About>().HasData(
+            //Table About
+            builder.Entity<About>().HasData(
                 new About()
                 {
                     about_id=1,

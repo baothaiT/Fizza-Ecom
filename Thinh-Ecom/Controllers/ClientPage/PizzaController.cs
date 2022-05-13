@@ -52,7 +52,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
                     Img = x.a.pd_Img1,
                     Name = x.a.pd_Name,
                     Price = x.a.pd_Price,
-                    ShortDescription = x.a.pd_ShortDescription,
+                    ShortDescription = x.a.pd_ShortDescription.Substring(0, 15) +"...",
                     CategoriesName = x.b.cg_Name,
                     Discount = x.a.pd_ReducePrice
                 });

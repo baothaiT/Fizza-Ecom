@@ -56,7 +56,7 @@
                                         <td class="text-end">
                                             <span class="fw-bolder">$@item.Price</span>
 
-                                            <a href="#" onclick="getDetails('$@item.Discount','$@item.Shipping','$@item.Price')">Details</a>
+                                            <a href="#" onclick="getDetails('@item.Name_Product','$@item.Discount','$@item.Shipping','$@item.Price')">Details</a>
                                         </td>
                                     </tr>
                                     i++;
@@ -82,7 +82,13 @@
                                         <div class="mb-3">
                                             <hr class="new1">
                                         </div>
+                                        <div id="productList">
 
+                                        </div>
+@*                                        <div class="d-flex justify-content-between" >
+                                            <span class="font-weight-bold">Ether Chair(Qty:1)</span>
+                                            <span class="text-muted">$1750.00</span>
+                                        </div>*@
 
                                         <div class="d-flex justify-content-between">
                                             <small>Discount</small>
@@ -112,8 +118,13 @@
 </div>
 
 <script>
-    function getDetails(discount,shiping,total)
+    function getDetails(NameProduct,discount,shiping,total)
     {
+
+        
+        
+        var productListInput = document.getElementById("productList");
+        productListInput.innerHTML = NameProduct;
 
         var DiscountInput = document.getElementById("Discount-input");
         DiscountInput.innerHTML = discount;
@@ -126,8 +137,10 @@
 
         var btnGetInfo = document.getElementById("btn-Getinformation");
         btnGetInfo.click();
-        
+
     }
+
+    
 
 
 </script>

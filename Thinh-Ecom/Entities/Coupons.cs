@@ -10,6 +10,7 @@ namespace Thinh_Ecom.Entities
         public string couponId { set; get; }
         public string couponCode { set; get; }
         public int couponPrice { set; get; }
+        public int couponPricePercen { set; get; }
 
         public DateTime StartTime { set; get; }
         public DateTime EndTime { set; get; }

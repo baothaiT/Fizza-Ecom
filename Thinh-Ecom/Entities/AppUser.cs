@@ -11,8 +11,6 @@ namespace Thinh_Ecom.Entities
         public string FirstName { set; get; }
         public string LastName { set; get; }
         public DateTime DoB { set; get; }
-
-
         public string user_Country { set; get; }
         public string user_CompanyName { set; get; }
         public string user_City { set; get; }

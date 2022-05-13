@@ -6,6 +6,7 @@ using System.Security.Claims;
 using Thinh_Ecom.Models;
 using Microsoft.AspNetCore.Authorization;
 using Thinh_Ecom.Function;
+using System.Collections.Generic;
 
 namespace Thinh_Ecom.Controllers.ClientPage
 {
@@ -13,6 +14,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
     public class HistoryOfPaymentController : Controller
     {
         private readonly ApplicationDbContext _context;
+        List<string> ProductNameList;
 
         public HistoryOfPaymentController(ApplicationDbContext context)
         {
@@ -39,28 +41,44 @@ namespace Thinh_Ecom.Controllers.ClientPage
 
             queryBill = queryBill.Where(a => a.b.Id == userId);
 
-            // // Start Proccess Product Name
 
 
-            // // End Proccess Product Name
+
 
             var DataForHistoryModel = queryBill.Select(x => new HistoryPaymentModels()
             {
                 PaymentId = x.a.bill_Id,
                 Date = x.a.bill_DatetimeOrder,
                 Status_Confirm = x.a.bill_Confirmation,
-                Name_Product = "Product Name",
+                Name_Product = x.a.bill_ProductNamelist.Replace('|',','),
                 Type_Payment = x.a.bill_PaymentMethod,
                 Check_Receive = true,
                 Price = x.a.bill_PaidTotal,
                 Discount = x.a.bill_Discount,
                 Shipping = x.a.bill_Shipping
-              
+
 
             });
 
             return View(DataForHistoryModel);
         }
 
+        public string ReplaceProductName(string productName, string productAmount)
+        {
+            var arrProductName = productName.Split("|");
+
+            var arrproductAmount = productAmount.Split("|");
+
+            string productResult = "";
+            for (int i = 0; i < arrProductName.Length - 1; i++)
+            {
+                productResult = arrProductName[i] + arrproductAmount[i] +" ,";
+            }
+
+            return productResult;
+        }
+
     }
+
+
 }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Thinh_Ecom.Migrations
 {
-    public partial class thinh : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,6 +48,26 @@ namespace Thinh_Ecom.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_EmailGuest", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PaymentManagement",
+                columns: table => new
+                {
+                    IdConfirm = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PaymentId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Status_Confirm = table.Column<bool>(type: "bit", nullable: false),
+                    Name_Product = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Type_Payment = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Check_Receive = table.Column<bool>(type: "bit", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Price = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PaymentManagement", x => x.IdConfirm);
                 });
 
             migrationBuilder.CreateTable(
@@ -268,6 +288,7 @@ namespace Thinh_Ecom.Migrations
                     couponId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     couponCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     couponPrice = table.Column<int>(type: "int", nullable: false),
+                    couponPricePercen = table.Column<int>(type: "int", nullable: false),
                     StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     coupon_AppUserFK = table.Column<string>(type: "nvarchar(450)", nullable: true)
@@ -425,10 +446,10 @@ namespace Thinh_Ecom.Migrations
                 columns: new[] { "cg_Id", "IsDelete", "cg_Name", "cg_Sale", "cg_Type" },
                 values: new object[,]
                 {
-                    { "3c82b2c6-4edc-4831-a1a1-0f2b824f0e02", false, "Pizza", "", "" },
-                    { "80e7c6ff-cb4f-4686-8734-711fbd8f2976", false, "Spaghetti", "", "" },
-                    { "fc6efae4-e1f6-446c-ae0d-1e39189a391b", false, "Sidedishes", "", "" },
-                    { "1c6c8d59-85d8-4ce9-ab2d-0cdfc15ce8f0", false, "Drink", "", "" }
+                    { "181c0691-051e-48c2-8a98-97756d2627cc", false, "Pizza", "", "" },
+                    { "27a6b0e9-8c5d-4686-b11a-122bd8078c58", false, "Spaghetti", "", "" },
+                    { "f0c3d0e7-c1e1-4edc-bf5c-39de434b7543", false, "Sidedishes", "", "" },
+                    { "baf6acc2-f3fb-4a98-b91f-f4c7fe969f08", false, "Drink", "", "" }
                 });
 
             migrationBuilder.InsertData(
@@ -439,15 +460,15 @@ namespace Thinh_Ecom.Migrations
             migrationBuilder.InsertData(
                 table: "ContactUsers",
                 columns: new[] { "cf_Id", "cf_Description", "cf_Email", "cf_Name", "cf_Phone", "cf_Subject" },
-                values: new object[] { "56ccad35-2beb-46de-aaf2-ec9f541919e4", "Description", "Email", "Name", 123456789, "Subject" });
+                values: new object[] { "ec48778e-6d1b-46fc-8e70-973ec6b1c7a9", "Description", "Email", "Name", 123456789, "Subject" });
 
             migrationBuilder.InsertData(
                 table: "Coupons",
-                columns: new[] { "couponId", "EndTime", "StartTime", "couponCode", "couponPrice", "coupon_AppUserFK" },
+                columns: new[] { "couponId", "EndTime", "StartTime", "couponCode", "couponPrice", "couponPricePercen", "coupon_AppUserFK" },
                 values: new object[,]
                 {
-                    { "0df6ae7e-b5a6-4ed6-b543-c1c16aa55576", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "code10", 10, null },
-                    { "fccbf8e6-889c-4565-928d-c2bee8c37753", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "code50", 50, null }
+                    { "fc4f4da1-d934-4f1d-a82f-ebaf6e2c4e65", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "code10", 10, 0, null },
+                    { "78c1bd85-4056-461d-8057-7c539ce71979", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "code50", 50, 0, null }
                 });
 
             migrationBuilder.InsertData(
@@ -455,8 +476,8 @@ namespace Thinh_Ecom.Migrations
                 columns: new[] { "Id", "Price", "SizeName" },
                 values: new object[,]
                 {
-                    { "00c0a786-040d-4a52-bdef-24f297dba1cd", 10, "M" },
-                    { "56123819-d803-4a67-8c4a-c5538c25c3cd", 15, "L" }
+                    { "a5bc491f-ae14-409b-ab13-67961ef1d2a6", 10, "M" },
+                    { "f2ac1a38-5cea-4d86-9c17-177ad4e679f8", 15, "L" }
                 });
 
             migrationBuilder.InsertData(
@@ -464,8 +485,8 @@ namespace Thinh_Ecom.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Description", "Discriminator", "IsDelete", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "f49e4348-718f-43e3-b1f6-6dc89c5Bb4fd", "1eebec4e-9b43-42f1-a915-647896df0088", "Staff", "AppRole", false, "Staff", "Staff" },
-                    { "360E601E-92F2-4F08-832B-604A21293258", "cd3ed050-4f46-4451-8014-748bd3d7afa5", "admin", "AppRole", false, "Admin", "Admin" }
+                    { "f49e4348-718f-43e3-b1f6-6dc89c5Bb4fd", "c53788b9-aea4-4fe8-8d04-eb9da43d3919", "Staff", "AppRole", false, "Staff", "Staff" },
+                    { "360E601E-92F2-4F08-832B-604A21293258", "8f4ffe69-61b6-4733-9403-a4172a28659c", "admin", "AppRole", false, "Admin", "Admin" }
                 });
 
             migrationBuilder.InsertData(
@@ -478,14 +499,14 @@ namespace Thinh_Ecom.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "DoB", "Email", "EmailConfirmed", "FirstName", "IsDelete", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "user_Address1", "user_Address2", "user_City", "user_CompanyName", "user_Country", "user_PhoneNumber", "user_PostalCode", "user_State" },
                 values: new object[,]
                 {
-                    { "DE544998-A3CC-4E12-ABB4-0642E57BD222", 0, "302d97ab-6625-49c4-bc82-7e178c6c253a", "AppUser", new DateTime(2020, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@gmail.com", true, "admin", false, "admin", false, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAEJp5LgV59u4AdvMc5Som5qDIOG+Bp2zyvHRM6mGf7gKM1S7IUTONujToGsXFqNb94Q==", null, false, "78d4e3c1-e653-49e6-a52a-f996876edef9", false, "Admin", null, null, null, null, null, null, null, null },
-                    { "f49e4348-718f-43e3-b1f6-6dc89c5Bb5ff", 0, "0c4894e7-6a57-4d8d-acfa-d61d10bb214c", "AppUser", new DateTime(2020, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "staff@gmail.com", true, "staff", false, "staff", false, null, "STAFF@GMAIL.COM", "STAFF@GMAIL.COM", "AQAAAAEAACcQAAAAEHnJlVOXV/lHmaX533xEurhtrPQiWj0RprZpOPPTqpZhSVlllfhG1dsSSGCmPfuE4Q==", null, false, "86912a70-62d3-4c8d-8489-bf9af235aa7a", false, "Staff", null, null, null, null, null, null, null, null }
+                    { "DE544998-A3CC-4E12-ABB4-0642E57BD222", 0, "70bfc900-00b6-45e7-b5a6-ee5649c0e3a8", "AppUser", new DateTime(2020, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@gmail.com", true, "admin", false, "admin", false, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAEHRLJdI9QD8a9Orj+qCeCOZCUMrwgJaaTYvUpuPjkMYuGjYsbLn7U3UnAS3OwikEuQ==", null, false, "c7325636-9264-420a-bb74-035dd3bc6a21", false, "Admin", null, null, null, null, null, null, null, null },
+                    { "f49e4348-718f-43e3-b1f6-6dc89c5Bb5ff", 0, "b90654d8-50c7-4d93-9fc0-a008b1914126", "AppUser", new DateTime(2020, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "staff@gmail.com", true, "staff", false, "staff", false, null, "STAFF@GMAIL.COM", "STAFF@GMAIL.COM", "AQAAAAEAACcQAAAAEEebgRCL0gp9nyPMYS+9FZBB0fMghIB0H/easMFO4DTLG+M7EkTyaYFhu/a8IoCTUg==", null, false, "08b4b7c4-f7a1-453b-b19c-6fb2e44a347c", false, "Staff", null, null, null, null, null, null, null, null }
                 });
 
             migrationBuilder.InsertData(
                 table: "Bills",
                 columns: new[] { "bill_Id", "IsDelete", "bill_Confirmation", "bill_DatetimeOrder", "bill_Discount", "bill_HideStatus", "bill_Note", "bill_PaidTotal", "bill_PaymentMethod", "bill_ProductIdlist", "bill_ProductNamelist", "bill_ProductPricelist", "bill_ProductSizelist", "bill_QuantityList", "bill_Shipping", "bill_UserId", "bill_WaitForConfirmation" },
-                values: new object[] { "D269BF93-A5E2-4C4A-8146-9967DDE80D30", false, true, new DateTime(2022, 5, 9, 20, 15, 51, 282, DateTimeKind.Local).AddTicks(4627), 0, false, "", 2000, "Check Payment", "acfd4b88-195a-4fa6-9a51-7ccbe53f76fc|1d28674e-3152-49b2-84c0-3ca73950d598|b3152b04-38d2-4a47-8e1f-324edffdf922|c183ba54-2fcc-4d1f-80a0-619c0b3b82ee|", "product 1|product 2| product 3| product 4|", "550|450|350|640|", "7|8|9|14|", "1|1|2|1|", 10, "f49e4348-718f-43e3-b1f6-6dc89c5Bb5ff", false });
+                values: new object[] { "D269BF93-A5E2-4C4A-8146-9967DDE80D30", false, true, new DateTime(2022, 5, 13, 8, 25, 54, 603, DateTimeKind.Local).AddTicks(1991), 0, false, "", 2000, "Check Payment", "ade574f5-4daf-4cee-87fc-52e70b8b37c8|0a0a6589-7b06-448b-b916-192de3144b86|e21dedae-94f1-43d5-a1e5-81d7836e6bf8|6548a0de-3fa5-4c8f-bb16-dd6ce5dc5cc3|", "product 1|product 2| product 3| product 4|", "550|450|350|640|", "7|8|9|14|", "1|1|2|1|", 10, "f49e4348-718f-43e3-b1f6-6dc89c5Bb5ff", false });
 
             migrationBuilder.InsertData(
                 table: "Carts",
@@ -501,24 +522,20 @@ namespace Thinh_Ecom.Migrations
                 columns: new[] { "pd_Id", "CategoriesFK", "IsDelete", "pd_Description", "pd_Img1", "pd_Name", "pd_Price", "pd_ReducePrice", "pd_ShortDescription", "pd_Size" },
                 values: new object[,]
                 {
-                    { "80432f9a-0804-4ee1-b90f-d728641cf6fe", "1c6c8d59-85d8-4ce9-ab2d-0cdfc15ce8f0", false, "Sprite-15L", "/img/pizza-300x300/Sprite-15L.png", "Sprite-15L", 10, 5, "short 1", "" },
-                    { "c183ba54-2fcc-4d1f-80a0-619c0b3b82ee", "1c6c8d59-85d8-4ce9-ab2d-0cdfc15ce8f0", false, "pfanta-15", "/img/pizza-300x300/fanta-15.png", "fanta-1.5L", 10, 5, "short 3", "" },
-                    { "1d28674e-3152-49b2-84c0-3ca73950d598", "1c6c8d59-85d8-4ce9-ab2d-0cdfc15ce8f0", false, "coca-zero", "/img/pizza-300x300/coca-zero.png", "Cocacola Zero", 10, 5, "short 2", "" },
-                    { "b7221137-bcbd-4f0e-ba3f-be6425c284e6", "fc6efae4-e1f6-446c-ae0d-1e39189a391b", false, "MENU-PC-Pho-Mai", "/img/pizza-300x300/MENU-PC-Pho-Mai.png", "MENU-PC-Pho-Mai", 10, 5, "short 1", "" },
-                    { "bd9066fc-5b78-4624-9135-d29caa57e386", "fc6efae4-e1f6-446c-ae0d-1e39189a391b", false, "MENU-PC-my", "/img/pizza-300x300/MENU-PC-my.png", "MENU-PC-my", 10, 5, "short 1", "" },
-                    { "10b5955d-b891-430b-b2d2-8d60337f248b", "fc6efae4-e1f6-446c-ae0d-1e39189a391b", false, "MENU-PC-BBQ", "/img/pizza-300x300/MENU-PC-BBQ.png", "MENU-PC-BBQ", 10, 5, "short 1", "" },
-                    { "c605fe91-816d-4eef-b23a-b7ddaee697d8", "fc6efae4-e1f6-446c-ae0d-1e39189a391b", false, "MENU-PC", "/img/pizza-300x300/MENU-PC.png", "MENU-PC", 10, 5, "short 1", "" },
-                    { "8799864d-b1af-43e2-8f75-67cded5d8060", "80e7c6ff-cb4f-4686-8734-711fbd8f2976", false, "pasta-rau-cu", "/img/pizza-300x300/pasta-rau-cu.png", "pasta-rau-cu", 10, 5, "short 1", "" },
-                    { "2ef37bcf-f4e2-4fc5-a817-a3bcde75f1cd", "80e7c6ff-cb4f-4686-8734-711fbd8f2976", false, "pasta-hai-san", "/img/pizza-300x300/pasta-hai-san.png", "pasta-hai-san", 10, 5, "short 1", "" },
-                    { "8e615b86-e19f-4a6c-94ad-76f20a8b51b4", "80e7c6ff-cb4f-4686-8734-711fbd8f2976", false, "pasta-bo-bam", "/img/pizza-300x300/pasta-bo-bam.png", "pasta", 10, 5, "short 1", "" },
-                    { "cf26418a-50ea-4abd-8155-24245944da01", "3c82b2c6-4edc-4831-a1a1-0f2b824f0e02", false, "Pizzaminsea", "/img/pizza-300x300/Pizzaminsea.png", "Pizzaminsea", 10, 5, "short 1", "" },
-                    { "8b887617-9a92-4c61-b63c-36a2553b05df", "3c82b2c6-4edc-4831-a1a1-0f2b824f0e02", false, "pizza-bo", "/img/pizza-300x300/pizza-bo.png", "pizza-bo", 10, 5, "short 1", "" },
-                    { "0c655fca-6158-4825-a8f3-0b11df523fa6", "3c82b2c6-4edc-4831-a1a1-0f2b824f0e02", false, "Okonomiyaki", "/img/pizza-300x300/Okonomiyaki.png", "Okonomiyaki", 10, 5, "short 1", "" },
-                    { "c1cc1305-0a0a-4183-9094-a0b8a37a3a3f", "3c82b2c6-4edc-4831-a1a1-0f2b824f0e02", false, "Ocean-mania", "/img/pizza-300x300/Ocean-mania.png", "Ocean-mania", 10, 5, "short 1", "" },
-                    { "59b76b2e-f349-4023-b73b-6395aa421e88", "3c82b2c6-4edc-4831-a1a1-0f2b824f0e02", false, "Meat-lover", "/img/pizza-300x300/Meat-lover.png", "Meat-lover", 10, 5, "short 1", "" },
-                    { "b9fac9d7-09a1-4c3e-add4-83c5eb24b3c9", "3c82b2c6-4edc-4831-a1a1-0f2b824f0e02", false, "Haft-haft", "/img/pizza-300x300/Haft-haft.png", "Haft-haft", 10, 5, "short 1", "" },
-                    { "b3152b04-38d2-4a47-8e1f-324edffdf922", "3c82b2c6-4edc-4831-a1a1-0f2b824f0e02", false, "Extravaganza", "/img/pizza-300x300/Extravaganza.png", "Extravaganza", 10, 5, "short 1", "" },
-                    { "acfd4b88-195a-4fa6-9a51-7ccbe53f76fc", "3c82b2c6-4edc-4831-a1a1-0f2b824f0e02", false, "Pizza: bo", "/img/pizza-300x300/pizza-bo.png", "Pizza", 10, 5, "short 1", "" }
+                    { "35efd434-2e0d-44cf-abb0-d353cdf04e71", "baf6acc2-f3fb-4a98-b91f-f4c7fe969f08", false, "", "/img/pizza/Peach-tea.png", "Peach-tea", 10, 5, "It is a combination of the freshest green tea leaves and nutritious aromatic chia seeds, combined with the seductive sweet peach flavor to help boost energy.", "" },
+                    { "228c3276-4f89-49a9-83f5-225b6c763675", "baf6acc2-f3fb-4a98-b91f-f4c7fe969f08", false, "", "/img/pizza/Coke-light.png", "Coke-light", 10, 5, "No sugar, for dieters", "" },
+                    { "01da4e37-9369-42d4-918f-1feab1acb68f", "baf6acc2-f3fb-4a98-b91f-f4c7fe969f08", false, "", "/img/pizza/Coke.png", "Coke", 10, 5, "Natural flavor", "" },
+                    { "19845f64-71d0-46d3-863e-be612324adcc", "f0c3d0e7-c1e1-4edc-bf5c-39de434b7543", false, "", "/img/pizza/BBQ-Chicken-Kickers.png", "BBQ-Chicken-Kickers", 10, 5, "Breaded Boneless Chicken served with delicious BBQ sauce.", "" },
+                    { "ef394cb3-2263-4bcf-8cbf-be2b98186162", "27a6b0e9-8c5d-4686-b11a-122bd8078c58", false, "", "/img/pizza/Baked Veggie Pasta.png", "Baked Veggie Pasta", 10, 5, "Sauce lightly spicy noodles, mushroom, green bell pepper, tomato, pineapple, black olive, mozzarella cheese.", "" },
+                    { "30662866-bb62-45cd-a1be-5fec0567e091", "27a6b0e9-8c5d-4686-b11a-122bd8078c58", false, "", "/img/pizza/Baked Seafood Pasta.png", "Baked Seafood Pasta", 10, 5, "Light spicy noodle sauce, shrimp, crab stick, squid, Mozzarella cheese", "" },
+                    { "ca173235-2460-49f9-9611-377cc5cf3981", "27a6b0e9-8c5d-4686-b11a-122bd8078c58", false, "", "/img/pizza/Baked Bolognese Pasta.png", "Baked Bolognese Pasta", 10, 5, "Sauce Minced Beef Noodles, Mozzarella Cheese", "" },
+                    { "0b2d975c-4fc1-4db4-a0cb-dceaa5ca1cea", "181c0691-051e-48c2-8a98-97756d2627cc", false, "", "/img/pizza/Cheesy-backed-chicken.png", "Cheesy-backed-chicken", 10, 5, "Breaded chicken with fatty cheese, topped with bacon and served with BBQ sauce.", "" },
+                    { "f5afcac4-acd3-403d-81b6-490ea293a37d", "181c0691-051e-48c2-8a98-97756d2627cc", false, "", "/img/pizza/Cheese-mania.png", "Cheese-mania", 10, 5, "Tomato Sauce, Mozzarella Cheese", "" },
+                    { "83259d88-2a1d-413f-a6ed-3f37a1d29842", "181c0691-051e-48c2-8a98-97756d2627cc", false, "", "/img/pizza/Meat-lover.png", "Meat-lover", 10, 5, "Tomato Sauce, Mozzarella Cheese, Pepperoni Sausage, Ham, Sausage, Beef Balls, Bacon", "" },
+                    { "6548a0de-3fa5-4c8f-bb16-dd6ce5dc5cc3", "181c0691-051e-48c2-8a98-97756d2627cc", false, "", "/img/pizza/Kid-mania.png", "Kid-mania", 10, 5, "Cheese Sauce, Mozzarella Cheese, Pickled Pork, Corn, Quail Egg", "" },
+                    { "e21dedae-94f1-43d5-a1e5-81d7836e6bf8", "181c0691-051e-48c2-8a98-97756d2627cc", false, "", "/img/pizza/Hawaiian.png", "Hawaiian", 10, 5, "Tomato Sauce, Mozzarella Cheese, Ham, Pineapple", "" },
+                    { "0a0a6589-7b06-448b-b916-192de3144b86", "181c0691-051e-48c2-8a98-97756d2627cc", false, "", "/img/pizza/Haft-haft.png", "Haft-haft", 10, 5, "It is a topping combination of Ocean Mania pizza and Cheesy Chicken Bacon pizza", "" },
+                    { "ade574f5-4daf-4cee-87fc-52e70b8b37c8", "181c0691-051e-48c2-8a98-97756d2627cc", false, "", "/img/pizza/Extravaganza.png", "Extravaganza", 10, 5, "Tomato Sauce, Mozzarella Cheese, Pepperoni Sausage, Ham, Sausage, Beef Balls, Green Bell Peppers, Mushrooms, Onions, Olives", "" }
                 });
 
             migrationBuilder.InsertData(
@@ -533,7 +550,7 @@ namespace Thinh_Ecom.Migrations
             migrationBuilder.InsertData(
                 table: "ProductInCart",
                 columns: new[] { "pic_CartId", "pic_ProductId", "pic_amount", "pic_color", "pic_size" },
-                values: new object[] { "D355458F-1DD3-4834-AA28-6DA34B6357FF", "acfd4b88-195a-4fa6-9a51-7ccbe53f76fc", 2, null, null });
+                values: new object[] { "D355458F-1DD3-4834-AA28-6DA34B6357FF", "ade574f5-4daf-4cee-87fc-52e70b8b37c8", 2, null, null });
 
             migrationBuilder.CreateIndex(
                 name: "IX_About_about_AppUserFK",
@@ -634,6 +651,9 @@ namespace Thinh_Ecom.Migrations
 
             migrationBuilder.DropTable(
                 name: "EmailGuest");
+
+            migrationBuilder.DropTable(
+                name: "PaymentManagement");
 
             migrationBuilder.DropTable(
                 name: "PriceForSize");

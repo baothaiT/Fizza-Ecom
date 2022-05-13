@@ -74,6 +74,7 @@ namespace Thinh_Ecom.Controllers.ClientPage
                 //Pass SubToTal to ViewBag
                 ViewBag.SubToTal = CalculatorSubTotalPrice(cartModelQuery.ToList(),_context);
 
+
                 //Pass Discount to ViewBag
                 ViewBag.Discount = DiscountPrice();
 
@@ -195,15 +196,11 @@ namespace Thinh_Ecom.Controllers.ClientPage
         {
             try
             {
-
                 var queryCoupon = _context.Coupons.FirstOrDefault(a => a.couponCode == couponModels.Code);
-                if(queryCoupon is not null)
+                if (queryCoupon is not null)
                 {
                     HttpContext.Session.SetString(KeySession.SessionCoupon, queryCoupon.couponPrice.ToString());
                 }
-
-                
-
                 return RedirectToAction(nameof(Index));
             }
             catch
