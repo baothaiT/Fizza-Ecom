@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Stripe;
 
+
 namespace Thinh_Ecom.Controllers
 {
     public class TestController : Controller
@@ -12,6 +13,7 @@ namespace Thinh_Ecom.Controllers
         [Route("/test")]
         public ActionResult Index()
         {
+            
             return View();
         }
 
