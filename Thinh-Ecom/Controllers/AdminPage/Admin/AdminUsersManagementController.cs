@@ -8,18 +8,23 @@ using Microsoft.AspNetCore.Authorization;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
 
 namespace Thinh_Ecom.Controllers.AdminPage.Admin
 {
-    [Authorize(Roles =  "Admin")]
+    [Authorize(Roles = "Admin")]
     public class AdminUsersManagementController : Controller
     {
 
         public UsersModel usersModel;
         private readonly ApplicationDbContext _context;
-        public AdminUsersManagementController(ApplicationDbContext context)
+        private readonly UserManager<AppUser> _userManager;
+
+        public AdminUsersManagementController(ApplicationDbContext context, UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: AdminUsersManagementController
@@ -103,7 +108,7 @@ namespace Thinh_Ecom.Controllers.AdminPage.Admin
                 //Remove User
                 _context.AppUser.Update(queryUsers);
                 _context.SaveChanges();
-                
+
 
                 return RedirectToAction(nameof(Index));
             }
@@ -118,37 +123,63 @@ namespace Thinh_Ecom.Controllers.AdminPage.Admin
         [HttpGet]
         public ActionResult RoleInUser(string id)
         {
-            //Query Categories 
-            var roleQuery = _context.AppRole;
-
-            List<SelectListItem> roleList = new List<SelectListItem>();
-            foreach (var roles in roleQuery)
+            try
             {
-                var itemRole = new SelectListItem { Value = roles.Id, Text = roles.Name };
-                roleList.Add(itemRole);
-            }
-            ViewBag.RoleList = roleList;
+                //Check and Query Infomation
+                var userQuery = _context.AppUser.FirstOrDefault(a => a.Id == id);
+                var roleQuery = from a in _context.AppRole select a;
+                roleQuery = roleQuery.Where(x => x.IsDelete == false);
+                var checkUserInRole = _context.UserRoles.FirstOrDefault(a => a.UserId == id);
+                ViewBag.RoleName = "";
 
-            //Print information of user
-            var queryUsers = _context.AppUser.Find(id);
-            return View(queryUsers);
+
+                if (checkUserInRole != null)
+                {
+                    var RoleName = _context.AppRole.FirstOrDefault(a => a.Id == checkUserInRole.RoleId);
+                    ViewBag.RoleName = RoleName.Name;
+                }
+                ViewBag.Id = id;
+                ViewBag.UserName = userQuery.UserName;
+                ViewBag.FirstName = userQuery.FirstName;
+                ViewBag.LastName = userQuery.LastName;
+                ViewBag.Email = userQuery.Email;
+
+                ViewBag.Role = roleQuery;
+                return View();
+            }
+            catch
+            {
+
+                return View();
+            }
         }
 
         // POST: AdminUsersManagementController/Delete/5
-        [Route("/usersmanagement/roleinuser/{id:guid}")]
+        [Route("/usersmanagement/roleinuser")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult RoleInUser(string id, AppUser appUser)
+        public async Task<ActionResult> RoleInUser(AssignToRoleModels assignToRoleModels)
         {
             try
             {
-                //Find user by id
-                var queryUsers = _context.AppUser.Find(appUser.Id);
-                queryUsers.IsDelete = true;
-                queryUsers.EmailConfirmed = false;
-                //Remove User
-                _context.AppUser.Update(queryUsers);
-                _context.SaveChanges();
+                var roleQuery = _context.AppRole.FirstOrDefault(a => a.Id == assignToRoleModels.UserId);
+
+                string idUser = assignToRoleModels.UserId;
+
+                var RoleName = _context.AppRole.FirstOrDefault(a => a.Id == assignToRoleModels.RoleId);
+                var UserQueryName = _context.AppUser.FirstOrDefault(a => a.Id == idUser);
+
+                // Delete Role
+                var checkUserInRole = _context.UserRoles.FirstOrDefault(a => a.UserId == idUser);
+                if (checkUserInRole != null)
+                {
+                    _context.UserRoles.Remove(checkUserInRole);
+                    //await _userManager.RemoveFromRoleAsync(UserQueryName, RoleName);
+                }
+
+                await _userManager.AddToRoleAsync(UserQueryName, RoleName.Name);
+                //_context.UserRoles.Add(createUserRole);
+                await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
             }
@@ -157,6 +188,7 @@ namespace Thinh_Ecom.Controllers.AdminPage.Admin
                 return View();
             }
         }
-
     }
+
+    
 }
